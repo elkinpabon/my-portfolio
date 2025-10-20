@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initMobileMenu();
     initScrollEffects();
     initAnimations();
-    initTypingAnimation();
+    // initTypingAnimation(); // Comentado - ahora usamos código estático
     initFormHandler();
     initSmoothScroll();
 });

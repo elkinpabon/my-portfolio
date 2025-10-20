@@ -67,6 +67,7 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  font-weight: 800;
 }
 
 .hero-description {
@@ -194,14 +195,59 @@
   margin: 0;
 }
 
-.typing-animation {
-  border-right: 2px solid var(--primary-green);
-  animation: blink 1s infinite;
+/* ===== ESTILOS PARA CÓDIGO ESTÁTICO ===== */
+.static-code {
+  font-weight: 500;
 }
 
-@keyframes blink {
-  0%, 50% { border-color: var(--primary-green); }
-  51%, 100% { border-color: transparent; }
+.static-code .comment {
+  color: #6b7280;
+  font-style: italic;
+  font-weight: 400;
+}
+
+.static-code .keyword {
+  color: #8b5cf6;
+  font-weight: 700;
+}
+
+.static-code .function-name {
+  color: #06b6d4;
+  font-weight: 700;
+}
+
+.static-code .variable {
+  color: #f59e0b;
+  font-weight: 600;
+}
+
+.static-code .property {
+  color: #10b981;
+  font-weight: 600;
+}
+
+.static-code .string {
+  color: #22c55e;
+  font-weight: 500;
+}
+
+.static-code .number {
+  color: #f97316;
+  font-weight: 600;
+}
+
+.static-code .highlight {
+  background: linear-gradient(135deg, #10b981, #34d399);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 800;
+  font-size: 1.1em;
+}
+
+.static-code .success {
+  color: #22c55e;
+  font-weight: 600;
 }
 
 /* ===== RESPONSIVE HERO ===== */

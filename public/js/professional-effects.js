@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initParallaxEffects();
     initNavigationEffects();
     initCounterAnimations();
-    initTypingAnimation();
+    // initTypingAnimation(); // Comentado - ahora usamos código estático
     initParticleSystem();
 });
 
