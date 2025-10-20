@@ -1,0 +1,224 @@
+/* ===================================
+   NAVEGACIÓN - HEADER
+   =================================== */
+
+/* ===== NAVBAR PRINCIPAL ===== */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid #e0e0e0;
+  transition: var(--transition);
+  will-change: transform, background-color;
+}
+
+.navbar.scrolled {
+  background: rgba(255, 255, 255, 0.98);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* ===== TEMA OSCURO PARA NAVBAR ===== */
+.dark-theme .navbar {
+  background: rgba(0, 0, 0, 0.95);
+  border-bottom-color: #333333;
+}
+
+.dark-theme .navbar.scrolled {
+  background: rgba(0, 0, 0, 0.98);
+  box-shadow: 0 4px 20px rgba(255, 255, 255, 0.1);
+}
+
+/* ===== CONTENEDOR DE NAVEGACIÓN ===== */
+.nav-container {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 0 var(--space-4);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 70px;
+}
+
+/* ===== LOGO ===== */
+.nav-logo {
+  flex-shrink: 0;
+}
+
+.nav-logo h2 {
+  color: var(--primary-green);
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  margin: 0;
+  transition: var(--transition);
+}
+
+.nav-logo a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.nav-logo h2:hover {
+  color: var(--light-green);
+  transform: scale(1.05);
+}
+
+/* ===== MENÚ DE NAVEGACIÓN ===== */
+.nav-menu {
+  display: flex;
+  list-style: none;
+  align-items: center;
+  gap: var(--space-6);
+  margin: 0;
+  padding: 0;
+}
+
+.nav-menu li {
+  position: relative;
+}
+
+.nav-link {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: var(--font-size-base);
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--border-radius);
+  transition: var(--transition);
+  position: relative;
+  display: block;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--primary-green);
+  background: rgba(16, 185, 129, 0.1);
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background: var(--primary-green);
+  transition: var(--transition);
+  border-radius: 1px;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 80%;
+}
+
+/* ===== MENÚ HAMBURGUESA ===== */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  padding: var(--space-2);
+  border-radius: var(--border-radius);
+  transition: var(--transition);
+  background: none;
+  border: none;
+  width: 40px;
+  height: 40px;
+  justify-content: center;
+}
+
+.hamburger:hover {
+  background: var(--bg-tertiary);
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background: var(--text-primary);
+  margin: 2px 0;
+  transition: var(--transition);
+  border-radius: 2px;
+  transform-origin: center;
+}
+
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(6px, 6px);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* ===== RESPONSIVE NAVIGATION ===== */
+@media (max-width: 768px) {
+  .nav-menu {
+    position: fixed;
+    top: 70px;
+    left: 0;
+    right: 0;
+    background: var(--bg-primary);
+    flex-direction: column;
+    gap: 0;
+    padding: var(--space-6) 0;
+    transform: translateY(-100%);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    border-bottom: 1px solid var(--border-color);
+    box-shadow: 0 4px 20px var(--shadow);
+  }
+  
+  .nav-menu.active {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  .nav-menu li {
+    width: 100%;
+    text-align: center;
+  }
+  
+  .nav-link {
+    display: block;
+    padding: var(--space-4) var(--space-6);
+    font-size: var(--font-size-lg);
+    border-bottom: 1px solid var(--border-color);
+  }
+  
+  .nav-link:last-child {
+    border-bottom: none;
+  }
+  
+  .nav-link::after {
+    display: none;
+  }
+  
+  .hamburger {
+    display: flex;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-container {
+    padding: 0 var(--space-3);
+    height: 60px;
+  }
+  
+  .nav-logo h2 {
+    font-size: var(--font-size-lg);
+  }
+  
+  .nav-menu {
+    top: 60px;
+  }
+}

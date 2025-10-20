@@ -1,0 +1,303 @@
+/* ===================================
+   NAVEGACIÓN MODERNA ESTILO GOOGLE
+   =================================== */
+
+/* ===== NAVBAR PROFESIONAL Y SOBRIO ===== */
+.navbar-modern {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  transition: all 2s cubic-bezier(0.25, 0.8, 0.25, 1);
+  will-change: transform, opacity;
+}
+
+.nav-pill {
+  display: flex;
+  align-items: center;
+  background: rgba(15, 23, 42, 0.98);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(107, 114, 128, 0.1);
+  border-radius: 50px;
+  padding: 8px 12px;
+  gap: 8px;
+  box-shadow: 
+    0 4px 16px rgba(0, 0, 0, 0.1),
+    0 0 0 1px rgba(107, 114, 128, 0.05),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  transition: all 2s cubic-bezier(0.25, 0.8, 0.25, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.nav-pill::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(107, 114, 128, 0.03) 0%,
+    rgba(75, 85, 99, 0.02) 50%,
+    rgba(55, 65, 81, 0.03) 100%
+  );
+  opacity: 0;
+  transition: opacity 2s ease;
+  border-radius: inherit;
+}
+
+.nav-pill:hover::before {
+  opacity: 1;
+}
+
+/* ===== LOGO PROFESIONAL ===== */
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 25px;
+  background: linear-gradient(135deg, #374151, #4b5563);
+  color: white;
+  font-weight: 600;
+  font-size: 14px;
+  box-shadow: 0 2px 6px rgba(55, 65, 81, 0.2);
+  transition: all 2s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.nav-logo:hover {
+  transform: scale(1.08);
+  box-shadow: 0 8px 25px rgba(16, 185, 129, 0.5);
+}
+
+.nav-logo i {
+  width: 16px;
+  height: 16px;
+  stroke-width: 2.5;
+}
+
+/* ===== ENLACES DE NAVEGACIÓN ===== */
+.nav-links {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 4px;
+  align-items: center;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  border-radius: 20px;
+  text-decoration: none;
+  color: rgba(248, 250, 252, 0.9);
+  font-size: 13px;
+  font-weight: 500;
+  transition: all 2s cubic-bezier(0.25, 0.8, 0.25, 1);
+  position: relative;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.nav-item i {
+  width: 14px;
+  height: 14px;
+  stroke-width: 2;
+  flex-shrink: 0;
+}
+
+.nav-item:hover {
+  color: #d1d5db;
+  background: rgba(107, 114, 128, 0.1);
+  transform: translateY(-1px) scale(1.01);
+}
+
+.nav-item.active {
+  color: #10b981;
+  background: rgba(16, 185, 129, 0.15);
+  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.2);
+}
+
+/* ===== INDICADOR ACTIVO ===== */
+.nav-indicator {
+  position: absolute;
+  bottom: 4px;
+  height: 2px;
+  background: linear-gradient(90deg, #10b981, #34d399);
+  border-radius: 1px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 0;
+}
+
+.nav-item.active ~ .nav-indicator {
+  opacity: 1;
+}
+
+/* ===== EFECTOS DE SCROLL ===== */
+.navbar-modern.scrolled {
+  top: 10px;
+  transform: translateX(-50%) scale(0.95);
+}
+
+.navbar-modern.scrolled .nav-pill {
+  background: rgba(15, 23, 42, 0.98);
+  box-shadow: 
+    0 12px 40px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(52, 211, 153, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+/* ===== ANIMACIONES AVANZADAS ===== */
+@keyframes navFloat {
+  0%, 100% { transform: translateX(-50%) translateY(0px); }
+  50% { transform: translateX(-50%) translateY(-3px); }
+}
+
+.navbar-modern:hover {
+  animation: navFloat 3s ease-in-out infinite;
+}
+
+/* ===== EFECTOS DE GLASS ===== */
+.nav-pill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .navbar-modern {
+    top: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 40px);
+    max-width: 400px;
+  }
+  
+  .nav-pill {
+    justify-content: space-between;
+    padding: 6px 8px;
+  }
+  
+  .nav-links {
+    gap: 2px;
+  }
+  
+  .nav-item span {
+    display: none;
+  }
+  
+  .nav-item {
+    padding: 8px;
+    min-width: 36px;
+    justify-content: center;
+  }
+  
+  .nav-logo span {
+    display: none;
+  }
+  
+  .nav-logo {
+    padding: 8px;
+    min-width: 36px;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar-modern {
+    width: calc(100% - 20px);
+  }
+  
+  .nav-pill {
+    padding: 4px 6px;
+  }
+  
+  .nav-item {
+    padding: 6px;
+    min-width: 32px;
+  }
+  
+  .nav-logo {
+    padding: 6px;
+    min-width: 32px;
+  }
+  
+  .nav-item i,
+  .nav-logo i {
+    width: 12px;
+    height: 12px;
+  }
+}
+
+/* ===== ESTADOS ESPECIALES ===== */
+.nav-item:active {
+  transform: translateY(0) scale(0.95);
+}
+
+.nav-pill:hover {
+  border-color: rgba(52, 211, 153, 0.3);
+  box-shadow: 
+    0 12px 40px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(52, 211, 153, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+/* ===== MICRO-INTERACCIONES ===== */
+.nav-item::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: radial-gradient(circle, rgba(52, 211, 153, 0.3) 0%, transparent 70%);
+  transform: translate(-50%, -50%);
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  border-radius: 50%;
+}
+
+.nav-item:hover::before {
+  width: 120px;
+  height: 120px;
+}
+
+/* ===== THEME VARIATIONS ===== */
+.light-theme .nav-pill {
+  background: rgba(255, 255, 255, 0.95);
+  border-color: rgba(16, 185, 129, 0.2);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.1),
+    0 0 0 1px rgba(16, 185, 129, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+.light-theme .nav-item {
+  color: rgba(30, 41, 59, 0.8);
+}
+
+.light-theme .nav-item:hover {
+  color: #10b981;
+  background: rgba(16, 185, 129, 0.1);
+}
+
+.light-theme .nav-item.active {
+  color: #10b981;
+  background: rgba(16, 185, 129, 0.15);
+}

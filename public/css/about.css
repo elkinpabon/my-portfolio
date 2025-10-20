@@ -1,0 +1,326 @@
+/* ===================================
+   SECCIÓN SOBRE MÍ - ABOUT
+   =================================== */
+
+/* ===== ABOUT CONTAINER ===== */
+.about {
+  padding: var(--space-20) 0;
+  background: var(--bg-secondary);
+  position: relative;
+  overflow: hidden;
+}
+
+.about::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(16, 185, 129, 0.05) 0%, transparent 70%);
+  border-radius: 50%;
+  transform: translate(50%, -50%);
+}
+
+/* ===== ABOUT LAYOUT ===== */
+.about-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-12);
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+/* ===== ABOUT TEXT ===== */
+.about-text {
+  position: relative;
+}
+
+.about-text p {
+  color: var(--text-secondary);
+  margin-bottom: var(--space-6);
+  font-size: var(--font-size-lg);
+  line-height: 1.7;
+  position: relative;
+}
+
+.about-text p:first-child {
+  font-size: var(--font-size-xl);
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.about-text p:first-child::before {
+  content: '"';
+  font-size: 4rem;
+  color: var(--primary-green);
+  position: absolute;
+  left: -30px;
+  top: -20px;
+  font-family: serif;
+  opacity: 0.3;
+}
+
+/* ===== ESTADÍSTICAS ===== */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-6);
+  margin-top: var(--space-8);
+}
+
+.stat-item {
+  text-align: center;
+  padding: var(--space-6) var(--space-4);
+  background: var(--bg-primary);
+  border-radius: var(--border-radius-lg);
+  box-shadow: 0 4px 15px var(--shadow);
+  border: 1px solid var(--border-color);
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.stat-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary-green), var(--primary-green-light));
+  transform: translateX(-100%);
+  transition: var(--transition);
+}
+
+.stat-item:hover::before {
+  transform: translateX(0);
+}
+
+.stat-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px var(--shadow-lg);
+  border-color: var(--primary-green);
+}
+
+.stat-item h3 {
+  font-size: var(--font-size-3xl);
+  font-weight: 700;
+  color: var(--primary-green);
+  margin-bottom: var(--space-2);
+  transition: var(--transition);
+}
+
+.stat-item:hover h3 {
+  transform: scale(1.1);
+}
+
+.stat-item p {
+  color: var(--text-secondary);
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* ===== ABOUT IMAGE ===== */
+.about-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.image-placeholder {
+  width: 300px;
+  height: 300px;
+  background: linear-gradient(135deg, var(--primary-green), var(--primary-green-light));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 150px;
+  box-shadow: 0 20px 60px rgba(16, 185, 129, 0.3);
+  position: relative;
+  transition: var(--transition);
+  overflow: hidden;
+}
+
+.image-placeholder::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.1) 50%, transparent 70%);
+  transform: translateX(-100%);
+  transition: var(--transition);
+}
+
+.image-placeholder:hover::before {
+  transform: translateX(100%);
+  transition-duration: 0.6s;
+}
+
+.image-placeholder:hover {
+  transform: scale(1.05) rotate(5deg);
+  box-shadow: 0 30px 80px rgba(16, 185, 129, 0.4);
+}
+
+/* ===== SKILLS PREVIEW ===== */
+.skills-preview {
+  margin-top: var(--space-8);
+  padding: var(--space-6);
+  background: var(--bg-primary);
+  border-radius: var(--border-radius-lg);
+  border: 1px solid var(--border-color);
+}
+
+.skills-preview h4 {
+  color: var(--primary-green);
+  margin-bottom: var(--space-4);
+  font-size: var(--font-size-lg);
+}
+
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.skill-tag {
+  background: rgba(16, 185, 129, 0.1);
+  color: var(--primary-green);
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--border-radius);
+  font-size: var(--font-size-xs);
+  font-weight: 500;
+  border: 1px solid rgba(16, 185, 129, 0.2);
+  transition: var(--transition);
+}
+
+.skill-tag:hover {
+  background: var(--primary-green);
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* ===== RESPONSIVE ABOUT ===== */
+@media (max-width: 768px) {
+  .about {
+    padding: var(--space-16) 0;
+  }
+  
+  .about-content {
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+    text-align: center;
+  }
+  
+  .about-text {
+    order: 2;
+  }
+  
+  .about-image {
+    order: 1;
+  }
+  
+  .stats {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+    max-width: 300px;
+    margin: var(--space-8) auto 0;
+  }
+  
+  .image-placeholder {
+    width: 250px;
+    height: 250px;
+    font-size: 120px;
+  }
+  
+  .about-text p:first-child::before {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .about {
+    padding: var(--space-12) 0;
+  }
+  
+  .about-content {
+    gap: var(--space-6);
+  }
+  
+  .image-placeholder {
+    width: 200px;
+    height: 200px;
+    font-size: 100px;
+  }
+  
+  .stat-item {
+    padding: var(--space-4);
+  }
+  
+  .stat-item h3 {
+    font-size: var(--font-size-2xl);
+  }
+  
+  .about-text p {
+    font-size: var(--font-size-base);
+  }
+  
+  .about-text p:first-child {
+    font-size: var(--font-size-lg);
+  }
+}
+
+/* ===== ANIMACIONES ESPECIALES ===== */
+.stat-item.animate-in {
+  animation: slideInUp 0.6s ease forwards;
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.about-text.animate-in {
+  animation: fadeInLeft 0.8s ease forwards;
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.about-image.animate-in {
+  animation: fadeInRight 0.8s ease forwards;
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyectos - Portafolio Desarrollador Full Stack</title>
+    
+    <!-- Meta Tags SEO -->
+    <meta name="description" content="Explora mi portafolio de proyectos de desarrollo Full Stack. Aplicaciones web, APIs, y soluciones tecnológicas innovadoras.">
+    <meta name="keywords" content="proyectos, portafolio, desarrollador, full stack, node.js, react, javascript">
+    <meta name="author" content="Tu Nombre">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Proyectos - Portafolio Desarrollador Full Stack">
+    <meta property="og:description" content="Explora mi portafolio de proyectos de desarrollo Full Stack">
+    <meta property="og:type" content="website">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    
+    <!-- Animate UI CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/animate-ui@1.0.0/dist/animate-ui.min.css">
+    
+    <!-- Custom CSS Modular -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="dark-theme">
+    <!-- Navigation -->
+    <nav class="navbar-modern" data-animate="fade-in-down">
+        <div class="nav-pill">
+            <div class="nav-logo">
+                <i data-lucide="code-2"></i>
+                <span>DevPortfolio</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-item">
+                    <i data-lucide="home"></i>
+                    <span>Inicio</span>
+                </a></li>
+                <li><a href="index.html#about" class="nav-item">
+                    <i data-lucide="user"></i>
+                    <span>Sobre mí</span>
+                </a></li>
+                <li><a href="index.html#skills" class="nav-item">
+                    <i data-lucide="zap"></i>
+                    <span>Skills</span>
+                </a></li>
+                <li><a href="projects.html" class="nav-item active">
+                    <i data-lucide="folder"></i>
+                    <span>Proyectos</span>
+                </a></li>
+                <li><a href="index.html#contact" class="nav-item">
+                    <i data-lucide="mail"></i>
+                    <span>Contacto</span>
+                </a></li>
+            </ul>
+            <div class="nav-indicator"></div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header animated-bg-hero">
+        <div class="floating-particles"></div>
+        <div class="hero-glow"></div>
+        <div class="container">
+            <div class="page-header-content advanced-fade-in" data-animate="fade-in-up">
+                <h1 class="page-title text-glow">
+                    <i data-lucide="code"></i>
+                    Mis Proyectos
+                </h1>
+                <p class="page-description text-shimmer">
+                    Explora mi colección de proyectos de desarrollo web y aplicaciones innovadoras. 
+                    Cada proyecto representa un desafío único y una solución creativa implementada 
+                    con las mejores tecnologías y prácticas de la industria.
+                </p>
+                <div class="page-stats">
+                    <div class="stat-item glass-effect reveal-on-scroll" data-animate="zoom-in-up" data-delay="100">
+                        <div class="stat-icon pulse-ring">
+                            <i data-lucide="folder-check"></i>
+                        </div>
+                        <h3 class="neon-glow" data-counter="25">0</h3>
+                        <p>Proyectos Completados</p>
+                    </div>
+                    <div class="stat-item glass-effect reveal-on-scroll" data-animate="zoom-in-up" data-delay="200">
+                        <div class="stat-icon pulse-ring">
+                            <i data-lucide="cpu"></i>
+                        </div>
+                        <h3 class="neon-glow" data-counter="8">0</h3>
+                        <p>Tecnologías Dominadas</p>
+                    </div>
+                    <div class="stat-item glass-effect reveal-on-scroll" data-animate="zoom-in-up" data-delay="300">
+                        <div class="stat-icon pulse-ring">
+                            <i data-lucide="heart"></i>
+                        </div>
+                        <h3 class="neon-glow" data-counter="100">0</h3>
+                        <p>% Satisfacción Cliente</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="header-decoration effect-3d">
+            <div class="floating-code card-pro">
+                <pre><code class="text-reveal">
+&lt;Developer&gt;
+  &lt;Passion&gt;Creating amazing projects&lt;/Passion&gt;
+  &lt;Focus&gt;Clean code & scalable solutions&lt;/Focus&gt;
+&lt;/Developer&gt;
+                </code></pre>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Filter & Search -->
+    <aside class="projects-sidebar" id="projectsSidebar">
+        <div class="sidebar-header">
+            <h3><i class="fas fa-filter"></i> Filtros</h3>
+            <button class="sidebar-toggle" id="sidebarToggle" aria-label="Cerrar filtros">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        
+        <div class="sidebar-content">
+            <div class="search-section">
+                <label for="projectSearchSidebar">Buscar proyectos</label>
+                <div class="search-box-sidebar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="projectSearchSidebar" placeholder="Buscar proyectos...">
+                </div>
+            </div>
+            
+            <div class="filter-section">
+                <label>Categorías</label>
+                <div class="filter-options">
+                    <button class="filter-option active" data-filter="all">
+                        <i class="fas fa-th"></i>
+                        <span>Todos</span>
+                        <span class="count">12</span>
+                    </button>
+                    <button class="filter-option" data-filter="web">
+                        <i class="fas fa-desktop"></i>
+                        <span>Web Apps</span>
+                        <span class="count">5</span>
+                    </button>
+                    <button class="filter-option" data-filter="api">
+                        <i class="fas fa-server"></i>
+                        <span>APIs</span>
+                        <span class="count">4</span>
+                    </button>
+                    <button class="filter-option" data-filter="mobile">
+                        <i class="fas fa-mobile-alt"></i>
+                        <span>Mobile</span>
+                        <span class="count">2</span>
+                    </button>
+                    <button class="filter-option" data-filter="tools">
+                        <i class="fas fa-tools"></i>
+                        <span>Herramientas</span>
+                        <span class="count">1</span>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="sort-section">
+                <label for="sortProjectsSidebar">Ordenar por</label>
+                <select id="sortProjectsSidebar" class="sort-select">
+                    <option value="recent">Más Recientes</option>
+                    <option value="popular">Más Populares</option>
+                    <option value="name">Por Nombre</option>
+                    <option value="tech">Por Tecnología</option>
+                </select>
+            </div>
+            
+            <div class="tech-filter-section">
+                <label>Tecnologías</label>
+                <div class="tech-filters">
+                    <button class="tech-filter" data-tech="nodejs">Node.js</button>
+                    <button class="tech-filter" data-tech="react">React</button>
+                    <button class="tech-filter" data-tech="mongodb">MongoDB</button>
+                    <button class="tech-filter" data-tech="python">Python</button>
+                    <button class="tech-filter" data-tech="javascript">JavaScript</button>
+                    <button class="tech-filter" data-tech="typescript">TypeScript</button>
+                </div>
+            </div>
+            
+            <div class="sidebar-actions">
+                <button class="btn btn-secondary btn-small" id="clearFilters">
+                    <i class="fas fa-undo"></i>
+                    Limpiar Filtros
+                </button>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Sidebar Overlay -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- Floating Filter Button -->
+    <button class="floating-filter-btn" id="floatingFilterBtn" aria-label="Abrir filtros">
+        <i class="fas fa-filter"></i>
+        <span>Filtros</span>
+    </button>
+
+    <!-- Projects Grid -->
+    <section class="projects-showcase animated-bg-particles">
+        <div class="floating-particles"></div>
+        <div class="container">
+            <div class="projects-grid" id="projectsGrid">
+                
+                <!-- Proyecto 1 - E-commerce Platform -->
+                <div class="project-card featured" data-category="web" data-tech="Node.js,React,MongoDB,Stripe API,AWS,Redis" data-date="2024-01-15" data-animate="fade-in-up" data-delay="100">
+                    <div class="project-status completed">Completado</div>
+                    <div class="project-featured-badge">
+                        <i class="fas fa-star"></i>
+                        Destacado
+                    </div>
+                    <div class="project-image">
+                        <div class="project-icon">
+                            <i class="fas fa-shopping-cart"></i>
+                        </div>
+                        <div class="project-overlay">
+                            <div class="overlay-buttons">
+                                <a href="#" class="overlay-btn" title="Ver Demo">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                                <a href="#" class="overlay-btn" title="Ver Código">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <button class="overlay-btn" title="Más Detalles" onclick="openProjectModal('ecommerce')">
+                                    <i class="fas fa-info-circle"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-header">
+                            <h3>E-commerce Platform</h3>
+                            <div class="project-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <p class="project-description">Plataforma de comercio electrónico completa con gestión de inventario, procesamiento de pagos, panel de administración y sistema de reseñas. Arquitectura escalable con microservicios.</p>
+                        <div class="project-features">
+                            <span class="feature">
+                                <i class="fas fa-check"></i>
+                                Pagos seguros con Stripe
+                            </span>
+                            <span class="feature">
+                                <i class="fas fa-check"></i>
+                                Panel administrativo
+                            </span>
+                            <span class="feature">
+                                <i class="fas fa-check"></i>
+                                Sistema de inventario
+                            </span>
+                        </div>
+                        <div class="project-tech">
+                            <span class="tech-tag primary">Node.js</span>
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">MongoDB</span>
+                            <span class="tech-tag">Stripe API</span>
+                            <span class="tech-tag">AWS</span>
+                            <span class="tech-tag">Redis</span>
+                        </div>
+                        <div class="project-metrics">
+                            <div class="metric">
+                                <i class="fas fa-code"></i>
+                                <span>15,000+ líneas</span>
+                            </div>
+                            <div class="metric">
+                                <i class="fas fa-clock"></i>
+                                <span>3 meses</span>
+                            </div>
+                            <div class="metric">
+                                <i class="fas fa-users"></i>
+                                <span>1,200+ usuarios</span>
+                            </div>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="btn btn-small btn-primary">
+                                <i class="fas fa-external-link-alt"></i> Ver Demo
+                            </a>
+                            <a href="#" class="btn btn-small btn-secondary">
+                                <i class="fab fa-github"></i> Código
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Proyecto 2 - Dashboard Analytics -->
+                <div class="project-card" data-category="web" data-tech="Vue.js,D3.js,Python,PostgreSQL,WebSockets" data-date="2024-02-20" data-animate="fade-in-up" data-delay="200">
+                    <div class="project-status completed">Completado</div>
+                    <div class="project-image">
+                        <div class="project-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="project-overlay">
+                            <div class="overlay-buttons">
+                                <a href="#" class="overlay-btn" title="Ver Demo">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                                <a href="#" class="overlay-btn" title="Ver Código">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <button class="overlay-btn" title="Más Detalles" onclick="openProjectModal('dashboard')">
+                                    <i class="fas fa-info-circle"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-header">
+                            <h3>Dashboard Analytics</h3>
+                            <div class="project-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                        </div>
+                        <p class="project-description">Dashboard interactivo para análisis de datos en tiempo real con visualizaciones dinámicas, reportes automatizados y sistema de alertas inteligentes.</p>
+                        <div class="project-features">
+                            <span class="feature">
+                                <i class="fas fa-check"></i>
+                                Tiempo real con WebSockets
+                            </span>
+                            <span class="feature">
+                                <i class="fas fa-check"></i>
+                                Visualizaciones D3.js
+                            </span>
+                            <span class="feature">
+                                <i class="fas fa-check"></i>
+                                Exportación de reportes
+                            </span>
+                        </div>
+                        <div class="project-tech">
+                            <span class="tech-tag primary">React</span>
+                            <span class="tech-tag">D3.js</span>
+                            <span class="tech-tag">Socket.io</span>
+                            <span class="tech-tag">Chart.js</span>
+                            <span class="tech-tag">PostgreSQL</span>
+                        </div>
+                        <div class="project-metrics">
+                            <div class="metric">
+                                <i class="fas fa-code"></i>
+                                <span>8,500+ líneas</span>
+                            </div>
+                            <div class="metric">
+                                <i class="fas fa-clock"></i>
+                                <span>2 meses</span>
+                            </div>
+                            <div class="metric">
+                                <i class="fas fa-chart-bar"></i>
+                                <span>500+ gráficos</span>
+                            </div>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="btn btn-small btn-primary">
+                                <i class="fas fa-external-link-alt"></i> Ver Demo
+                            </a>
+                            <a href="#" class="btn btn-small btn-secondary">
+                                <i class="fab fa-github"></i> Código
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Proyecto 3 - API REST Completa -->
+                <div class="project-card" data-category="api" data-tech="Node.js,Express,JWT,MongoDB,Swagger" data-date="2024-01-10" data-animate="fade-in-up" data-delay="300">
+                    <div class="project-status completed">Completado</div>
+                    <div class="project-image">
+                        <div class="project-icon">
+                            <i class="fas fa-server"></i>
+                        </div>
+                        <div class="project-overlay">
+                            <div class="overlay-buttons">
+                                <a href="#" class="overlay-btn" title="Ver Documentación">
+                                    <i class="fas fa-book"></i>
+                                </a>
+                                <a href="#" class="overlay-btn" title="Ver Código">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <button class="overlay-btn" title="Más Detalles" onclick="openProjectModal('api')">
+                                    <i class="fas fa-info-circle"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-header">
+                            <h3>API REST Enterprise</h3>
+                            <div class="project-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <p>API REST robusta y escalable con autenticación JWT, documentación automática con Swagger, rate limiting, logging avanzado y monitoreo en tiempo real.</p>
+                        <div class="project-features">
+                            <span class="feature">
+                                <i class="fas fa-check"></i>
+                                Autenticación JWT
+                            </span>
+                            <span class="feature">
+                                <i class="fas fa-check"></i>
+                                Documentación Swagger
+                            </span>
+                            <span class="feature">
+                                <i class="fas fa-check"></i>
+                                Rate Limiting
+                            </span>
+                        </div>
+                        <div class="project-tech">
+                            <span class="tech-tag primary">Node.js</span>
+                            <span class="tech-tag">Express</span>
+                            <span class="tech-tag">MongoDB</span>
+                            <span class="tech-tag">JWT</span>
+                            <span class="tech-tag">Swagger</span>
+                            <span class="tech-tag">Docker</span>
+                        </div>
+                        <div class="project-metrics">
+                            <div class="metric">
+                                <i class="fas fa-code"></i>
+                                <span>12,000+ líneas</span>
+                            </div>
+                            <div class="metric">
+                                <i class="fas fa-clock"></i>
+                                <span>6 semanas</span>
+                            </div>
+                            <div class="metric">
+                                <i class="fas fa-globe"></i>
+                                <span>50+ endpoints</span>
+                            </div>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="btn btn-small btn-primary">
+                                <i class="fas fa-book"></i> Documentación
+                            </a>
+                            <a href="#" class="btn btn-small btn-secondary">
+                                <i class="fab fa-github"></i> Código
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Proyecto 4 - Chat Application -->
+                <div class="project-card" data-category="web" data-tech="Socket.io,Node.js,React,Redis,JWT" data-date="2024-03-05" data-animate="fade-in-up" data-delay="400">
+                    <div class="project-status completed">Completado</div>
+                    <div class="project-image">
+                        <div class="project-icon">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                        <div class="project-overlay">
+                            <div class="overlay-buttons">
+                                <a href="#" class="overlay-btn" title="Ver Demo">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                                <a href="#" class="overlay-btn" title="Ver Código">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <button class="overlay-btn" title="Más Detalles" onclick="openProjectModal('chat')">
+                                    <i class="fas fa-info-circle"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-header">
+                            <h3>Chat Application</h3>
+                            <div class="project-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                        </div>
+                        <p>Aplicación de chat en tiempo real con salas privadas, notificaciones push, funciones de moderación avanzadas y soporte para archivos multimedia.</p>
+                        <div class="project-features">
+                            <span class="feature">
+                                <i class="fas fa-check"></i>
+                                Mensajería en tiempo real
+                            </span>
+                            <span class="feature">
+                                <i class="fas fa-check"></i>
+                                Salas privadas/grupales
+                            </span>
+                            <span class="feature">
+                                <i class="fas fa-check"></i>
+                                Compartir archivos
+                            </span>
+                        </div>
+                        <div class="project-tech">
+                            <span class="tech-tag primary">Socket.io</span>
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">Redis</span>
+                            <span class="tech-tag">JWT</span>
+                            <span class="tech-tag">React</span>
+                        </div>
+                        <div class="project-metrics">
+                            <div class="metric">
+                                <i class="fas fa-code"></i>
+                                <span>9,200+ líneas</span>
+                            </div>
+                            <div class="metric">
+                                <i class="fas fa-clock"></i>
+                                <span>5 semanas</span>
+                            </div>
+                            <div class="metric">
+                                <i class="fas fa-users"></i>
+                                <span>300+ usuarios</span>
+                            </div>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="btn btn-small btn-primary">
+                                <i class="fas fa-external-link-alt"></i> Ver Demo
+                            </a>
+                            <a href="#" class="btn btn-small btn-secondary">
+                                <i class="fab fa-github"></i> Código
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Proyecto 5 - Task Manager App -->
+                <div class="project-card" data-category="mobile" data-tech="React Native,Firebase,Redux,TypeScript" data-date="2024-02-12" data-animate="fade-in-up" data-delay="500">
+                    <div class="project-status in-progress">En Desarrollo</div>
+                    <div class="project-image">
+                        <div class="project-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <div class="project-overlay">
+                            <div class="overlay-buttons">
+                                <a href="#" class="overlay-btn" title="Vista Previa">
+                                    <i class="fas fa-eye"></i>
+                                </a>
+                                <a href="#" class="overlay-btn" title="Ver Código">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <button class="overlay-btn" title="Más Detalles" onclick="openProjectModal('taskmanager')">
+                                    <i class="fas fa-info-circle"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-header">
+                            <h3>Task Manager App</h3>
+                            <div class="project-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                        </div>
+                        <p>Aplicación móvil para gestión de tareas con sincronización en tiempo real, funcionalidades offline, notificaciones push y análisis de productividad.</p>
+                        <div class="project-features">
+                            <span class="feature">
+                                <i class="fas fa-check"></i>
+                                Sincronización tiempo real
+                            </span>
+                            <span class="feature">
+                                <i class="fas fa-check"></i>
+                                Modo offline
+                            </span>
+                            <span class="feature">
+                                <i class="fas fa-clock"></i>
+                                Análisis productividad
+                            </span>
+                        </div>
+                        <div class="project-tech">
+                            <span class="tech-tag primary">React Native</span>
+                            <span class="tech-tag">Firebase</span>
+                            <span class="tech-tag">Redux</span>
+                            <span class="tech-tag">AsyncStorage</span>
+                            <span class="tech-tag">Push Notifications</span>
+                        </div>
+                        <div class="project-metrics">
+                            <div class="metric">
+                                <i class="fas fa-code"></i>
+                                <span>6,800+ líneas</span>
+                            </div>
+                            <div class="metric">
+                                <i class="fas fa-clock"></i>
+                                <span>4 semanas</span>
+                            </div>
+                            <div class="metric">
+                                <i class="fas fa-download"></i>
+                                <span>150+ descargas</span>
+                            </div>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="btn btn-small btn-primary">
+                                <i class="fas fa-eye"></i> Vista Previa
+                            </a>
+                            <a href="#" class="btn btn-small btn-secondary">
+                                <i class="fab fa-github"></i> Código
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Proyecto 6 - Weather API -->
+                <div class="project-card" data-category="api" data-tech="FastAPI,Python,PostgreSQL,Docker" data-date="2024-01-25" data-animate="fade-in-up" data-delay="600">
+                    <div class="project-status completed">Completado</div>
+                    <div class="project-image">
+                        <div class="project-icon">
+                            <i class="fas fa-cloud-sun"></i>
+                        </div>
+                        <div class="project-overlay">
+                            <div class="overlay-buttons">
+                                <a href="#" class="overlay-btn" title="Ver API">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                                <a href="#" class="overlay-btn" title="Ver Código">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <button class="overlay-btn" title="Más Detalles" onclick="openProjectModal('weather')">
+                                    <i class="fas fa-info-circle"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-header">
+                            <h3>Weather API Service</h3>
+                            <div class="project-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                        </div>
+                        <p>API de clima robusta con predicciones precisas, históricos meteorológicos, alertas personalizadas y integración con múltiples fuentes de datos.</p>
+                        <div class="project-features">
+                            <span class="feature">
+                                <i class="fas fa-check"></i>
+                                Predicciones 15 días
+                            </span>
+                            <span class="feature">
+                                <i class="fas fa-check"></i>
+                                Alertas meteorológicas
+                            </span>
+                            <span class="feature">
+                                <i class="fas fa-check"></i>
+                                Datos históricos
+                            </span>
+                        </div>
+                        <div class="project-tech">
+                            <span class="tech-tag primary">FastAPI</span>
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">PostgreSQL</span>
+                            <span class="tech-tag">Redis</span>
+                            <span class="tech-tag">Docker</span>
+                        </div>
+                        <div class="project-metrics">
+                            <div class="metric">
+                                <i class="fas fa-code"></i>
+                                <span>4,500+ líneas</span>
+                            </div>
+                            <div class="metric">
+                                <i class="fas fa-clock"></i>
+                                <span>3 semanas</span>
+                            </div>
+                            <div class="metric">
+                                <i class="fas fa-globe"></i>
+                                <span>25+ endpoints</span>
+                            </div>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="btn btn-small btn-primary">
+                                <i class="fas fa-external-link-alt"></i> Ver API
+                            </a>
+                            <a href="#" class="btn btn-small btn-secondary">
+                                <i class="fab fa-github"></i> Código
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Proyecto 7 - Desktop File Manager -->
+                <div class="project-card" data-category="desktop" data-tech="Electron,Vue.js,Node.js,SQLite" data-date="2024-02-28" data-animate="fade-in-up" data-delay="700">
+                    <div class="project-status completed">Completado</div>
+                    <div class="project-image">
+                        <div class="project-icon">
+                            <i class="fas fa-folder-open"></i>
+                        </div>
+                        <div class="project-overlay">
+                            <div class="overlay-buttons">
+                                <a href="#" class="overlay-btn" title="Descargar">
+                                    <i class="fas fa-download"></i>
+                                </a>
+                                <a href="#" class="overlay-btn" title="Ver Código">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <button class="overlay-btn" title="Más Detalles">
+                                    <i class="fas fa-info-circle"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-header">
+                            <h3>File Manager Pro</h3>
+                            <div class="project-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                        </div>
+                        <p class="project-description">Administrador de archivos avanzado para escritorio con funciones de organización inteligente, búsqueda rápida y sincronización en la nube.</p>
+                        <div class="project-features">
+                            <span class="feature">
+                                <i class="fas fa-check"></i>
+                                Organización automática
+                            </span>
+                            <span class="feature">
+                                <i class="fas fa-check"></i>
+                                Búsqueda instantánea
+                            </span>
+                            <span class="feature">
+                                <i class="fas fa-check"></i>
+                                Sincronización cloud
+                            </span>
+                        </div>
+                        <div class="project-tech">
+                            <span class="tech-tag primary">Electron</span>
+                            <span class="tech-tag">Vue.js</span>
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">SQLite</span>
+                        </div>
+                        <div class="project-metrics">
+                            <div class="metric">
+                                <i class="fas fa-code"></i>
+                                <span>12,000+ líneas</span>
+                            </div>
+                            <div class="metric">
+                                <i class="fas fa-clock"></i>
+                                <span>2.5 meses</span>
+                            </div>
+                            <div class="metric">
+                                <i class="fas fa-download"></i>
+                                <span>5,000+ descargas</span>
+                            </div>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="btn btn-small btn-primary">
+                                <i class="fas fa-download"></i> Descargar
+                            </a>
+                            <a href="#" class="btn btn-small btn-secondary">
+                                <i class="fab fa-github"></i> Código
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Proyecto 8 - Code Editor -->
+                <div class="project-card" data-category="desktop" data-tech="Electron,TypeScript,Monaco Editor,Node.js" data-date="2024-03-15" data-animate="fade-in-up" data-delay="800">
+                    <div class="project-status in-progress">En Desarrollo</div>
+                    <div class="project-image">
+                        <div class="project-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <div class="project-overlay">
+                            <div class="overlay-buttons">
+                                <a href="#" class="overlay-btn" title="Vista Previa">
+                                    <i class="fas fa-eye"></i>
+                                </a>
+                                <a href="#" class="overlay-btn" title="Ver Código">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <button class="overlay-btn" title="Más Detalles">
+                                    <i class="fas fa-info-circle"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-header">
+                            <h3>DevStudio Editor</h3>
+                            <div class="project-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <p class="project-description">Editor de código moderno y extensible con soporte para múltiples lenguajes, plugins, terminal integrado y Git incorporado.</p>
+                        <div class="project-features">
+                            <span class="feature">
+                                <i class="fas fa-check"></i>
+                                IntelliSense avanzado
+                            </span>
+                            <span class="feature">
+                                <i class="fas fa-check"></i>
+                                Terminal integrado
+                            </span>
+                            <span class="feature">
+                                <i class="fas fa-clock"></i>
+                                Sistema de plugins
+                            </span>
+                        </div>
+                        <div class="project-tech">
+                            <span class="tech-tag primary">Electron</span>
+                            <span class="tech-tag">TypeScript</span>
+                            <span class="tech-tag">Monaco Editor</span>
+                            <span class="tech-tag">Node.js</span>
+                        </div>
+                        <div class="project-metrics">
+                            <div class="metric">
+                                <i class="fas fa-code"></i>
+                                <span>18,000+ líneas</span>
+                            </div>
+                            <div class="metric">
+                                <i class="fas fa-clock"></i>
+                                <span>4 meses</span>
+                            </div>
+                            <div class="metric">
+                                <i class="fas fa-percentage"></i>
+                                <span>75% completado</span>
+                            </div>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="btn btn-small btn-primary">
+                                <i class="fas fa-eye"></i> Vista Previa
+                            </a>
+                            <a href="#" class="btn btn-small btn-secondary">
+                                <i class="fab fa-github"></i> Código
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            
+            <!-- Load More Button -->
+            <div class="load-more-section" data-animate="fade-in-up" data-delay="700">
+                <button class="btn btn-secondary btn-large" id="loadMoreBtn">
+                    <i class="fas fa-plus-circle"></i>
+                    Cargar Más Proyectos
+                </button>
+                <p class="load-more-text">Mostrando 6 de 12 proyectos</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="projects-cta">
+        <div class="container">
+            <div class="cta-content" data-animate="fade-in-up">
+                <h2>¿Tienes un proyecto en mente?</h2>
+                <p>
+                    Estoy disponible para colaborar en proyectos emocionantes. 
+                    Desde aplicaciones web complejas hasta APIs robustas, 
+                    puedo ayudarte a convertir tu idea en realidad.
+                </p>
+                <div class="cta-buttons">
+                    <a href="index.html#contact" class="btn btn-primary btn-large">
+                        <i class="fas fa-rocket"></i>
+                        Iniciar Proyecto
+                    </a>
+                    <a href="mailto:tu.email@ejemplo.com" class="btn btn-secondary btn-large">
+                        <i class="fas fa-envelope"></i>
+                        Enviar Email
+                    </a>
+                </div>
+                <div class="cta-stats">
+                    <div class="cta-stat">
+                        <i class="fas fa-clock"></i>
+                        <span>Respuesta en 24h</span>
+                    </div>
+                    <div class="cta-stat">
+                        <i class="fas fa-handshake"></i>
+                        <span>Consulta gratuita</span>
+                    </div>
+                    <div class="cta-stat">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Garantía de calidad</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-left">
+                    <h3>&lt;DevPortfolio/&gt;</h3>
+                    <p>Desarrollando el futuro, una línea de código a la vez.</p>
+                </div>
+                <div class="footer-links">
+                    <a href="index.html">Inicio</a>
+                    <a href="index.html#about">Sobre mí</a>
+                    <a href="projects.html">Proyectos</a>
+                    <a href="index.html#contact">Contacto</a>
+                </div>
+                <div class="footer-social">
+                    <a href="#" class="social-link" aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="#" class="social-link" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="#" class="social-link" aria-label="Twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 DevPortfolio. Hecho con ❤️ y mucho café ☕</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Volver arriba">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- Project Modal Template -->
+    <div class="project-modal" id="projectModal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <button class="modal-close" aria-label="Cerrar modal">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="modal-body" id="modalBody">
+                <!-- Content will be dynamically populated -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Global Theme Manager (debe cargarse primero) -->
+    <script src="js/theme.js"></script>
+    
+    <!-- Animate UI JS -->
+    <script src="https://unpkg.com/animate-ui@1.0.0/dist/animate-ui.min.js"></script>
+    
+    <!-- Custom JS for projects page -->
+    <script src="js/projects.js"></script>
+    
+    <!-- Sidebar functionality -->
+    <script src="js/sidebar.js"></script>
+    
+    <!-- Animated backgrounds -->
+    <script src="js/animated-backgrounds.js"></script>
+    
+    <!-- Professional effects -->
+    <script src="js/professional-effects.js"></script>
+</body>
+</html>

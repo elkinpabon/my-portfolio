@@ -1,0 +1,590 @@
+/* ===================================
+   EFECTOS AVANZADOS Y ANIMACIONES PROFESIONALES
+   =================================== */
+
+/* ===== EFECTOS DE ENTRADA PROFESIONALES ===== */
+.advanced-fade-in {
+  opacity: 0;
+  transform: translateY(20px) scale(0.98);
+  transition: all 2.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+  will-change: transform, opacity;
+}
+
+.advanced-fade-in.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.advanced-slide-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 2s cubic-bezier(0.25, 0.8, 0.25, 1);
+  will-change: transform, opacity;
+}
+
+.advanced-slide-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== EFECTOS DE HOVER PROFESIONALES Y SOBRIOS ===== */
+.hover-lift-pro {
+  transition: all 2s cubic-bezier(0.25, 0.8, 0.25, 1);
+  position: relative;
+  overflow: hidden;
+  will-change: transform;
+}
+
+.hover-lift-pro::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(52, 211, 153, 0.03) 0%,
+    rgba(16, 185, 129, 0.02) 50%,
+    transparent 100%
+  );
+  opacity: 0;
+  transition: opacity 2s cubic-bezier(0.25, 0.8, 0.25, 1);
+  border-radius: inherit;
+}
+
+.hover-lift-pro:hover {
+  transform: translateY(-3px) scale(1.005);
+  box-shadow: 
+    0 8px 16px rgba(0, 0, 0, 0.08),
+    0 0 0 1px rgba(52, 211, 153, 0.05),
+    inset 0 1px 0 rgba(255, 255, 255, 0.03);
+}
+
+.hover-lift-pro:hover::before {
+  opacity: 1;
+}
+
+/* ===== EFECTOS DE TEXTO PROFESIONALES Y SOBRIOS ===== */
+.text-glow {
+  background: linear-gradient(135deg, #374151, #4b5563, #6b7280);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textGlow 8s ease-in-out infinite;
+}
+
+@keyframes textGlow {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.text-shimmer {
+  background: none;
+  color: var(--text-secondary);
+  background-size: none;
+  -webkit-background-clip: initial;
+  background-clip: initial;
+  -webkit-text-fill-color: initial;
+  animation: none;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* ===== EFECTOS DE BOTONES AVANZADOS ===== */
+.btn-pro {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #10b981, #059669);
+  border: none;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 
+    0 4px 14px rgba(16, 185, 129, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  will-change: transform;
+}
+
+.btn-pro::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: left 0.8s ease;
+}
+
+.btn-pro:hover::before {
+  left: 100%;
+}
+
+.btn-pro:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 
+    0 12px 30px rgba(16, 185, 129, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.btn-pro:active {
+  transform: translateY(-1px) scale(1.02);
+  transition: all 0.1s ease;
+}
+
+/* ===== EFECTOS DE CARDS PROFESIONALES ===== */
+.card-pro {
+  background: var(--surface-color);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 24px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  will-change: transform;
+}
+
+.card-pro::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(52, 211, 153, 0.5),
+    transparent
+  );
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+.card-pro:hover::before {
+  opacity: 1;
+}
+
+.card-pro:hover {
+  transform: translateY(-8px) scale(1.02);
+  border-color: rgba(52, 211, 153, 0.3);
+  box-shadow: 
+    0 20px 50px rgba(0, 0, 0, 0.15),
+    0 0 0 1px rgba(52, 211, 153, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+/* ===== EFECTOS DE LOADING AVANZADOS ===== */
+.loading-dots {
+  display: inline-flex;
+  gap: 4px;
+}
+
+.loading-dots span {
+  width: 8px;
+  height: 8px;
+  background: var(--primary-green);
+  border-radius: 50%;
+  animation: loadingDots 1.4s ease-in-out infinite both;
+}
+
+.loading-dots span:nth-child(1) { animation-delay: -0.32s; }
+.loading-dots span:nth-child(2) { animation-delay: -0.16s; }
+
+@keyframes loadingDots {
+  0%, 80%, 100% {
+    transform: scale(0);
+    opacity: 0.5;
+  }
+  40% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* ===== EFECTOS DE PARTÍCULAS MEJORADOS ===== */
+.particles-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.particle-pro {
+  position: absolute;
+  background: rgba(107, 114, 128, 0.1);
+  border-radius: 50%;
+  opacity: 0.2;
+  animation: particleFloat 25s infinite linear;
+}
+
+@keyframes particleFloat {
+  0% {
+    transform: translateY(100vh) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.2;
+  }
+  90% {
+    opacity: 0.2;
+  }
+  100% {
+    transform: translateY(-100px) rotate(45deg);
+    opacity: 0;
+  }
+}
+
+/* ===== EFECTOS DE SCROLL REVELADOR ===== */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(60px);
+  transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
+}
+
+.reveal-on-scroll.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== EFECTOS DE BLUR Y FOCUS ===== */
+.blur-focus {
+  filter: blur(2px);
+  transition: filter 0.3s ease;
+}
+
+.blur-focus:hover,
+.blur-focus:focus {
+  filter: blur(0);
+}
+
+/* ===== EFECTOS DE MORPHING ===== */
+.morph-hover {
+  transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  will-change: transform, border-radius;
+}
+
+.morph-hover:hover {
+  border-radius: 50%;
+  transform: rotate(15deg) scale(1.15);
+}
+
+/* ===== EFECTOS DE GLASSMORPHISM ===== */
+.glass-effect {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.dark-theme .glass-effect {
+  background: rgba(15, 23, 42, 0.8);
+  border-color: rgba(52, 211, 153, 0.2);
+}
+
+/* ===== EFECTOS SOBRIOS PARA ICONOS ===== */
+.pulse-ring {
+  position: relative;
+}
+
+.pulse-ring::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  border: 1px solid rgba(107, 114, 128, 0.1);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  animation: none;
+}
+
+@keyframes pulseRing {
+  0% {
+    transform: translate(-50%, -50%) scale(0.8);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(2.5);
+    opacity: 0;
+  }
+}
+
+/* ===== EFECTOS DE TIPOGRAFÍA AVANZADA ===== */
+.text-reveal {
+  overflow: hidden;
+  position: relative;
+}
+
+.text-reveal::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--bg-color);
+  transform: translateX(-100%);
+  animation: textReveal 1.8s ease-out forwards;
+}
+
+@keyframes textReveal {
+  0% { transform: translateX(-100%); }
+  60% { transform: translateX(0); }
+  100% { transform: translateX(100%); }
+}
+
+/* ===== EFECTOS SOBRIOS PARA TEXTO ===== */
+.neon-glow {
+  color: #d1d5db;
+  text-shadow: none;
+  animation: none;
+}
+
+@keyframes neonPulse {
+  from {
+    text-shadow: 
+      0 0 5px #34d399,
+      0 0 10px #34d399,
+      0 0 15px #34d399,
+      0 0 20px #10b981;
+  }
+  to {
+    text-shadow: 
+      0 0 2px #34d399,
+      0 0 5px #34d399,
+      0 0 8px #34d399,
+      0 0 12px #10b981;
+  }
+}
+
+/* ===== EFECTOS 3D ===== */
+.effect-3d {
+  transform-style: preserve-3d;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+
+.effect-3d:hover {
+  transform: rotateX(8deg) rotateY(8deg) translateZ(15px);
+}
+
+/* ===== EFECTOS DE PARALLAX SUAVE ===== */
+.parallax-element {
+  will-change: transform;
+  transition: transform 0.1s ease-out;
+}
+
+/* ===== RESPONSIVE PARA EFECTOS ===== */
+@media (max-width: 768px) {
+  .hover-lift-pro:hover {
+    transform: translateY(-4px) scale(1.01);
+  }
+  
+  .effect-3d:hover {
+    transform: rotateX(2deg) rotateY(2deg) translateZ(5px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .advanced-fade-in,
+  .advanced-slide-up,
+  .hover-lift-pro,
+  .btn-pro,
+  .card-pro,
+  .morph-hover,
+  .effect-3d {
+    transition: none;
+    animation: none;
+  }
+  
+  .text-glow,
+  .text-shimmer,
+  .loading-dots span,
+  .particle-pro,
+  .pulse-ring::before,
+  .neon-glow {
+    animation: none;
+  }
+}
+
+/* ===== ANIMACIONES PROFESIONALES Y SOBRIAS ===== */
+@keyframes gentleBounce {
+  0%, 20%, 60%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-2px);
+  }
+  80% {
+    transform: translateY(-1px);
+  }
+}
+
+@keyframes sparkle {
+  0% {
+    transform: scale(0) rotate(0deg);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1) rotate(180deg);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+@keyframes slowFloat {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-3px);
+  }
+}
+
+@keyframes gentleGlow {
+  0%, 100% {
+    box-shadow: 0 0 8px rgba(107, 114, 128, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 12px rgba(107, 114, 128, 0.2);
+  }
+}
+
+/* ===== CLASES AUXILIARES PARA EFECTOS PROFESIONALES ===== */
+.slow-float {
+  animation: slowFloat 12s ease-in-out infinite;
+}
+
+.gentle-glow {
+  animation: gentleGlow 8s ease-in-out infinite;
+}
+
+.stagger-children > * {
+  animation-delay: calc(var(--stagger-delay, 0.3s) * var(--stagger-index, 0));
+}
+
+/* === ANIMACIONES ADICIONALES ESTÉTICAS === */
+
+/* Animación de respiración profesional */
+@keyframes breathe {
+  0%, 100% { 
+    transform: scale(1) rotate(0deg);
+    opacity: 0.9;
+  }
+  50% { 
+    transform: scale(1.01) rotate(0.5deg);
+    opacity: 1;
+  }
+}
+
+/* Animación de flotación sutil */
+@keyframes organicFloat {
+  0%, 100% { 
+    transform: translateY(0px) translateX(0px) rotate(0deg);
+  }
+  25% { 
+    transform: translateY(-2px) translateX(1px) rotate(0.2deg);
+  }
+  50% { 
+    transform: translateY(-1px) translateX(-0.5px) rotate(-0.1deg);
+  }
+  75% { 
+    transform: translateY(-3px) translateX(0.5px) rotate(0.1deg);
+  }
+}
+
+/* Animación de onda suave */
+@keyframes gentleWave {
+  0%, 100% { 
+    transform: translateY(0) scaleX(1);
+    opacity: 0.8;
+  }
+  33% { 
+    transform: translateY(-1px) scaleX(1.005);
+    opacity: 0.9;
+  }
+  66% { 
+    transform: translateY(0.5px) scaleX(0.995);
+    opacity: 0.85;
+  }
+}
+
+/* Clases de efectos profesionales */
+.breathe-effect {
+  animation: breathe 8s ease-in-out infinite;
+}
+
+.organic-float {
+  animation: organicFloat 12s ease-in-out infinite;
+}
+
+.gentle-wave {
+  animation: gentleWave 6s ease-in-out infinite;
+}
+
+/* Efectos de entrada profesionales */
+.fade-in-up-soft {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUpSoft 2.5s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
+}
+
+@keyframes fadeInUpSoft {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-scale-soft {
+  opacity: 0;
+  transform: scale(0.95);
+  animation: fadeInScaleSoft 2s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
+}
+
+@keyframes fadeInScaleSoft {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Efectos para iconos profesionales */
+.icon-hover-soft {
+  transition: all 2s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.icon-hover-soft:hover {
+  transform: translateY(-2px) rotate(2deg) scale(1.02);
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+}

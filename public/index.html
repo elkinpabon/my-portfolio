@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio - Desarrollador Full Stack</title>
+    
+    <!-- Meta Tags SEO -->
+    <meta name="description" content="Portafolio profesional de desarrollador Full Stack especializado en Node.js, React y tecnologías modernas.">
+    <meta name="keywords" content="desarrollador, full stack, node.js, react, javascript, portfolio">
+    <meta name="author" content="Tu Nombre">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Portafolio - Desarrollador Full Stack">
+    <meta property="og:description" content="Desarrollador Full Stack especializado en Node.js y tecnologías modernas">
+    <meta property="og:type" content="website">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    
+    <!-- Animate UI CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/animate-ui@1.0.0/dist/animate-ui.min.css">
+    
+    <!-- Custom CSS Modular -->
+    <link rel="stylesheet" href="css/styles.css">
+    
+    <!-- Global Theme Manager (debe cargarse en head) -->
+    <script src="js/theme.js"></script>
+</head>
+<body class="dark-theme">
+    
+    <!-- Navigation -->
+    <nav class="navbar-modern" data-animate="fade-in-down">
+        <div class="nav-pill">
+            <div class="nav-logo">
+                <i data-lucide="code-2"></i>
+                <span>DevPortfolio</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home" class="nav-item active">
+                    <i data-lucide="home"></i>
+                    <span>Inicio</span>
+                </a></li>
+                <li><a href="#about" class="nav-item">
+                    <i data-lucide="user"></i>
+                    <span>Sobre mí</span>
+                </a></li>
+                <li><a href="#skills" class="nav-item">
+                    <i data-lucide="zap"></i>
+                    <span>Skills</span>
+                </a></li>
+                <li><a href="projects.html" class="nav-item">
+                    <i data-lucide="folder"></i>
+                    <span>Proyectos</span>
+                </a></li>
+                <li><a href="#contact" class="nav-item">
+                    <i data-lucide="mail"></i>
+                    <span>Contacto</span>
+                </a></li>
+            </ul>
+            <div class="nav-indicator"></div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero animated-bg-hero">
+        <div class="floating-particles"></div>
+        <div class="hero-glow"></div>
+        <div class="hero-container">
+            <div class="hero-content advanced-fade-in" data-animate="fade-in-up" data-delay="200">
+                <h1 class="hero-title">
+                    Hola, soy <span class="highlight">Desarrollador Full Stack</span>
+                </h1>
+                <p class="hero-description">
+                    Especializado en Node.js y tecnologías modernas. Creo aplicaciones web escalables y experiencias digitales excepcionales con código limpio y arquitecturas robustas.
+                </p>
+                <div class="hero-buttons">
+                    <a href="projects.html" class="btn-pro hover-lift-pro" data-animate="fade-in-left" data-delay="400">
+                        <i data-lucide="rocket"></i>
+                        Ver Proyectos
+                    </a>
+                    <a href="#contact" class="btn btn-secondary hover-lift-pro" data-animate="fade-in-right" data-delay="400">
+                        <i data-lucide="mail"></i>
+                        Contactar
+                    </a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item glass-effect">
+                        <div class="stat-icon">
+                            <i data-lucide="code"></i>
+                        </div>
+                        <h3 data-counter="50">50</h3>
+                        <p>Proyectos</p>
+                    </div>
+                    <div class="stat-item glass-effect">
+                        <div class="stat-icon">
+                            <i data-lucide="zap"></i>
+                        </div>
+                        <h3 data-counter="5">5</h3>
+                        <p>Años Experiencia</p>
+                    </div>
+                    <div class="stat-item glass-effect">
+                        <div class="stat-icon">
+                            <i data-lucide="star"></i>
+                        </div>
+                        <h3 data-counter="100">100</h3>
+                        <p>% Satisfacción</p>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image advanced-slide-up" data-animate="fade-in-right" data-delay="600">
+                <div class="code-window card-pro effect-3d">
+                    <div class="window-header">
+                        <span class="dot red"></span>
+                        <span class="dot yellow"></span>
+                        <span class="dot green"></span>
+                    </div>
+                    <div class="code-content">
+                        <pre><code class="typing-animation text-reveal">
+const developer = {
+  name: "Tu Nombre",
+  skills: ["Node.js", "React", "MongoDB", "TypeScript"],
+  passion: "crear código limpio y escalable",
+  currentFocus: "arquitecturas serverless",
+  status: "disponible para proyectos",
+  motto: "La simplicidad es la máxima sofisticación"
+};
+
+console.log("¡Bienvenido a mi portafolio!");
+developer.build();
+                        </code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-scroll morph-hover" data-animate="bounce-in-up" data-delay="1000" onclick="location.href='projects.html'">
+            <i data-lucide="chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about animated-bg-gradient">
+        <div class="decorative-circles"></div>
+        <div class="container">
+            <h2 class="section-title" data-animate="fade-in-up">Sobre Mí</h2>
+            <div class="about-content">
+                <div class="about-text" data-animate="fade-in-left">
+                    <p>
+                        Soy un desarrollador Full Stack apasionado por crear soluciones tecnológicas innovadoras y escalables. 
+                        Con experiencia sólida en Node.js, React, y arquitecturas modernas en la nube, me especializo en construir 
+                        aplicaciones web que combinan rendimiento excepcional con experiencias de usuario intuitivas.
+                    </p>
+                    <p>
+                        Mi enfoque se centra en escribir código limpio y mantenible, seguir las mejores prácticas de la industria, 
+                        y mantenerme actualizado con las últimas tecnologías del ecosistema JavaScript. Disfruto colaborando en 
+                        equipos multidisciplinarios y transformando ideas complejas en soluciones elegantes.
+                    </p>
+                    
+                    <div class="skills-preview">
+                        <h4><i class="fas fa-code"></i> Tecnologías Principales</h4>
+                        <div class="skills-list">
+                            <span class="skill-tag">JavaScript ES6+</span>
+                            <span class="skill-tag">Node.js</span>
+                            <span class="skill-tag">React</span>
+                            <span class="skill-tag">TypeScript</span>
+                            <span class="skill-tag">MongoDB</span>
+                            <span class="skill-tag">AWS</span>
+                        </div>
+                    </div>
+                    
+                    <div class="stats">
+                        <div class="stat-item" data-animate="zoom-in-up" data-delay="100">
+                            <h3 data-counter="50">0</h3>
+                            <p>Proyectos Completados</p>
+                        </div>
+                        <div class="stat-item" data-animate="zoom-in-up" data-delay="200">
+                            <h3 data-counter="3">0</h3>
+                            <p>Años de Experiencia</p>
+                        </div>
+                        <div class="stat-item" data-animate="zoom-in-up" data-delay="300">
+                            <h3 data-counter="100">0</h3>
+                            <p>Satisfacción del Cliente</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image" data-animate="fade-in-right">
+                    <div class="image-placeholder">
+                        <i class="fas fa-user-circle"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills animated-bg-particles">
+        <div class="floating-particles"></div>
+        <div class="container">
+            <h2 class="section-title" data-animate="fade-in-up">Habilidades Técnicas</h2>
+            <div class="skills-grid">
+                <div class="skill-category" data-category="backend" data-animate="fade-in-up" data-delay="100">
+                    <h3>Backend Development</h3>
+                    <div class="skill-items">
+                        <span class="skill-item advanced">Node.js</span>
+                        <span class="skill-item advanced">Express.js</span>
+                        <span class="skill-item intermediate">MongoDB</span>
+                        <span class="skill-item intermediate">PostgreSQL</span>
+                        <span class="skill-item advanced">REST APIs</span>
+                        <span class="skill-item intermediate">GraphQL</span>
+                        <span class="skill-item intermediate">Microservices</span>
+                        <span class="skill-item beginner">Redis</span>
+                    </div>
+                    <div class="skill-description">
+                        <p>Experiencia sólida en desarrollo de APIs escalables y arquitecturas serverless con Node.js.</p>
+                    </div>
+                </div>
+                
+                <div class="skill-category" data-category="frontend" data-animate="fade-in-up" data-delay="200">
+                    <h3>Frontend Development</h3>
+                    <div class="skill-items">
+                        <span class="skill-item advanced">React</span>
+                        <span class="skill-item intermediate">Vue.js</span>
+                        <span class="skill-item advanced">JavaScript ES6+</span>
+                        <span class="skill-item intermediate">TypeScript</span>
+                        <span class="skill-item advanced">CSS3 & SASS</span>
+                        <span class="skill-item advanced">Responsive Design</span>
+                        <span class="skill-item intermediate">Next.js</span>
+                        <span class="skill-item beginner">React Native</span>
+                    </div>
+                    <div class="skill-description">
+                        <p>Creación de interfaces modernas y experiencias de usuario excepcionales con las últimas tecnologías.</p>
+                    </div>
+                </div>
+                
+                <div class="skill-category" data-category="devops" data-animate="fade-in-up" data-delay="300">
+                    <h3>DevOps & Cloud</h3>
+                    <div class="skill-items">
+                        <span class="skill-item intermediate">Docker</span>
+                        <span class="skill-item intermediate">AWS</span>
+                        <span class="skill-item advanced">Git & GitHub</span>
+                        <span class="skill-item intermediate">CI/CD</span>
+                        <span class="skill-item intermediate">Linux</span>
+                        <span class="skill-item advanced">Testing</span>
+                        <span class="skill-item beginner">Kubernetes</span>
+                        <span class="skill-item intermediate">Serverless</span>
+                    </div>
+                    <div class="skill-description">
+                        <p>Automatización de despliegues y gestión de infraestructura en la nube para aplicaciones escalables.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects animated-bg-waves">
+        <div class="wave-lines"></div>
+        <div class="container">
+            <h2 class="section-title" data-animate="fade-in-up">Proyectos Destacados</h2>
+            
+            <!-- Project Filters -->
+            <div class="project-filters">
+                <button class="filter-btn active" data-filter="all">Todos</button>
+                <button class="filter-btn" data-filter="web">Web Apps</button>
+                <button class="filter-btn" data-filter="api">APIs</button>
+                <button class="filter-btn" data-filter="mobile">Mobile</button>
+            </div>
+            
+            <div class="projects-grid">
+                <div class="project-card featured" data-category="web" data-animate="fade-in-up" data-delay="100">
+                    <div class="project-status completed">Completado</div>
+                    <div class="project-image">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>E-commerce Platform</h3>
+                        <p>Plataforma de comercio electrónico completa con gestión de inventario, procesamiento de pagos y panel de administración. Construida con arquitectura escalable y mejores prácticas de seguridad.</p>
+                        <div class="project-tech">
+                            <span>Node.js</span>
+                            <span>React</span>
+                            <span>MongoDB</span>
+                            <span>Stripe API</span>
+                            <span>AWS</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="btn btn-small btn-primary">
+                                <i class="fas fa-external-link-alt"></i> Ver Demo
+                            </a>
+                            <a href="#" class="btn btn-small btn-secondary">
+                                <i class="fab fa-github"></i> Código
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="web" data-animate="fade-in-up" data-delay="200">
+                    <div class="project-status completed">Completado</div>
+                    <div class="project-image">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Dashboard Analytics</h3>
+                        <p>Dashboard interactivo para análisis de datos en tiempo real con visualizaciones dinámicas y reportes automatizados.</p>
+                        <div class="project-tech">
+                            <span>React</span>
+                            <span>D3.js</span>
+                            <span>Socket.io</span>
+                            <span>Chart.js</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="btn btn-small btn-primary">
+                                <i class="fas fa-external-link-alt"></i> Ver Demo
+                            </a>
+                            <a href="#" class="btn btn-small btn-secondary">
+                                <i class="fab fa-github"></i> Código
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="api" data-animate="fade-in-up" data-delay="300">
+                    <div class="project-status completed">Completado</div>
+                    <div class="project-image">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Chat Application</h3>
+                        <p>Aplicación de chat en tiempo real con salas privadas, notificaciones push y funciones de moderación avanzadas.</p>
+                        <div class="project-tech">
+                            <span>Node.js</span>
+                            <span>Socket.io</span>
+                            <span>Redis</span>
+                            <span>JWT</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="btn btn-small btn-primary">
+                                <i class="fas fa-external-link-alt"></i> Ver Demo
+                            </a>
+                            <a href="#" class="btn btn-small btn-secondary">
+                                <i class="fab fa-github"></i> Código
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="mobile" data-animate="fade-in-up" data-delay="400">
+                    <div class="project-status in-progress">En Desarrollo</div>
+                    <div class="project-image">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Task Manager App</h3>
+                        <p>Aplicación móvil para gestión de tareas con sincronización en tiempo real y funcionalidades offline.</p>
+                        <div class="project-tech">
+                            <span>React Native</span>
+                            <span>Firebase</span>
+                            <span>Redux</span>
+                            <span>AsyncStorage</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="btn btn-small btn-primary">
+                                <i class="fas fa-external-link-alt"></i> Vista Previa
+                            </a>
+                            <a href="#" class="btn btn-small btn-secondary">
+                                <i class="fab fa-github"></i> Código
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact animated-bg-gradient">
+        <div class="decorative-circles"></div>
+        <div class="container">
+            <h2 class="section-title" data-animate="fade-in-up">Contáctame</h2>
+            <div class="contact-content">
+                <div class="contact-info" data-animate="fade-in-left">
+                    <h3>¡Trabajemos juntos!</h3>
+                    <p>
+                        Estoy disponible para proyectos freelance y oportunidades de colaboración. 
+                        Ya sea que necesites desarrollar una aplicación desde cero o mejorar un proyecto existente, 
+                        me encantaría discutir cómo puedo ayudarte a alcanzar tus objetivos.
+                    </p>
+                    <div class="contact-items">
+                        <div class="contact-item" data-animate="slide-in-left" data-delay="100">
+                            <i class="fas fa-envelope"></i>
+                            <span>tu.email@example.com</span>
+                        </div>
+                        <div class="contact-item" data-animate="slide-in-left" data-delay="200">
+                            <i class="fas fa-phone"></i>
+                            <span>+57 123 456 7890</span>
+                        </div>
+                        <div class="contact-item" data-animate="slide-in-left" data-delay="300">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Colombia</span>
+                        </div>
+                        <div class="contact-item" data-animate="slide-in-left" data-delay="400">
+                            <i class="fas fa-clock"></i>
+                            <span>Disponible para proyectos</span>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="#" class="social-link" data-animate="bounce-in" data-delay="100" aria-label="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="#" class="social-link" data-animate="bounce-in" data-delay="200" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="#" class="social-link" data-animate="bounce-in" data-delay="300" aria-label="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-link" data-animate="bounce-in" data-delay="400" aria-label="Stack Overflow">
+                            <i class="fab fa-stack-overflow"></i>
+                        </a>
+                    </div>
+                </div>
+                <form class="contact-form" data-animate="fade-in-right" id="contactForm">
+                    <div class="form-success" id="formSuccess">
+                        <i class="fas fa-check-circle"></i>
+                        ¡Mensaje enviado correctamente! Te responderé pronto.
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="name">Nombre completo</label>
+                        <input type="text" id="name" name="name" placeholder="Tu nombre completo" required>
+                        <div class="form-error">Por favor, ingresa tu nombre</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Correo electrónico</label>
+                        <input type="email" id="email" name="email" placeholder="tu.email@ejemplo.com" required>
+                        <div class="form-error">Por favor, ingresa un email válido</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="subject">Asunto</label>
+                        <input type="text" id="subject" name="subject" placeholder="¿En qué te puedo ayudar?" required>
+                        <div class="form-error">Por favor, ingresa un asunto</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Mensaje</label>
+                        <textarea id="message" name="message" rows="5" placeholder="Cuéntame sobre tu proyecto..." required></textarea>
+                        <div class="form-error">Por favor, escribe tu mensaje</div>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary">
+                        <span class="btn-text">Enviar Mensaje</span>
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 DevPortfolio. Hecho con ❤️ y mucho café ☕</p>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Volver arriba">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- Animate UI JS -->
+    <script src="https://unpkg.com/animate-ui@1.0.0/dist/animate-ui.min.js"></script>
+    
+    <!-- Custom JS -->
+    <script src="js/script.js"></script>
+    <script src="js/animated-backgrounds.js"></script>
+    <script src="js/professional-effects.js"></script>
+</body>
+</html>
