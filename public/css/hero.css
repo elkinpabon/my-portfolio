@@ -264,11 +264,11 @@
   }
   
   .hero-content {
-    order: 2;
+    order: 1; /* El contenido (título) aparece primero */
   }
   
   .hero-image {
-    order: 1;
+    order: 2; /* El código aparece segundo */
   }
   
   .hero-title {
@@ -300,7 +300,17 @@
   }
   
   .hero-container {
+    display: flex;
+    flex-direction: column;
     gap: var(--space-6);
+  }
+  
+  .hero-content {
+    order: 1; /* El contenido (título) aparece primero */
+  }
+  
+  .hero-image {
+    order: 2; /* El código aparece segundo */
   }
   
   .hero-buttons {

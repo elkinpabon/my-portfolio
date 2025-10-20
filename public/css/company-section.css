@@ -494,3 +494,30 @@
         transform: translateY(0);
     }
 }
+
+/* ===== ESTILOS DE COLORES DESTACADOS - UN SOLO COLOR VERDE ===== */
+.highlight-text {
+    background: linear-gradient(135deg, #10b981, #34d399);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 700;
+    font-size: 1.05em;
+}
+
+.brand-name {
+    color: #10b981;
+    font-weight: 800;
+    font-size: 1.1em;
+}
+
+/* Todos los colores destacados ahora usan el verde de la marca */
+.highlight-green,
+.highlight-blue,
+.highlight-purple,
+.highlight-orange,
+.highlight-red,
+.highlight-gold {
+    color: #10b981;
+    font-weight: 600;
+}
