@@ -211,14 +211,14 @@
 
 /* Projects Showcase */
 .projects-showcase {
-    padding: 4rem 0;
+    padding: 1rem 0;
 }
 
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
     gap: 2rem;
-    margin-bottom: 4rem;
+    margin-bottom: 2rem;
 }
 
 /* Enhanced Project Cards */
