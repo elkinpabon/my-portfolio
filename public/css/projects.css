@@ -42,15 +42,18 @@
   border-radius: 50%;
 }
 
-/* ===== PROJECTS GRID ===== */
+/* ===== PROJECTS GRID - RESPONSIVE DESIGN ===== */
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-  gap: var(--space-8);
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 1.5rem;
+  max-width: 1400px;
+  margin: 0 auto;
   position: relative;
   z-index: 1;
-  justify-items: center;
+  justify-items: stretch;
   align-items: start;
+  width: 100%;
 }
 
 /* ===== PROJECT CARD ===== */
@@ -290,9 +293,20 @@
 
 /* ===== FEATURED PROJECT ===== */
 .project-card.featured {
-  grid-column: span 2;
   background: linear-gradient(135deg, var(--bg-primary), var(--bg-secondary));
   border: 2px solid var(--primary-green);
+}
+
+@media (min-width: 769px) {
+  .project-card.featured {
+    grid-column: span 2;
+  }
+}
+
+@media (min-width: 1400px) {
+  .project-card.featured {
+    grid-column: span 1;
+  }
 }
 
 .project-card.featured .project-image {
@@ -312,8 +326,17 @@
 /* ===== RESPONSIVE PROJECTS ===== */
 @media (max-width: 1200px) {
   .projects-grid {
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: var(--space-6);
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    max-width: 1200px;
+    gap: 1.25rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .projects-grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    max-width: 900px;
+    gap: 1rem;
   }
 }
 
@@ -323,18 +346,15 @@
   }
   
   .projects-grid {
-    grid-template-columns: 1fr;
-    gap: var(--space-6);
-    justify-items: center;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    max-width: 100%;
+    gap: 1rem;
+    padding: 0 1rem;
   }
   
   .project-card {
     max-width: 100%;
     min-height: auto;
-  }
-  
-  .project-card.featured {
-    grid-column: span 1;
   }
   
   .project-links {
@@ -345,7 +365,7 @@
   .project-links .btn {
     width: 100%;
   }
-  
+
   .project-filters {
     gap: var(--space-2);
     margin-bottom: var(--space-8);
@@ -357,9 +377,23 @@
   }
 }
 
+@media (max-width: 600px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 0 0.75rem;
+  }
+}
+
 @media (max-width: 480px) {
   .projects {
     padding: var(--space-12) 0;
+  }
+  
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 0.875rem;
+    padding: 0 0.5rem;
   }
   
   .projects-grid {
