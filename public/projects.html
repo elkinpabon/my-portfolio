@@ -86,7 +86,7 @@
                         <div class="stat-icon pulse-ring">
                             <i data-lucide="folder-check"></i>
                         </div>
-                        <h3 class="neon-glow" data-counter="100">0</h3>
+                        <h3 class="neon-glow" data-counter="10">0</h3>
                         <p>Proyectos Entregados</p>
                     </div>
                     <div class="stat-item glass-effect reveal-on-scroll" data-animate="zoom-in-up" data-delay="200">
@@ -98,10 +98,10 @@
                     </div>
                     <div class="stat-item glass-effect reveal-on-scroll" data-animate="zoom-in-up" data-delay="300">
                         <div class="stat-icon pulse-ring">
-                            <i data-lucide="heart"></i>
+                            <i data-lucide="clock"></i>
                         </div>
-                        <h3 class="neon-glow" data-counter="50">0</h3>
-                        <p>Clientes Satisfechos</p>
+                        <h3 class="neon-glow" data-counter="100">0</h3>
+                        <p>% Entregas a Tiempo 24/7</p>
                     </div>
                 </div>
             </div>
@@ -214,28 +214,26 @@
         <div class="container">
             <div class="projects-grid" id="projectsGrid">
                 
-                <!-- Proyecto 1 - Plataforma E-commerce -->
-                <div class="project-card featured" data-category="web" data-tech="Node.js,React,MongoDB,Stripe API,AWS,Redis" data-date="2024-01-15" data-animate="fade-in-up" data-delay="100">
+                <!-- Proyecto 1: Sistema RRHH HealthyFood -->
+                <div class="project-card featured" data-category="web" data-tech="React,Node.js,Express,MySQL,JWT,QR Code Generator" data-date="2024-01-15" data-animate="fade-in-up" data-delay="100">
                     <div class="project-status completed">Completado</div>
                     <div class="project-featured-badge">
                         <i class="fas fa-star"></i>
                         Destacado
                     </div>
                     <div class="project-image">
-                        <div class="project-icon">
-                            <i class="fas fa-shopping-cart"></i>
-                        </div>
+                        <img src="https://via.placeholder.com/400x250/22c55e/ffffff?text=Sistema+RRHH+HealthyFood" alt="Sistema RRHH HealthyFood" class="project-thumbnail">
                         <div class="project-overlay">
                             <div class="overlay-buttons">
-                                <button class="overlay-btn" title="Más Información" onclick="openProjectModal('ecommerce')">
+                                <a href="projects/healthyfood-rrhh.html" class="overlay-btn" title="Más Información">
                                     <i class="fas fa-info-circle"></i>
-                                </button>
+                                </a>
                             </div>
                         </div>
                     </div>
                     <div class="project-content">
                         <div class="project-header">
-                            <h3>Plataforma E-commerce Integral</h3>
+                            <h3>Sistema de Gestión de RRHH - Healthy Food</h3>
                             <div class="project-rating">
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>
@@ -244,69 +242,67 @@
                                 <i class="fas fa-star"></i>
                             </div>
                         </div>
-                        <p class="project-description">Desarrollamos una plataforma de comercio electrónico robusta y escalable para empresa retail, incluyendo gestión completa de inventario, procesamiento seguro de pagos, panel administrativo avanzado, sistema de reseñas y arquitectura de microservicios que soporta miles de transacciones diarias.</p>
+                        <p class="project-description">Sistema completo de gestión de recursos humanos para automatizar procesos como cálculo de horas trabajadas, generación de reportes de pago, gestión de empleados y áreas de trabajo, y emisión de credenciales con código QR.</p>
                         <div class="project-features">
                             <span class="feature">
                                 <i class="fas fa-check"></i>
-                                Pagos seguros integrados
+                                Cálculo automático de horas trabajadas
                             </span>
                             <span class="feature">
                                 <i class="fas fa-check"></i>
-                                Panel administrativo completo
+                                Generación de reportes de pago
                             </span>
                             <span class="feature">
                                 <i class="fas fa-check"></i>
-                                Gestión de inventarios en tiempo real
+                                Credenciales con código QR
                             </span>
                         </div>
                         <div class="project-tech">
-                            <span class="tech-tag primary">Node.js</span>
-                            <span class="tech-tag">React</span>
-                            <span class="tech-tag">MongoDB</span>
-                            <span class="tech-tag">Stripe API</span>
-                            <span class="tech-tag">AWS</span>
-                            <span class="tech-tag">Redis</span>
+                            <span class="tech-tag primary">React</span>
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">Express</span>
+                            <span class="tech-tag">MySQL</span>
+                            <span class="tech-tag">JWT</span>
+                            <span class="tech-tag">QR Code</span>
                         </div>
                         <div class="project-metrics">
                             <div class="metric">
-                                <i class="fas fa-shopping-bag"></i>
-                                <span>5,000+ productos</span>
+                                <i class="fas fa-users"></i>
+                                <span>Healthy Food</span>
                             </div>
                             <div class="metric">
                                 <i class="fas fa-clock"></i>
                                 <span>3 meses desarrollo</span>
                             </div>
                             <div class="metric">
-                                <i class="fas fa-users"></i>
-                                <span>2,500+ usuarios activos</span>
+                                <i class="fas fa-building"></i>
+                                <span>Sistema Web</span>
                             </div>
                         </div>
                         <div class="project-links">
-                            <button class="btn btn-small btn-primary" onclick="openProjectModal('ecommerce')">
-                                <i class="fas fa-info-circle"></i> Más Información
-                            </button>
+                            <a href="projects/healthyfood-rrhh.html" class="btn btn-small btn-primary">
+                                <i class="fas fa-eye"></i> Ver Proyecto
+                            </a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Proyecto 2 - Sistema de Gestión de Inventarios -->
-                <div class="project-card" data-category="web" data-tech="Angular,Node.js,MySQL,Docker" data-date="2024-02-20" data-animate="fade-in-up" data-delay="200">
+                <!-- Proyecto 2: App Móvil HealthyFood -->
+                <div class="project-card" data-category="mobile" data-tech="Flutter,Dart,Node.js,MongoDB,Firebase" data-date="2024-02-20" data-animate="fade-in-up" data-delay="200">
                     <div class="project-status completed">Completado</div>
                     <div class="project-image">
-                        <div class="project-icon">
-                            <i class="fas fa-warehouse"></i>
-                        </div>
+                        <img src="https://via.placeholder.com/400x250/16a34a/ffffff?text=App+Asistencias+HealthyFood" alt="App Asistencias HealthyFood" class="project-thumbnail">
                         <div class="project-overlay">
                             <div class="overlay-buttons">
-                                <button class="overlay-btn" title="Más Información" onclick="openProjectModal('inventory')">
+                                <a href="projects/healthyfood-mobile.html" class="overlay-btn" title="Más Información">
                                     <i class="fas fa-info-circle"></i>
-                                </button>
+                                </a>
                             </div>
                         </div>
                     </div>
                     <div class="project-content">
                         <div class="project-header">
-                            <h3>Sistema de Gestión de Inventarios</h3>
+                            <h3>Aplicación Móvil para Control de Asistencias - Healthy Food</h3>
                             <div class="project-rating">
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>
@@ -315,138 +311,67 @@
                                 <i class="fas fa-star"></i>
                             </div>
                         </div>
-                        <p class="project-description">Sistema integral de gestión de inventarios para empresa logística, con control de stock en tiempo real, trazabilidad completa de productos, generación automática de reportes, alertas de reposición y múltiples puntos de almacenamiento.</p>
+                        <p class="project-description">Aplicación móvil diseñada para el control de asistencia de empleados en tiempo real. Desarrollada para tablets, permite registrar entrada/salida mediante escaneo QR o PIN, conectada a servicio web con notificaciones a administradores.</p>
                         <div class="project-features">
                             <span class="feature">
                                 <i class="fas fa-check"></i>
-                                Control de stock en tiempo real
+                                Escaneo QR y PIN para registro
                             </span>
                             <span class="feature">
                                 <i class="fas fa-check"></i>
-                                Trazabilidad completa
+                                Control en tiempo real
                             </span>
                             <span class="feature">
                                 <i class="fas fa-check"></i>
-                                Reportes automatizados
-                            </span>
-                        </div>
-                        <div class="project-tech">
-                            <span class="tech-tag primary">Angular</span>
-                            <span class="tech-tag">Node.js</span>
-                            <span class="tech-tag">MySQL</span>
-                            <span class="tech-tag">Docker</span>
-                            <span class="tech-tag">Chart.js</span>
-                        </div>
-                        <div class="project-metrics">
-                            <div class="metric">
-                                <i class="fas fa-boxes"></i>
-                                <span>10,000+ productos</span>
-                            </div>
-                            <div class="metric">
-                                <i class="fas fa-clock"></i>
-                                <span>4 meses desarrollo</span>
-                            </div>
-                            <div class="metric">
-                                <i class="fas fa-warehouse"></i>
-                                <span>5 bodegas conectadas</span>
-                            </div>
-                        </div>
-                        <div class="project-links">
-                            <button class="btn btn-small btn-primary" onclick="openProjectModal('inventory')">
-                                <i class="fas fa-info-circle"></i> Más Información
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Proyecto 3 - Aplicación Móvil de Delivery -->
-                <div class="project-card" data-category="mobile" data-tech="Flutter,Dart,Firebase,Google Maps API" data-date="2024-01-10" data-animate="fade-in-up" data-delay="300">
-                    <div class="project-status completed">Completado</div>
-                    <div class="project-image">
-                        <div class="project-icon">
-                            <i class="fas fa-mobile-alt"></i>
-                        </div>
-                        <div class="project-overlay">
-                            <div class="overlay-buttons">
-                                <button class="overlay-btn" title="Más Información" onclick="openProjectModal('delivery')">
-                                    <i class="fas fa-info-circle"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <div class="project-header">
-                            <h3>App Móvil de Delivery</h3>
-                            <div class="project-rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                        </div>
-                        <p>Aplicación móvil completa para servicio de delivery con seguimiento GPS en tiempo real, sistema de pagos integrado, chat en vivo, calificaciones y disponible para iOS y Android.</p>
-                        <div class="project-features">
-                            <span class="feature">
-                                <i class="fas fa-check"></i>
-                                Seguimiento GPS en tiempo real
-                            </span>
-                            <span class="feature">
-                                <i class="fas fa-check"></i>
-                                Pagos integrados
-                            </span>
-                            <span class="feature">
-                                <i class="fas fa-check"></i>
-                                Chat en vivo con repartidor
+                                Notificaciones automáticas
                             </span>
                         </div>
                         <div class="project-tech">
                             <span class="tech-tag primary">Flutter</span>
                             <span class="tech-tag">Dart</span>
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">Express</span>
+                            <span class="tech-tag">MongoDB</span>
                             <span class="tech-tag">Firebase</span>
-                            <span class="tech-tag">Google Maps</span>
-                            <span class="tech-tag">Stripe</span>
                         </div>
                         <div class="project-metrics">
                             <div class="metric">
-                                <i class="fas fa-download"></i>
-                                <span>5,000+ descargas</span>
+                                <i class="fas fa-tablet-alt"></i>
+                                <span>Para Tablets</span>
                             </div>
                             <div class="metric">
                                 <i class="fas fa-clock"></i>
-                                <span>5 meses desarrollo</span>
+                                <span>2 meses desarrollo</span>
                             </div>
                             <div class="metric">
-                                <i class="fas fa-star"></i>
-                                <span>4.8/5 rating</span>
+                                <i class="fas fa-building"></i>
+                                <span>Healthy Food</span>
                             </div>
                         </div>
                         <div class="project-links">
-                            <button class="btn btn-small btn-primary" onclick="openProjectModal('delivery')">
-                                <i class="fas fa-info-circle"></i> Más Información
-                            </button>
+                            <a href="projects/healthyfood-mobile.html" class="btn btn-small btn-primary">
+                                <i class="fas fa-eye"></i> Ver Proyecto
+                            </a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Proyecto 4 - Sistema Empresarial ERP -->
-                <div class="project-card" data-category="web" data-tech="Python,Django,PostgreSQL,Docker,Redis" data-date="2024-03-05" data-animate="fade-in-up" data-delay="400">
+                <!-- Proyecto 3: Aplicación Web HealthyFood -->
+                <div class="project-card" data-category="web" data-tech="Next.js,Tailwind CSS" data-date="2024-01-10" data-animate="fade-in-up" data-delay="300">
                     <div class="project-status completed">Completado</div>
                     <div class="project-image">
-                        <div class="project-icon">
-                            <i class="fas fa-building"></i>
-                        </div>
+                        <img src="https://via.placeholder.com/400x250/15803d/ffffff?text=Web+HealthyFood" alt="Aplicación Web HealthyFood" class="project-thumbnail">
                         <div class="project-overlay">
                             <div class="overlay-buttons">
-                                <button class="overlay-btn" title="Más Información" onclick="openProjectModal('erp')">
+                                <a href="projects/healthyfood-web.html" class="overlay-btn" title="Más Información">
                                     <i class="fas fa-info-circle"></i>
-                                </button>
+                                </a>
                             </div>
                         </div>
                     </div>
                     <div class="project-content">
                         <div class="project-header">
-                            <h3>Sistema Empresarial ERP</h3>
+                            <h3>Aplicación Web para Healthy Food</h3>
                             <div class="project-rating">
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>
@@ -455,292 +380,414 @@
                                 <i class="fas fa-star"></i>
                             </div>
                         </div>
-                        <p>Sistema ERP integral para empresa manufacturera con módulos de recursos humanos, contabilidad, inventarios, producción, ventas y reportes avanzados. Incluye dashboard ejecutivo y roles de usuario personalizables.</p>
+                        <p class="project-description">Aplicación web informativa y de presentación para Healthy Food, mostrando la misión, visión, servicios y productos de la empresa. Desarrollada para ofrecer una experiencia accesible y moderna tanto en dispositivos móviles como de escritorio.</p>
                         <div class="project-features">
                             <span class="feature">
                                 <i class="fas fa-check"></i>
-                                Módulos integrados RRHH
+                                Presentación corporativa moderna
                             </span>
                             <span class="feature">
                                 <i class="fas fa-check"></i>
-                                Control de producción
+                                Responsive y accesible
                             </span>
                             <span class="feature">
                                 <i class="fas fa-check"></i>
-                                Reportes ejecutivos
+                                Aplicación estática optimizada
+                            </span>
+                        </div>
+                        <div class="project-tech">
+                            <span class="tech-tag primary">Next.js</span>
+                            <span class="tech-tag">Tailwind CSS</span>
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">Static Site</span>
+                        </div>
+                        <div class="project-metrics">
+                            <div class="metric">
+                                <i class="fas fa-leaf"></i>
+                                <span>Healthy Food</span>
+                            </div>
+                            <div class="metric">
+                                <i class="fas fa-clock"></i>
+                                <span>2 semanas desarrollo</span>
+                            </div>
+                            <div class="metric">
+                                <i class="fas fa-globe"></i>
+                                <span>Web Corporativa</span>
+                            </div>
+                        </div>
+                        <div class="project-links">
+                            <a href="projects/healthyfood-web.html" class="btn btn-small btn-primary">
+                                <i class="fas fa-eye"></i> Ver Proyecto
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Proyecto 4: Sistema Web Ferretería DSA -->
+                <div class="project-card" data-category="web" data-tech="Node.js,Express,React,MySQL,JWT,PDF Generator" data-date="2024-03-05" data-animate="fade-in-up" data-delay="400">
+                    <div class="project-status completed">Completado</div>
+                    <div class="project-image">
+                        <img src="https://via.placeholder.com/400x250/525252/ffffff?text=Sistema+Ferreteria+DSA" alt="Sistema Web Ferretería DSA" class="project-thumbnail">
+                        <div class="project-overlay">
+                            <div class="overlay-buttons">
+                                <a href="projects/ferreteria-dsa.html" class="overlay-btn" title="Más Información">
+                                    <i class="fas fa-info-circle"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-header">
+                            <h3>Sistema Web de Gestión de Inventarios y Ventas - Ferretería DSA</h3>
+                            <div class="project-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <p class="project-description">Sistema integral para la gestión de inventarios y ventas en la Ferretería DSA, permitiendo la creación de usuarios, gestión de productos, generación de ventas y reportes, y control en tiempo real del stock.</p>
+                        <div class="project-features">
+                            <span class="feature">
+                                <i class="fas fa-check"></i>
+                                Gestión completa de inventarios
+                            </span>
+                            <span class="feature">
+                                <i class="fas fa-check"></i>
+                                Sistema de ventas integrado
+                            </span>
+                            <span class="feature">
+                                <i class="fas fa-check"></i>
+                                Generación de reportes PDF
+                            </span>
+                        </div>
+                        <div class="project-tech">
+                            <span class="tech-tag primary">React</span>
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">Express</span>
+                            <span class="tech-tag">MySQL</span>
+                            <span class="tech-tag">JWT</span>
+                            <span class="tech-tag">PDF Generator</span>
+                        </div>
+                        <div class="project-metrics">
+                            <div class="metric">
+                                <i class="fas fa-tools"></i>
+                                <span>Ferretería DSA</span>
+                            </div>
+                            <div class="metric">
+                                <i class="fas fa-clock"></i>
+                                <span>1 mes desarrollo</span>
+                            </div>
+                            <div class="metric">
+                                <i class="fas fa-chart-line"></i>
+                                <span>Control tiempo real</span>
+                            </div>
+                        </div>
+                        <div class="project-links">
+                            <a href="projects/ferreteria-dsa.html" class="btn btn-small btn-primary">
+                                <i class="fas fa-eye"></i> Ver Proyecto
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Proyecto 5: E-commerce MADECOR -->
+                <div class="project-card featured" data-category="web" data-tech="Spring Boot,Angular,PostgreSQL,Stripe" data-date="2024-02-12" data-animate="fade-in-up" data-delay="500">
+                    <div class="project-status completed">Completado</div>
+                    <div class="project-featured-badge">
+                        <i class="fas fa-crown"></i>
+                        Premium
+                    </div>
+                    <div class="project-image">
+                        <img src="https://via.placeholder.com/400x250/ea580c/ffffff?text=E-commerce+MADECOR" alt="E-commerce MADECOR" class="project-thumbnail">
+                        <div class="project-overlay">
+                            <div class="overlay-buttons">
+                                <a href="projects/madecor-ecommerce.html" class="overlay-btn" title="Más Información">
+                                    <i class="fas fa-info-circle"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-header">
+                            <h3>Ecommerce de Venta de Material Didáctico - MADECOR</h3>
+                            <div class="project-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <p class="project-description">Plataforma de ecommerce para la venta de material didáctico, con catálogo de productos, carrito de compras, pasarela de pago y generación de facturas. Desarrollada con Spring Boot en el backend y Angular en el frontend.</p>
+                        <div class="project-features">
+                            <span class="feature">
+                                <i class="fas fa-check"></i>
+                                Catálogo completo de productos
+                            </span>
+                            <span class="feature">
+                                <i class="fas fa-check"></i>
+                                Carrito de compras avanzado
+                            </span>
+                            <span class="feature">
+                                <i class="fas fa-check"></i>
+                                Pasarela de pago Stripe
+                            </span>
+                        </div>
+                        <div class="project-tech">
+                            <span class="tech-tag primary">Spring Boot</span>
+                            <span class="tech-tag">Angular</span>
+                            <span class="tech-tag">PostgreSQL</span>
+                            <span class="tech-tag">Stripe</span>
+                        </div>
+                        <div class="project-metrics">
+                            <div class="metric">
+                                <i class="fas fa-graduation-cap"></i>
+                                <span>MADECOR</span>
+                            </div>
+                            <div class="metric">
+                                <i class="fas fa-clock"></i>
+                                <span>1 mes desarrollo</span>
+                            </div>
+                            <div class="metric">
+                                <i class="fas fa-shopping-cart"></i>
+                                <span>E-commerce</span>
+                            </div>
+                        </div>
+                        <div class="project-links">
+                            <a href="projects/madecor-ecommerce.html" class="btn btn-small btn-primary">
+                                <i class="fas fa-eye"></i> Ver Proyecto
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Proyecto 6: Plataforma Linxspector -->
+                <div class="project-card" data-category="web" data-tech="Python,Django,React,Vite,MySQL,Chart.js,Plotly,Matplotlib" data-date="2024-01-25" data-animate="fade-in-up" data-delay="600">
+                    <div class="project-status completed">Completado</div>
+                    <div class="project-image">
+                        <img src="https://via.placeholder.com/400x250/dc2626/ffffff?text=Plataforma+Linxspector" alt="Plataforma de Monitoreo Linxspector" class="project-thumbnail">
+                        <div class="project-overlay">
+                            <div class="overlay-buttons">
+                                <a href="projects/linxspector.html" class="overlay-btn" title="Más Información">
+                                    <i class="fas fa-info-circle"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-header">
+                            <h3>Plataforma de Monitoreo de Recursos - Linxspector</h3>
+                            <div class="project-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <p class="project-description">Plataforma de monitoreo en tiempo real de los recursos computacionales de equipos Linux y Windows. Permite visualizar estadísticas de uso de CPU, RAM, disco y red, con alertas automáticas y reportes generados para facilitar la administración de los recursos.</p>
+                        <div class="project-features">
+                            <span class="feature">
+                                <i class="fas fa-check"></i>
+                                Monitoreo CPU, RAM, disco y red
+                            </span>
+                            <span class="feature">
+                                <i class="fas fa-check"></i>
+                                Alertas automáticas
+                            </span>
+                            <span class="feature">
+                                <i class="fas fa-check"></i>
+                                Visualización con gráficos avanzados
                             </span>
                         </div>
                         <div class="project-tech">
                             <span class="tech-tag primary">Python</span>
                             <span class="tech-tag">Django</span>
-                            <span class="tech-tag">PostgreSQL</span>
-                            <span class="tech-tag">Docker</span>
-                            <span class="tech-tag">Redis</span>
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">Vite</span>
+                            <span class="tech-tag">MySQL</span>
+                            <span class="tech-tag">Chart.js</span>
                         </div>
                         <div class="project-metrics">
                             <div class="metric">
-                                <i class="fas fa-users"></i>
-                                <span>150+ usuarios</span>
+                                <i class="fas fa-desktop"></i>
+                                <span>Linux & Windows</span>
                             </div>
                             <div class="metric">
                                 <i class="fas fa-clock"></i>
-                                <span>8 meses desarrollo</span>
-                            </div>
-                            <div class="metric">
-                                <i class="fas fa-modules"></i>
-                                <span>12 módulos integrados</span>
-                            </div>
-                        </div>
-                        <div class="project-links">
-                            <button class="btn btn-small btn-primary" onclick="openProjectModal('erp')">
-                                <i class="fas fa-info-circle"></i> Más Información
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Proyecto 5 - Aplicación de Escritorio -->
-                <div class="project-card" data-category="desktop" data-tech="C++,Qt,SQLite,Windows API" data-date="2024-02-12" data-animate="fade-in-up" data-delay="500">
-                    <div class="project-status completed">Completado</div>
-                    <div class="project-image">
-                        <div class="project-icon">
-                            <i class="fas fa-desktop"></i>
-                        </div>
-                        <div class="project-overlay">
-                            <div class="overlay-buttons">
-                                <button class="overlay-btn" title="Más Información" onclick="openProjectModal('desktop')">
-                                    <i class="fas fa-info-circle"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <div class="project-header">
-                            <h3>Sistema de Gestión Clínica</h3>
-                            <div class="project-rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                        </div>
-                        <p>Aplicación de escritorio para gestión clínica completa con historia clínica electrónica, agenda de citas, facturación, inventario médico y reportes estadísticos. Cumple con normativas de protección de datos.</p>
-                        <div class="project-features">
-                            <span class="feature">
-                                <i class="fas fa-check"></i>
-                                Historia clínica digital
-                            </span>
-                            <span class="feature">
-                                <i class="fas fa-check"></i>
-                                Gestión de citas
-                            </span>
-                            <span class="feature">
-                                <i class="fas fa-check"></i>
-                                Facturación integrada
-                            </span>
-                        </div>
-                        <div class="project-tech">
-                            <span class="tech-tag primary">C++</span>
-                            <span class="tech-tag">Qt Framework</span>
-                            <span class="tech-tag">SQLite</span>
-                            <span class="tech-tag">Windows API</span>
-                            <span class="tech-tag">Crystal Reports</span>
-                        </div>
-                        <div class="project-metrics">
-                            <div class="metric">
-                                <i class="fas fa-user-md"></i>
-                                <span>3 clínicas activas</span>
-                            </div>
-                            <div class="metric">
-                                <i class="fas fa-clock"></i>
-                                <span>6 meses desarrollo</span>
-                            </div>
-                            <div class="metric">
-                                <i class="fas fa-users"></i>
-                                <span>50+ usuarios</span>
-                            </div>
-                        </div>
-                        <div class="project-links">
-                            <button class="btn btn-small btn-primary" onclick="openProjectModal('desktop')">
-                                <i class="fas fa-info-circle"></i> Más Información
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Proyecto 6 - E-commerce de Moda -->
-                <div class="project-card" data-category="web" data-tech="Next.js,TypeScript,MongoDB,Stripe" data-date="2024-01-25" data-animate="fade-in-up" data-delay="600">
-                    <div class="project-status completed">Completado</div>
-                    <div class="project-image">
-                        <div class="project-icon">
-                            <i class="fas fa-tshirt"></i>
-                        </div>
-                        <div class="project-overlay">
-                            <div class="overlay-buttons">
-                                <button class="overlay-btn" title="Más Información" onclick="openProjectModal('fashion')">
-                                    <i class="fas fa-info-circle"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <div class="project-header">
-                            <h3>E-commerce de Moda</h3>
-                            <div class="project-rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                        </div>
-                        <p>Tienda online especializada en moda con catálogo avanzado, filtros inteligentes, recomendaciones personalizadas, wishlist, múltiples métodos de pago y sistema de reviews con fotos.</p>
-                        <div class="project-features">
-                            <span class="feature">
-                                <i class="fas fa-check"></i>
-                                Recomendaciones IA
-                            </span>
-                            <span class="feature">
-                                <i class="fas fa-check"></i>
-                                Filtros avanzados
-                            </span>
-                            <span class="feature">
-                                <i class="fas fa-check"></i>
-                                Reviews con imágenes
-                            </span>
-                        </div>
-                        <div class="project-tech">
-                            <span class="tech-tag primary">Next.js</span>
-                            <span class="tech-tag">TypeScript</span>
-                            <span class="tech-tag">MongoDB</span>
-                            <span class="tech-tag">Stripe</span>
-                            <span class="tech-tag">Cloudinary</span>
-                        </div>
-                        <div class="project-metrics">
-                            <div class="metric">
-                                <i class="fas fa-shopping-bag"></i>
-                                <span>2,000+ productos</span>
-                            </div>
-                            <div class="metric">
-                                <i class="fas fa-clock"></i>
-                                <span>4 meses desarrollo</span>
+                                <span>2 meses desarrollo</span>
                             </div>
                             <div class="metric">
                                 <i class="fas fa-chart-line"></i>
-                                <span>30% conv. rate</span>
+                                <span>Tiempo real</span>
                             </div>
                         </div>
                         <div class="project-links">
-                            <button class="btn btn-small btn-primary" onclick="openProjectModal('fashion')">
-                                <i class="fas fa-info-circle"></i> Más Información
-                            </button>
+                            <a href="projects/linxspector.html" class="btn btn-small btn-primary">
+                                <i class="fas fa-eye"></i> Ver Proyecto
+                            </a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Proyecto 7 - Desktop File Manager -->
-                <div class="project-card" data-category="desktop" data-tech="Electron,Vue.js,Node.js,SQLite" data-date="2024-02-28" data-animate="fade-in-up" data-delay="700">
+                <!-- Proyecto 7: SaaS BookTech -->
+                <div class="project-card featured" data-category="web" data-tech="Spring Boot,PostgreSQL,React,RabbitMQ,Eureka,Kubernetes" data-date="2024-02-28" data-animate="fade-in-up" data-delay="700">
+                    <div class="project-status completed">Completado</div>
+                    <div class="project-featured-badge">
+                        <i class="fas fa-rocket"></i>
+                        SaaS
+                    </div>
+                    <div class="project-image">
+                        <img src="https://via.placeholder.com/400x250/3b82f6/ffffff?text=SaaS+BookTech" alt="SaaS BookTech Gestión de Publicaciones" class="project-thumbnail">
+                        <div class="project-overlay">
+                            <div class="overlay-buttons">
+                                <a href="projects/booktech-saas.html" class="overlay-btn" title="Más Información">
+                                    <i class="fas fa-info-circle"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-header">
+                            <h3>SaaS BookTech - Gestión de Publicaciones y Libros</h3>
+                            <div class="project-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <p class="project-description">Plataforma SaaS para la gestión de publicaciones académicas y libros, orientada a librerías y bibliotecas. Usa una arquitectura de microservicios para garantizar escalabilidad y flexibilidad en su implementación, con un frontend en React.</p>
+                        <div class="project-features">
+                            <span class="feature">
+                                <i class="fas fa-check"></i>
+                                Arquitectura de microservicios
+                            </span>
+                            <span class="feature">
+                                <i class="fas fa-check"></i>
+                                Gestión de publicaciones académicas
+                            </span>
+                            <span class="feature">
+                                <i class="fas fa-check"></i>
+                                Escalabilidad con Kubernetes
+                            </span>
+                        </div>
+                        <div class="project-tech">
+                            <span class="tech-tag primary">Spring Boot</span>
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">PostgreSQL</span>
+                            <span class="tech-tag">RabbitMQ</span>
+                            <span class="tech-tag">Eureka</span>
+                            <span class="tech-tag">Kubernetes</span>
+                        </div>
+                        <div class="project-metrics">
+                            <div class="metric">
+                                <i class="fas fa-book"></i>
+                                <span>Librerías & Bibliotecas</span>
+                            </div>
+                            <div class="metric">
+                                <i class="fas fa-clock"></i>
+                                <span>3 meses desarrollo</span>
+                            </div>
+                            <div class="metric">
+                                <i class="fas fa-cogs"></i>
+                                <span>Microservicios</span>
+                            </div>
+                        </div>
+                        <div class="project-links">
+                            <a href="projects/booktech-saas.html" class="btn btn-small btn-primary">
+                                <i class="fas fa-eye"></i> Ver Proyecto
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Proyecto 8: App Híbrida Cotopaxi -->
+                <div class="project-card" data-category="mobile" data-tech="PHP,JavaScript,Google Maps API,Chatbot" data-date="2024-03-15" data-animate="fade-in-up" data-delay="800">
                     <div class="project-status completed">Completado</div>
                     <div class="project-image">
-                        <div class="project-icon">
-                            <i class="fas fa-folder-open"></i>
-                        </div>
+                        <img src="https://via.placeholder.com/400x250/7c2d12/ffffff?text=App+Cotopaxi+Evacuacion" alt="App Híbrida Cotopaxi Evacuación" class="project-thumbnail">
                         <div class="project-overlay">
                             <div class="overlay-buttons">
-                                <a href="#" class="overlay-btn" title="Descargar">
-                                    <i class="fas fa-download"></i>
-                                </a>
-                                <a href="#" class="overlay-btn" title="Ver Código">
-                                    <i class="fab fa-github"></i>
-                                </a>
-                                <button class="overlay-btn" title="Más Detalles">
+                                <a href="projects/cotopaxi-evacuacion.html" class="overlay-btn" title="Más Información">
                                     <i class="fas fa-info-circle"></i>
-                                </button>
+                                </a>
                             </div>
                         </div>
                     </div>
                     <div class="project-content">
                         <div class="project-header">
-                            <h3>File Manager Pro</h3>
+                            <h3>Aplicación Híbrida para Rutas de Evacuación en Caso de Erupción del Volcán Cotopaxi</h3>
                             <div class="project-rating">
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>
-                                <i class="far fa-star"></i>
+                                <i class="fas fa-star"></i>
                             </div>
                         </div>
-                        <p class="project-description">Administrador de archivos avanzado para escritorio con funciones de organización inteligente, búsqueda rápida y sincronización en la nube.</p>
+                        <p class="project-description">Aplicación híbrida para calcular rutas de evacuación seguras en caso de erupción del volcán Cotopaxi. La app proporciona rutas óptimas hacia puntos seguros, integrando un chatbot educativo para informar a la comunidad.</p>
                         <div class="project-features">
                             <span class="feature">
                                 <i class="fas fa-check"></i>
-                                Organización automática
+                                Rutas de evacuación óptimas
                             </span>
                             <span class="feature">
                                 <i class="fas fa-check"></i>
-                                Búsqueda instantánea
+                                Chatbot educativo integrado
                             </span>
                             <span class="feature">
                                 <i class="fas fa-check"></i>
-                                Sincronización cloud
+                                Navegación a puntos seguros
                             </span>
                         </div>
                         <div class="project-tech">
-                            <span class="tech-tag primary">Electron</span>
-                            <span class="tech-tag">Vue.js</span>
-                            <span class="tech-tag">Node.js</span>
-                            <span class="tech-tag">SQLite</span>
+                            <span class="tech-tag primary">PHP</span>
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">Google Maps API</span>
+                            <span class="tech-tag">Chatbot</span>
                         </div>
                         <div class="project-metrics">
                             <div class="metric">
-                                <i class="fas fa-code"></i>
-                                <span>12,000+ líneas</span>
+                                <i class="fas fa-mountain"></i>
+                                <span>Volcán Cotopaxi</span>
                             </div>
                             <div class="metric">
                                 <i class="fas fa-clock"></i>
-                                <span>2.5 meses</span>
+                                <span>1 mes desarrollo</span>
                             </div>
                             <div class="metric">
-                                <i class="fas fa-download"></i>
-                                <span>5,000+ descargas</span>
+                                <i class="fas fa-shield-alt"></i>
+                                <span>Emergencias</span>
                             </div>
                         </div>
                         <div class="project-links">
-                            <a href="#" class="btn btn-small btn-primary">
-                                <i class="fas fa-download"></i> Descargar
-                            </a>
-                            <a href="#" class="btn btn-small btn-secondary">
-                                <i class="fab fa-github"></i> Código
+                            <a href="projects/cotopaxi-evacuacion.html" class="btn btn-small btn-primary">
+                                <i class="fas fa-eye"></i> Ver Proyecto
                             </a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Proyecto 8 - Code Editor -->
-                <div class="project-card" data-category="desktop" data-tech="Electron,TypeScript,Monaco Editor,Node.js" data-date="2024-03-15" data-animate="fade-in-up" data-delay="800">
-                    <div class="project-status in-progress">En Desarrollo</div>
+                <!-- Proyecto 9: LiveChat Cifrado -->
+                <div class="project-card" data-category="web" data-tech="Node.js,Express,React,TypeScript,MongoDB,WebSockets,JWT,CryptoJS" data-date="2024-03-01" data-animate="fade-in-up" data-delay="900">
+                    <div class="project-status completed">Completado</div>
                     <div class="project-image">
-                        <div class="project-icon">
-                            <i class="fas fa-code"></i>
-                        </div>
+                        <img src="https://via.placeholder.com/400x250/6b21a8/ffffff?text=LiveChat+Cifrado" alt="Aplicación Web LiveChat Cifrado" class="project-thumbnail">
                         <div class="project-overlay">
                             <div class="overlay-buttons">
-                                <a href="#" class="overlay-btn" title="Vista Previa">
-                                    <i class="fas fa-eye"></i>
-                                </a>
-                                <a href="#" class="overlay-btn" title="Ver Código">
-                                    <i class="fab fa-github"></i>
-                                </a>
-                                <button class="overlay-btn" title="Más Detalles">
+                                <a href="projects/livechat.html" class="overlay-btn" title="Más Información">
                                     <i class="fas fa-info-circle"></i>
-                                </button>
+                                </a>
                             </div>
                         </div>
                     </div>
                     <div class="project-content">
                         <div class="project-header">
-                            <h3>DevStudio Editor</h3>
+                            <h3>Aplicación Web de Chat en Tiempo Real Cifrado - LiveChat</h3>
                             <div class="project-rating">
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>
@@ -749,47 +796,48 @@
                                 <i class="fas fa-star"></i>
                             </div>
                         </div>
-                        <p class="project-description">Editor de código moderno y extensible con soporte para múltiples lenguajes, plugins, terminal integrado y Git incorporado.</p>
+                        <p class="project-description">Aplicación de chat en tiempo real con cifrado extremo a extremo, desarrollada para proporcionar comunicaciones seguras. Permite a los usuarios interactuar en tiempo real con respuestas instantáneas, manteniendo la privacidad de las conversaciones.</p>
                         <div class="project-features">
                             <span class="feature">
                                 <i class="fas fa-check"></i>
-                                IntelliSense avanzado
+                                Cifrado extremo a extremo
                             </span>
                             <span class="feature">
                                 <i class="fas fa-check"></i>
-                                Terminal integrado
+                                Comunicación en tiempo real
                             </span>
                             <span class="feature">
-                                <i class="fas fa-clock"></i>
-                                Sistema de plugins
+                                <i class="fas fa-check"></i>
+                                Privacidad de conversaciones
                             </span>
                         </div>
                         <div class="project-tech">
-                            <span class="tech-tag primary">Electron</span>
+                            <span class="tech-tag primary">Node.js</span>
+                            <span class="tech-tag">Express</span>
+                            <span class="tech-tag">React</span>
                             <span class="tech-tag">TypeScript</span>
-                            <span class="tech-tag">Monaco Editor</span>
-                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">MongoDB</span>
+                            <span class="tech-tag">WebSockets</span>
+                            <span class="tech-tag">JWT</span>
+                            <span class="tech-tag">CryptoJS</span>
                         </div>
                         <div class="project-metrics">
                             <div class="metric">
-                                <i class="fas fa-code"></i>
-                                <span>18,000+ líneas</span>
+                                <i class="fas fa-comments"></i>
+                                <span>Chat Seguro</span>
                             </div>
                             <div class="metric">
                                 <i class="fas fa-clock"></i>
-                                <span>4 meses</span>
+                                <span>2 semanas desarrollo</span>
                             </div>
                             <div class="metric">
-                                <i class="fas fa-percentage"></i>
-                                <span>75% completado</span>
+                                <i class="fas fa-lock"></i>
+                                <span>Cifrado E2E</span>
                             </div>
                         </div>
                         <div class="project-links">
-                            <a href="#" class="btn btn-small btn-primary">
-                                <i class="fas fa-eye"></i> Vista Previa
-                            </a>
-                            <a href="#" class="btn btn-small btn-secondary">
-                                <i class="fab fa-github"></i> Código
+                            <a href="projects/livechat.html" class="btn btn-small btn-primary">
+                                <i class="fas fa-eye"></i> Ver Proyecto
                             </a>
                         </div>
                     </div>
@@ -801,9 +849,9 @@
             <div class="load-more-section" data-animate="fade-in-up" data-delay="700">
                 <button class="btn btn-secondary btn-large" id="loadMoreBtn">
                     <i class="fas fa-plus-circle"></i>
-                    Cargar Más Proyectos
+                    Ver Todos los Proyectos
                 </button>
-                <p class="load-more-text">Mostrando 6 de 12 proyectos</p>
+                <p class="load-more-text">Mostrando 9 proyectos completados</p>
             </div>
         </div>
     </section>

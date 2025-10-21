@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema Web de Gestión RRHH HealthyFood - Elkinext Solutions</title>
+    <meta name="description" content="Sistema web completo de gestión de recursos humanos desarrollado para HealthyFood">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/navigation.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="../css/styles.css">
+    
+    <!-- Global Theme Manager -->
+    <script src="../js/theme.js"></script>
+    
+    <!-- Project Specific CSS -->
+    <style>
+        .project-hero {
+            background: linear-gradient(135deg, var(--primary-green) 0%, var(--primary-green-dark) 100%);
+            padding: var(--space-20) 0 var(--space-16);
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .project-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+        
+        .project-hero .container {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .project-title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: var(--space-4);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .project-subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: var(--space-8);
+        }
+        
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-2);
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: var(--space-3) var(--space-6);
+            border-radius: var(--border-radius);
+            text-decoration: none;
+            transition: var(--transition);
+            margin-bottom: var(--space-8);
+        }
+        
+        .back-button:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateX(-5px);
+        }
+        
+        .project-carousel {
+            background: var(--bg-primary);
+            padding: var(--space-16) 0;
+        }
+        
+        .carousel-container {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            overflow: hidden;
+            border-radius: var(--border-radius-lg);
+            box-shadow: 0 20px 40px var(--shadow-lg);
+        }
+        
+        .carousel-slides {
+            display: flex;
+            transition: transform 0.8s ease;
+        }
+        
+        .carousel-slide {
+            min-width: 100%;
+            position: relative;
+        }
+        
+        .carousel-slide img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .carousel-navigation {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+        
+        .carousel-navigation:hover {
+            background: rgba(0, 0, 0, 0.8);
+            transform: translateY(-50%) scale(1.1);
+        }
+        
+        .carousel-prev {
+            left: 20px;
+        }
+        
+        .carousel-next {
+            right: 20px;
+        }
+        
+        .carousel-indicators {
+            display: flex;
+            justify-content: center;
+            gap: var(--space-2);
+            margin-top: var(--space-4);
+        }
+        
+        .carousel-indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--border-color);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .carousel-indicator.active {
+            background: var(--primary-green);
+            transform: scale(1.2);
+        }
+        
+        .project-details {
+            background: var(--bg-secondary);
+            padding: var(--space-16) 0;
+        }
+        
+        .details-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-12);
+            margin-bottom: var(--space-12);
+        }
+        
+        .detail-card {
+            background: var(--bg-primary);
+            padding: var(--space-8);
+            border-radius: var(--border-radius-lg);
+            box-shadow: 0 4px 15px var(--shadow);
+            border-left: 4px solid var(--primary-green);
+        }
+        
+        .detail-card h3 {
+            color: var(--primary-green);
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: var(--space-4);
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+        }
+        
+        .project-description {
+            grid-column: 1 / -1;
+            background: var(--bg-primary);
+            padding: var(--space-8);
+            border-radius: var(--border-radius-lg);
+            box-shadow: 0 4px 15px var(--shadow);
+        }
+        
+        .project-description h3 {
+            color: var(--primary-green);
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: var(--space-6);
+            text-align: center;
+        }
+        
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-3);
+            margin-top: var(--space-4);
+        }
+        
+        .tech-item {
+            background: var(--primary-green);
+            color: white;
+            padding: var(--space-2) var(--space-4);
+            border-radius: var(--border-radius);
+            font-size: var(--font-size-sm);
+            font-weight: 500;
+        }
+        
+        @media (max-width: 768px) {
+            .project-title {
+                font-size: 2rem;
+            }
+            
+            .details-grid {
+                grid-template-columns: 1fr;
+                gap: var(--space-6);
+            }
+            
+            .carousel-slide img {
+                height: 300px;
+            }
+            
+            .carousel-navigation {
+                width: 40px;
+                height: 40px;
+            }
+        }
+    </style>
+</head>
+<body class="dark-theme">
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="../index.html" class="nav-logo">
+                <span class="logo-text">Elkinext</span>
+                <span class="logo-accent">Solutions</span>
+            </a>
+            
+            <div class="nav-menu" id="nav-menu">
+                <a href="../index.html" class="nav-link">Inicio</a>
+                <a href="../index.html#about" class="nav-link">Nosotros</a>
+                <a href="../index.html#skills" class="nav-link">Tecnologías</a>
+                <a href="../projects.html" class="nav-link active">Proyectos</a>
+                <a href="../index.html#contact" class="nav-link">Contacto</a>
+            </div>
+            
+            <div class="nav-toggle" id="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Project Hero -->
+    <section class="project-hero">
+        <div class="container">
+            <a href="../projects.html" class="back-button">
+                <i class="fas fa-arrow-left"></i>
+                Volver a Proyectos
+            </a>
+            <h1 class="project-title">Sistema Web de Gestión RRHH</h1>
+            <p class="project-subtitle">HealthyFood - Plataforma integral de recursos humanos</p>
+        </div>
+    </section>
+
+    <!-- Project Carousel -->
+    <section class="project-carousel">
+        <div class="container">
+            <div class="carousel-container">
+                <div class="carousel-slides" id="carousel-slides">
+                    <div class="carousel-slide">
+                        <img src="https://via.placeholder.com/800x500/10b981/ffffff?text=Dashboard+Principal" alt="Dashboard Principal">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="https://via.placeholder.com/800x500/10b981/ffffff?text=Gestión+Empleados" alt="Gestión de Empleados">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="https://via.placeholder.com/800x500/10b981/ffffff?text=Nómina+y+Pagos" alt="Nómina y Pagos">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="https://via.placeholder.com/800x500/10b981/ffffff?text=Reportes+y+Analytics" alt="Reportes y Analytics">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="https://via.placeholder.com/800x500/10b981/ffffff?text=Control+de+Asistencia" alt="Control de Asistencia">
+                    </div>
+                </div>
+                
+                <button class="carousel-navigation carousel-prev" onclick="previousSlide()">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="carousel-navigation carousel-next" onclick="nextSlide()">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+            
+            <div class="carousel-indicators" id="carousel-indicators">
+                <div class="carousel-indicator active" onclick="goToSlide(0)"></div>
+                <div class="carousel-indicator" onclick="goToSlide(1)"></div>
+                <div class="carousel-indicator" onclick="goToSlide(2)"></div>
+                <div class="carousel-indicator" onclick="goToSlide(3)"></div>
+                <div class="carousel-indicator" onclick="goToSlide(4)"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Details -->
+    <section class="project-details">
+        <div class="container">
+            <div class="details-grid">
+                <div class="detail-card">
+                    <h3><i class="fas fa-building"></i> Cliente</h3>
+                    <p><strong>HealthyFood S.A.</strong></p>
+                    <p>Empresa líder en el sector alimentario saludable, con más de 500 empleados distribuidos en múltiples sucursales a nivel nacional.</p>
+                </div>
+                
+                <div class="detail-card">
+                    <h3><i class="fas fa-clock"></i> Tiempo de Desarrollo</h3>
+                    <p><strong>3 meses</strong></p>
+                    <p>Desarrollo completo desde análisis de requisitos hasta implementación y capacitación del personal.</p>
+                </div>
+                
+                <div class="detail-card">
+                    <h3><i class="fas fa-users"></i> Stack Tecnológico</h3>
+                    <ul>
+                        <li><strong>Backend:</strong> Node.js, Express</li>
+                        <li><strong>Frontend:</strong> React</li>
+                        <li><strong>Base de datos:</strong> MongoDB</li>
+                        <li><strong>Autenticación:</strong> JWT</li>
+                        <li><strong>Códigos QR:</strong> QR Code Generator</li>
+                    </ul>
+                </div>
+                
+                <div class="detail-card">
+                    <h3><i class="fas fa-cogs"></i> Tecnologías Utilizadas</h3>
+                    <div class="tech-stack">
+                        <span class="tech-item"><i class="fab fa-react"></i> React</span>
+                        <span class="tech-item"><i class="fab fa-node-js"></i> Node.js</span>
+                        <span class="tech-item"><i class="fas fa-server"></i> Express</span>
+                        <span class="tech-item"><i class="fas fa-database"></i> MongoDB</span>
+                        <span class="tech-item"><i class="fas fa-key"></i> JWT</span>
+                        <span class="tech-item"><i class="fas fa-qrcode"></i> QR Code Generator</span>
+                    </div>
+                </div>
+                
+                <div class="project-description">
+                    <h3><i class="fas fa-file-alt"></i> Descripción del Proyecto</h3>
+                    <p>
+                        Sistema completo de gestión de recursos humanos para la empresa Healthy Food, diseñado para automatizar 
+                        procesos como el cálculo de horas trabajadas, la generación de reportes de pago, la gestión de empleados 
+                        y áreas de trabajo, y la emisión de credenciales con código QR.
+                    </p>
+                    <br>
+                    <p>
+                        <strong>Funcionalidades principales:</strong>
+                    </p>
+                    <ul>
+                        <li><strong>Cálculo de Horas Trabajadas:</strong> Sistema automático para el registro y cálculo de horas laborales</li>
+                        <li><strong>Generación de Reportes de Pago:</strong> Reportes detallados y automáticos de nómina</li>
+                        <li><strong>Gestión de Empleados:</strong> Administración completa de la información del personal</li>
+                        <li><strong>Gestión de Áreas de Trabajo:</strong> Organización por departamentos y áreas funcionales</li>
+                        <li><strong>Credenciales con Código QR:</strong> Emisión de credenciales digitales con códigos QR únicos</li>
+                        <li><strong>Control de Acceso:</strong> Sistema de autenticación JWT para seguridad</li>
+                        <li><strong>Dashboard Administrativo:</strong> Panel de control para supervisores y administradores</li>
+                    </ul>
+                    <br>
+                    <p>
+                        El sistema automatizó completamente los procesos de RRHH de Healthy Food, reduciendo 
+                        significativamente el tiempo de procesamiento de nóminas y mejorando la precisión en el 
+                        control de asistencia mediante el uso de códigos QR únicos para cada empleado.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <h3>Elkinext Solutions</h3>
+                        <p>Transformando ideas en soluciones tecnológicas innovadoras</p>
+                    </div>
+                    <div class="footer-social">
+                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Servicios</h4>
+                    <ul>
+                        <li><a href="#">Desarrollo Web</a></li>
+                        <li><a href="#">Aplicaciones Móviles</a></li>
+                        <li><a href="#">Sistemas Empresariales</a></li>
+                        <li><a href="#">Consultoría IT</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Contacto</h4>
+                    <div class="contact-info">
+                        <p><i class="fas fa-envelope"></i> elkin.pabon@elkinext.com</p>
+                        <p><i class="fas fa-phone"></i> +57 300 123 4567</p>
+                        <p><i class="fas fa-map-marker-alt"></i> Bogotá, Colombia</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Elkinext Solutions. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.carousel-slide');
+        const indicators = document.querySelectorAll('.carousel-indicator');
+        const totalSlides = slides.length;
+
+        function updateCarousel() {
+            const slidesContainer = document.getElementById('carousel-slides');
+            slidesContainer.style.transform = `translateX(-${currentSlide * 100}%)`;
+            
+            indicators.forEach((indicator, index) => {
+                indicator.classList.toggle('active', index === currentSlide);
+            });
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            updateCarousel();
+        }
+
+        function previousSlide() {
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            updateCarousel();
+        }
+
+        function goToSlide(index) {
+            currentSlide = index;
+            updateCarousel();
+        }
+
+        // Auto-advance slides
+        setInterval(nextSlide, 5000);
+
+        // Navigation toggle
+        const navToggle = document.getElementById('nav-toggle');
+        const navMenu = document.getElementById('nav-menu');
+
+        navToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

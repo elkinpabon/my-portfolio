@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App Cotopaxi - Evacuación de Emergencias - Elkinext Solutions</title>
+    <meta name="description" content="Aplicación móvil para evacuación de emergencias del volcán Cotopaxi con geolocalización y alertas en tiempo real">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/navigation.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="../css/styles.css">
+    
+    <!-- Global Theme Manager -->
+    <script src="../js/theme.js"></script>
+</head>
+<body class="dark-theme">
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="../index.html" class="nav-logo">
+                <span class="logo-text">Elkinext</span>
+                <span class="logo-accent">Solutions</span>
+            </a>
+            
+            <div class="nav-menu" id="nav-menu">
+                <a href="../index.html" class="nav-link">Inicio</a>
+                <a href="../index.html#about" class="nav-link">Nosotros</a>
+                <a href="../index.html#skills" class="nav-link">Tecnologías</a>
+                <a href="../projects.html" class="nav-link active">Proyectos</a>
+                <a href="../index.html#contact" class="nav-link">Contacto</a>
+            </div>
+            
+            <div class="nav-toggle" id="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Project Hero -->
+    <section class="project-hero" style="background: linear-gradient(135deg, #dc2626 0%, #f87171 100%); padding: var(--space-20) 0 var(--space-16); color: white; text-align: center; position: relative; overflow: hidden;">
+        <div class="container">
+            <a href="../projects.html" class="back-button" style="display: inline-flex; align-items: center; gap: var(--space-2); background: rgba(255, 255, 255, 0.2); color: white; padding: var(--space-3) var(--space-6); border-radius: var(--border-radius); text-decoration: none; transition: var(--transition); margin-bottom: var(--space-8);">
+                <i class="fas fa-arrow-left"></i>
+                Volver a Proyectos
+            </a>
+            <h1 style="font-size: 3rem; font-weight: 700; margin-bottom: var(--space-4); text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);">App Cotopaxi</h1>
+            <p style="font-size: 1.2rem; opacity: 0.9; margin-bottom: var(--space-8);">Sistema de evacuación de emergencias volcánicas</p>
+        </div>
+    </section>
+
+    <!-- Project Description -->
+    <section style="padding: var(--space-16) 0; background: var(--bg-primary);">
+        <div class="container">
+            <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+                <h3 style="font-size: 2.5rem; margin-bottom: var(--space-8); color: #dc2626;">Sobre el Proyecto</h3>
+                <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: var(--space-6); text-align: justify;">
+                    App Cotopaxi es una aplicación móvil desarrollada para el Instituto Geofísico del Ecuador 
+                    como sistema de alerta y evacuación ante posibles erupciones del volcán Cotopaxi. 
+                    Incluye geolocalización GPS, rutas de evacuación optimizadas, alertas push en tiempo real, 
+                    mapas offline y coordinación con centros de emergencia. Desarrollado en 6 meses para 
+                    50,000+ habitantes de zonas de riesgo.
+                </p>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: var(--space-6); margin-top: var(--space-8);">
+                    <div style="background: var(--bg-secondary); padding: var(--space-8); border-radius: var(--border-radius); text-align: center; border-left: 4px solid #dc2626;">
+                        <i class="fas fa-mountain" style="font-size: 3rem; color: #dc2626; margin-bottom: var(--space-4);"></i>
+                        <h4 style="font-size: 1.3rem; margin-bottom: var(--space-2); color: #dc2626;">Volcán Cotopaxi</h4>
+                        <p>Monitoreo y alertas especializadas</p>
+                    </div>
+                    <div style="background: var(--bg-secondary); padding: var(--space-8); border-radius: var(--border-radius); text-align: center; border-left: 4px solid #dc2626;">
+                        <i class="fas fa-users" style="font-size: 3rem; color: #dc2626; margin-bottom: var(--space-4);"></i>
+                        <h4 style="font-size: 1.3rem; margin-bottom: var(--space-2); color: #dc2626;">50,000+ Usuarios</h4>
+                        <p>Cobertura para zonas de riesgo volcánico</p>
+                    </div>
+                    <div style="background: var(--bg-secondary); padding: var(--space-8); border-radius: var(--border-radius); text-align: center; border-left: 4px solid #dc2626;">
+                        <i class="fas fa-clock" style="font-size: 3rem; color: #dc2626; margin-bottom: var(--space-4);"></i>
+                        <h4 style="font-size: 1.3rem; margin-bottom: var(--space-2); color: #dc2626;">6 Meses</h4>
+                        <p>Desarrollo con enfoque en emergencias</p>
+                    </div>
+                </div>
+                
+                <div style="margin-top: var(--space-12);">
+                    <h4 style="font-size: 1.8rem; margin-bottom: var(--space-6); color: #dc2626;">Funcionalidades Críticas</h4>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--space-4);">
+                        <ul style="text-align: left; background: var(--bg-secondary); padding: var(--space-6); border-radius: var(--border-radius); list-style: none;">
+                            <li style="padding: var(--space-2) 0; border-bottom: 1px solid var(--border-color);"><i class="fas fa-check" style="color: #dc2626; margin-right: var(--space-2);"></i>Alertas push en tiempo real</li>
+                            <li style="padding: var(--space-2) 0; border-bottom: 1px solid var(--border-color);"><i class="fas fa-check" style="color: #dc2626; margin-right: var(--space-2);"></i>Geolocalización GPS precisa</li>
+                            <li style="padding: var(--space-2) 0; border-bottom: 1px solid var(--border-color);"><i class="fas fa-check" style="color: #dc2626; margin-right: var(--space-2);"></i>Rutas de evacuación optimizadas</li>
+                            <li style="padding: var(--space-2) 0;"><i class="fas fa-check" style="color: #dc2626; margin-right: var(--space-2);"></i>Mapas offline para emergencias</li>
+                        </ul>
+                        <ul style="text-align: left; background: var(--bg-secondary); padding: var(--space-6); border-radius: var(--border-radius); list-style: none;">
+                            <li style="padding: var(--space-2) 0; border-bottom: 1px solid var(--border-color);"><i class="fas fa-check" style="color: #dc2626; margin-right: var(--space-2);"></i>Coordinación con centros de emergencia</li>
+                            <li style="padding: var(--space-2) 0; border-bottom: 1px solid var(--border-color);"><i class="fas fa-check" style="color: #dc2626; margin-right: var(--space-2);"></i>Kit de emergencia integrado</li>
+                            <li style="padding: var(--space-2) 0; border-bottom: 1px solid var(--border-color);"><i class="fas fa-check" style="color: #dc2626; margin-right: var(--space-2);"></i>Contactos de emergencia rápidos</li>
+                            <li style="padding: var(--space-2) 0;"><i class="fas fa-check" style="color: #dc2626; margin-right: var(--space-2);"></i>Historial de actividad volcánica</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <p style="font-size: 1.1rem; line-height: 1.8; margin-top: var(--space-8); text-align: justify;">
+                    <strong>Tecnologías utilizadas:</strong> React Native para desarrollo multiplataforma, 
+                    Google Maps API para navegación y rutas, Firebase para notificaciones push, 
+                    Socket.io para comunicación en tiempo real con centros de comando, y SQLite 
+                    para almacenamiento offline. La aplicación funciona sin conexión a internet 
+                    usando mapas y datos pre-descargados, garantizando operatividad durante emergencias.
+                </p>
+                
+                <div style="margin-top: var(--space-12); background: var(--bg-secondary); padding: var(--space-8); border-radius: var(--border-radius); border-left: 4px solid #dc2626;">
+                    <h4 style="font-size: 1.5rem; margin-bottom: var(--space-4); color: #dc2626;">
+                        <i class="fas fa-exclamation-triangle" style="margin-right: var(--space-2);"></i>
+                        Impacto Social
+                    </h4>
+                    <p style="line-height: 1.6; text-align: justify;">
+                        Esta aplicación forma parte del plan nacional de gestión de riesgos volcánicos del Ecuador. 
+                        Permite reducir significativamente los tiempos de evacuación y coordinar eficientemente 
+                        los recursos de emergencia. Ha sido adoptada por autoridades locales y servicios de 
+                        emergencia como herramienta oficial para la preparación ante erupciones volcánicas.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-text">
+                    <p>&copy; 2024 Elkinext Solutions. Transformando ideas en realidad tecnológica.</p>
+                </div>
+                <div class="footer-links">
+                    <a href="../index.html">Inicio</a>
+                    <a href="../projects.html">Proyectos</a>
+                    <a href="../index.html#contact">Contacto</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Mobile navigation
+        document.getElementById('nav-toggle').addEventListener('click', function() {
+            const navMenu = document.getElementById('nav-menu');
+            navMenu.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

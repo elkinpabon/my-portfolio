@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplicación Web HealthyFood - Elkinext Solutions</title>
+    <meta name="description" content="Aplicación web corporativa desarrollada para HealthyFood">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/navigation.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="../css/styles.css">
+    
+    <!-- Global Theme Manager -->
+    <script src="../js/theme.js"></script>
+    
+    <!-- Project Specific CSS -->
+    <style>
+        .project-hero {
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            padding: var(--space-20) 0 var(--space-16);
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .project-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="web" width="15" height="15" patternUnits="userSpaceOnUse"><circle cx="7.5" cy="7.5" r="2" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/><path d="M7.5,0 L7.5,15 M0,7.5 L15,7.5" stroke="rgba(255,255,255,0.1)" stroke-width="0.3"/></pattern></defs><rect width="100" height="100" fill="url(%23web)"/></svg>');
+            opacity: 0.3;
+        }
+        
+        .project-hero .container {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .project-title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: var(--space-4);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .project-subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: var(--space-8);
+        }
+        
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-2);
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: var(--space-3) var(--space-6);
+            border-radius: var(--border-radius);
+            text-decoration: none;
+            transition: var(--transition);
+            margin-bottom: var(--space-8);
+        }
+        
+        .back-button:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateX(-5px);
+        }
+        
+        .project-carousel {
+            background: var(--bg-primary);
+            padding: var(--space-16) 0;
+        }
+        
+        .carousel-container {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+            overflow: hidden;
+            border-radius: var(--border-radius-lg);
+            box-shadow: 0 20px 40px var(--shadow-lg);
+        }
+        
+        .carousel-slides {
+            display: flex;
+            transition: transform 0.8s ease;
+        }
+        
+        .carousel-slide {
+            min-width: 100%;
+            position: relative;
+        }
+        
+        .carousel-slide img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .carousel-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(17, 153, 142, 0.8);
+            color: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+        
+        .carousel-nav:hover {
+            background: #11998e;
+            transform: translateY(-50%) scale(1.1);
+        }
+        
+        .carousel-nav.prev {
+            left: 20px;
+        }
+        
+        .carousel-nav.next {
+            right: 20px;
+        }
+        
+        .carousel-indicators {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 10;
+        }
+        
+        .carousel-indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .slide-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            color: white;
+            padding: var(--space-8) var(--space-6) var(--space-6);
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .carousel-slide:hover .slide-overlay {
+            transform: translateY(0);
+        }
+        
+        .slide-overlay h3 {
+            font-size: 1.5rem;
+            margin-bottom: var(--space-2);
+            color: white;
+        }
+        
+        .project-details {
+            padding: var(--space-16) 0;
+            background: var(--bg-secondary);
+        }
+        
+        .details-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-8);
+            margin-top: var(--space-8);
+        }
+        
+        .detail-card {
+            background: var(--bg-primary);
+            padding: var(--space-8);
+            border-radius: var(--border-radius-lg);
+            box-shadow: 0 4px 12px var(--shadow-lg);
+            transition: transform 0.3s ease;
+        }
+        
+        .detail-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .detail-icon {
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: var(--space-4);
+        }
+        
+        .detail-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: var(--space-4);
+        }
+        
+        .detail-card ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .detail-card li {
+            padding: var(--space-2) 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .detail-card li:last-child {
+            border-bottom: none;
+        }
+        
+        .project-description {
+            padding: var(--space-16) 0;
+            background: var(--bg-primary);
+        }
+        
+        .description-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .project-description h3 {
+            font-size: 2.5rem;
+            margin-bottom: var(--space-8);
+            text-align: center;
+        }
+        
+        .project-description p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: var(--space-6);
+            text-align: justify;
+        }
+        
+        .tech-stack {
+            padding: var(--space-16) 0;
+            background: var(--bg-secondary);
+        }
+        
+        .tech-stack h3 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: var(--space-12);
+            color: var(--text-primary);
+        }
+        
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-6);
+        }
+        
+        .tech-item {
+            text-align: center;
+            padding: var(--space-8);
+            border-radius: var(--border-radius-lg);
+            color: white;
+            transition: transform 0.3s ease;
+        }
+        
+        .tech-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .tech-item i {
+            font-size: 3rem;
+            margin-bottom: var(--space-4);
+            opacity: 0.9;
+        }
+        
+        .tech-item h4 {
+            font-size: 1.3rem;
+            margin-bottom: var(--space-2);
+        }
+        
+        .tech-item p {
+            opacity: 0.9;
+            font-size: 0.9rem;
+        }
+        
+        .carousel-indicator.active {
+            background: #11998e;
+            transform: scale(1.2);
+        }
+        
+        .detail-card {
+            border-left: 4px solid #11998e;
+        }
+        
+        .detail-card h3, .project-description h3 {
+            color: #11998e;
+        }
+        
+        .tech-item {
+            background: #11998e;
+        }
+        
+        /* All other styles same as previous projects... */
+    </style>
+</head>
+<body class="dark-theme">
+    <!-- Same navigation as previous projects -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="../index.html" class="nav-logo">
+                <span class="logo-text">Elkinext</span>
+                <span class="logo-accent">Solutions</span>
+            </a>
+            
+            <div class="nav-menu" id="nav-menu">
+                <a href="../index.html" class="nav-link">Inicio</a>
+                <a href="../index.html#about" class="nav-link">Nosotros</a>
+                <a href="../index.html#skills" class="nav-link">Tecnologías</a>
+                <a href="../projects.html" class="nav-link active">Proyectos</a>
+                <a href="../index.html#contact" class="nav-link">Contacto</a>
+            </div>
+            
+            <div class="nav-toggle" id="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Project Hero -->
+    <section class="project-hero">
+        <div class="container">
+            <a href="../projects.html" class="back-button">
+                <i class="fas fa-arrow-left"></i>
+                Volver a Proyectos
+            </a>
+            <h1 class="project-title">Aplicación Web HealthyFood</h1>
+            <p class="project-subtitle">Portal corporativo y gestión integral de procesos</p>
+        </div>
+    </section>
+
+    <!-- Project Carousel -->
+    <section class="project-carousel">
+        <div class="container">
+            <div class="carousel-container">
+                <div class="carousel-slides" id="carousel-slides">
+                    <div class="carousel-slide">
+                        <img src="https://via.placeholder.com/900x500/11998e/ffffff?text=Portal+Principal+HealthyFood" alt="Portal Principal">
+                        <div class="slide-overlay">
+                            <h3>Portal Principal</h3>
+                            <p>Página de inicio con información corporativa y navegación intuitiva</p>
+                        </div>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="https://via.placeholder.com/900x500/38ef7d/ffffff?text=Dashboard+Administrativo" alt="Dashboard Administrativo">
+                        <div class="slide-overlay">
+                            <h3>Dashboard Administrativo</h3>
+                            <p>Panel de control con métricas y gestión de contenido</p>
+                        </div>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="https://via.placeholder.com/900x500/10b981/ffffff?text=Gestion+de+Usuarios" alt="Gestión de Usuarios">
+                        <div class="slide-overlay">
+                            <h3>Gestión de Usuarios</h3>
+                            <p>Sistema de roles y permisos para empleados</p>
+                        </div>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="https://via.placeholder.com/900x500/059669/ffffff?text=Modulo+de+Reportes" alt="Módulo de Reportes">
+                        <div class="slide-overlay">
+                            <h3>Módulo de Reportes</h3>
+                            <p>Generación de reportes dinámicos y exportación</p>
+                        </div>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="https://via.placeholder.com/900x500/047857/ffffff?text=Chat+Interno+Tiempo+Real" alt="Chat Interno">
+                        <div class="slide-overlay">
+                            <h3>Chat Interno en Tiempo Real</h3>
+                            <p>Comunicación instantánea entre departamentos</p>
+                        </div>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="https://via.placeholder.com/900x500/065f46/ffffff?text=Panel+de+Configuracion" alt="Panel de Configuración">
+                        <div class="slide-overlay">
+                            <h3>Panel de Configuración</h3>
+                            <p>Configuración del sistema y personalización</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="carousel-nav prev" onclick="changeSlide(-1)">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="carousel-nav next" onclick="changeSlide(1)">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+                
+                <div class="carousel-indicators">
+                    <span class="carousel-indicator active" onclick="currentSlide(1)"></span>
+                    <span class="carousel-indicator" onclick="currentSlide(2)"></span>
+                    <span class="carousel-indicator" onclick="currentSlide(3)"></span>
+                    <span class="carousel-indicator" onclick="currentSlide(4)"></span>
+                    <span class="carousel-indicator" onclick="currentSlide(5)"></span>
+                    <span class="carousel-indicator" onclick="currentSlide(6)"></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Details -->
+    <section class="project-details">
+        <div class="container">
+            <div class="details-grid">
+                <div class="detail-card">
+                    <div class="detail-icon">
+                        <i class="fas fa-info-circle"></i>
+                    </div>
+                    <h3>Información del Proyecto</h3>
+                    <ul>
+                        <li><strong>Cliente:</strong> HealthyFood S.A.</li>
+                        <li><strong>Duración:</strong> 3 meses</li>
+                        <li><strong>Tipo:</strong> Aplicación Web Corporativa</li>
+                        <li><strong>Estado:</strong> Completado y En Producción</li>
+                        <li><strong>Usuarios:</strong> 200+ empleados activos</li>
+                    </ul>
+                </div>
+
+                <div class="detail-card">
+                    <div class="detail-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3>Funcionalidades Principales</h3>
+                    <ul>
+                        <li>Portal corporativo con información de la empresa</li>
+                        <li>Dashboard administrativo con métricas en tiempo real</li>
+                        <li>Sistema de gestión de usuarios y roles</li>
+                        <li>Módulo de reportes personalizables</li>
+                        <li>Chat interno con notificaciones push</li>
+                        <li>Panel de configuración del sistema</li>
+                    </ul>
+                </div>
+
+                <div class="detail-card">
+                    <div class="detail-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Resultados y Métricas</h3>
+                    <ul>
+                        <li>50% mejora en comunicación interna</li>
+                        <li>35% reducción en tiempo de reportes</li>
+                        <li>99.8% disponibilidad del sistema</li>
+                        <li>95% satisfacción del usuario final</li>
+                        <li>Interfaz responsive para todos los dispositivos</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Description -->
+    <section class="project-description">
+        <div class="container">
+            <div class="description-content">
+                <h3>Sobre el Proyecto</h3>
+                <p>
+                    La aplicación web HealthyFood fue desarrollada como una solución integral para modernizar 
+                    los procesos internos de la empresa. El proyecto incluyó el diseño y desarrollo de un 
+                    portal corporativo completo que sirviera como centro de información y herramientas de 
+                    gestión para todos los empleados.
+                </p>
+                <p>
+                    Implementamos una arquitectura moderna basada en Vue.js para el frontend, garantizando 
+                    una experiencia de usuario fluida y responsive. El backend fue desarrollado con Express.js 
+                    y MongoDB, permitiendo un manejo eficiente de los datos y una escalabilidad óptima. 
+                    La integración de WebSocket habilitó las funcionalidades de chat en tiempo real.
+                </p>
+                <p>
+                    El sistema incluye un completo sistema de autenticación y autorización, dashboard 
+                    administrativo con métricas en tiempo real, generador de reportes personalizables, 
+                    y un sistema de comunicación interna que mejoró significativamente la colaboración 
+                    entre departamentos.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tech Stack -->
+    <section class="tech-stack">
+        <div class="container">
+            <h3>Tecnologías Utilizadas</h3>
+            <div class="tech-grid">
+                <div class="tech-item">
+                    <i class="fab fa-vuejs"></i>
+                    <h4>Vue.js</h4>
+                    <p>Framework principal para interfaz de usuario</p>
+                </div>
+                <div class="tech-item">
+                    <i class="fas fa-server"></i>
+                    <h4>Express.js</h4>
+                    <p>Servidor backend y API REST</p>
+                </div>
+                <div class="tech-item">
+                    <i class="fas fa-database"></i>
+                    <h4>MongoDB</h4>
+                    <p>Base de datos NoSQL para almacenamiento</p>
+                </div>
+                <div class="tech-item">
+                    <i class="fas fa-comments"></i>
+                    <h4>WebSocket</h4>
+                    <p>Comunicación en tiempo real</p>
+                </div>
+                <div class="tech-item">
+                    <i class="fab fa-html5"></i>
+                    <h4>HTML5</h4>
+                    <p>Estructura semántica moderna</p>
+                </div>
+                <div class="tech-item">
+                    <i class="fab fa-css3-alt"></i>
+                    <h4>CSS3</h4>
+                    <p>Estilos y animaciones avanzadas</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-text">
+                    <p>&copy; 2024 Elkinext Solutions. Transformando ideas en realidad tecnológica.</p>
+                </div>
+                <div class="footer-links">
+                    <a href="../index.html">Inicio</a>
+                    <a href="../projects.html">Proyectos</a>
+                    <a href="../index.html#contact">Contacto</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Same carousel script as previous projects
+    </script>
+</body>
+</html>

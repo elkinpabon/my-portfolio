@@ -7,7 +7,10 @@ document.addEventListener('DOMContentLoaded', function() {
     // initTypingAnimation(); // Comentado - ahora usamos código estático
     initFormHandler();
     initSmoothScroll();
+
 });
+
+
 
 // Cambio de tema claro/oscuro
 function initThemeToggle() {

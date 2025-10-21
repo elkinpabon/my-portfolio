@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-commerce MADECOR - Elkinext Solutions</title>
+    <meta name="description" content="E-commerce especializado en material didáctico desarrollado para MADECOR">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/navigation.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="../css/styles.css">
+    
+    <!-- Global Theme Manager -->
+    <script src="../js/theme.js"></script>
+    
+    <!-- Project Specific CSS -->
+    <style>
+        .project-hero {
+            background: linear-gradient(135deg, #8b5cf6 0%, #a855f7 100%);
+            padding: var(--space-20) 0 var(--space-16);
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .project-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="ecommerce" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M5,5 L15,5 L15,15 L5,15 Z" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/><circle cx="10" cy="10" r="3" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.3"/></pattern></defs><rect width="100" height="100" fill="url(%23ecommerce)"/></svg>');
+            opacity: 0.3;
+        }
+        
+        .project-hero .container {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .project-title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: var(--space-4);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .project-subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: var(--space-8);
+        }
+        
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-2);
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: var(--space-3) var(--space-6);
+            border-radius: var(--border-radius);
+            text-decoration: none;
+            transition: var(--transition);
+            margin-bottom: var(--space-8);
+        }
+        
+        .back-button:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateX(-5px);
+        }
+        
+        .project-carousel {
+            background: var(--bg-primary);
+            padding: var(--space-16) 0;
+        }
+        
+        .carousel-container {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+            overflow: hidden;
+            border-radius: var(--border-radius-lg);
+            box-shadow: 0 20px 40px var(--shadow-lg);
+        }
+        
+        .carousel-slides {
+            display: flex;
+            transition: transform 0.8s ease;
+        }
+        
+        .carousel-slide {
+            min-width: 100%;
+            position: relative;
+        }
+        
+        .carousel-slide img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .carousel-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(139, 92, 246, 0.8);
+            color: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+        
+        .carousel-nav:hover {
+            background: #8b5cf6;
+            transform: translateY(-50%) scale(1.1);
+        }
+        
+        .carousel-nav.prev {
+            left: 20px;
+        }
+        
+        .carousel-nav.next {
+            right: 20px;
+        }
+        
+        .carousel-indicators {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 10;
+        }
+        
+        .carousel-indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .carousel-indicator.active {
+            background: #8b5cf6;
+            transform: scale(1.2);
+        }
+        
+        .slide-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            color: white;
+            padding: var(--space-8) var(--space-6) var(--space-6);
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .carousel-slide:hover .slide-overlay {
+            transform: translateY(0);
+        }
+        
+        .slide-overlay h3 {
+            font-size: 1.5rem;
+            margin-bottom: var(--space-2);
+            color: white;
+        }
+        
+        .project-details {
+            padding: var(--space-16) 0;
+            background: var(--bg-secondary);
+        }
+        
+        .details-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-8);
+            margin-top: var(--space-8);
+        }
+        
+        .detail-card {
+            background: var(--bg-primary);
+            padding: var(--space-8);
+            border-radius: var(--border-radius-lg);
+            box-shadow: 0 4px 12px var(--shadow-lg);
+            transition: transform 0.3s ease;
+            border-left: 4px solid #8b5cf6;
+        }
+        
+        .detail-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .detail-icon {
+            background: linear-gradient(135deg, #8b5cf6 0%, #a855f7 100%);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: var(--space-4);
+        }
+        
+        .detail-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: var(--space-4);
+            color: #8b5cf6;
+        }
+        
+        .detail-card ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .detail-card li {
+            padding: var(--space-2) 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .detail-card li:last-child {
+            border-bottom: none;
+        }
+        
+        .project-description {
+            padding: var(--space-16) 0;
+            background: var(--bg-primary);
+        }
+        
+        .description-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .project-description h3 {
+            font-size: 2.5rem;
+            margin-bottom: var(--space-8);
+            text-align: center;
+            color: #8b5cf6;
+        }
+        
+        .project-description p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: var(--space-6);
+            text-align: justify;
+        }
+        
+        .tech-stack {
+            padding: var(--space-16) 0;
+            background: var(--bg-secondary);
+        }
+        
+        .tech-stack h3 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: var(--space-12);
+            color: var(--text-primary);
+        }
+        
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-6);
+        }
+        
+        .tech-item {
+            background: #8b5cf6;
+            text-align: center;
+            padding: var(--space-8);
+            border-radius: var(--border-radius-lg);
+            color: white;
+            transition: transform 0.3s ease;
+        }
+        
+        .tech-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .tech-item i {
+            font-size: 3rem;
+            margin-bottom: var(--space-4);
+            opacity: 0.9;
+        }
+        
+        .tech-item h4 {
+            font-size: 1.3rem;
+            margin-bottom: var(--space-2);
+        }
+        
+        .tech-item p {
+            opacity: 0.9;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body class="dark-theme">
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="../index.html" class="nav-logo">
+                <span class="logo-text">Elkinext</span>
+                <span class="logo-accent">Solutions</span>
+            </a>
+            
+            <div class="nav-menu" id="nav-menu">
+                <a href="../index.html" class="nav-link">Inicio</a>
+                <a href="../index.html#about" class="nav-link">Nosotros</a>
+                <a href="../index.html#skills" class="nav-link">Tecnologías</a>
+                <a href="../projects.html" class="nav-link active">Proyectos</a>
+                <a href="../index.html#contact" class="nav-link">Contacto</a>
+            </div>
+            
+            <div class="nav-toggle" id="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Project Hero -->
+    <section class="project-hero">
+        <div class="container">
+            <a href="../projects.html" class="back-button">
+                <i class="fas fa-arrow-left"></i>
+                Volver a Proyectos
+            </a>
+            <h1 class="project-title">E-commerce MADECOR</h1>
+            <p class="project-subtitle">Tienda online especializada en material didáctico</p>
+        </div>
+    </section>
+
+    <!-- Project Carousel -->
+    <section class="project-carousel">
+        <div class="container">
+            <div class="carousel-container">
+                <div class="carousel-slides" id="carousel-slides">
+                    <div class="carousel-slide">
+                        <img src="https://via.placeholder.com/900x500/8b5cf6/ffffff?text=Tienda+Principal+MADECOR" alt="Tienda Principal">
+                        <div class="slide-overlay">
+                            <h3>Tienda Principal</h3>
+                            <p>Página principal con catálogo de productos educativos</p>
+                        </div>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="https://via.placeholder.com/900x500/a855f7/ffffff?text=Catalogo+de+Productos" alt="Catálogo de Productos">
+                        <div class="slide-overlay">
+                            <h3>Catálogo de Productos</h3>
+                            <p>Navegación por categorías de material didáctico</p>
+                        </div>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="https://via.placeholder.com/900x500/9333ea/ffffff?text=Carrito+de+Compras" alt="Carrito de Compras">
+                        <div class="slide-overlay">
+                            <h3>Carrito de Compras</h3>
+                            <p>Sistema de compras intuitivo y seguro</p>
+                        </div>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="https://via.placeholder.com/900x500/7c3aed/ffffff?text=Procesamiento+de+Pagos" alt="Procesamiento de Pagos">
+                        <div class="slide-overlay">
+                            <h3>Procesamiento de Pagos</h3>
+                            <p>Múltiples métodos de pago seguros</p>
+                        </div>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="https://via.placeholder.com/900x500/6d28d9/ffffff?text=Panel+Administrativo" alt="Panel Administrativo">
+                        <div class="slide-overlay">
+                            <h3>Panel Administrativo</h3>
+                            <p>Gestión completa de productos y pedidos</p>
+                        </div>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="https://via.placeholder.com/900x500/5b21b6/ffffff?text=Reportes+de+Ventas" alt="Reportes de Ventas">
+                        <div class="slide-overlay">
+                            <h3>Reportes de Ventas</h3>
+                            <p>Analytics y reportes detallados de ventas</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="carousel-nav prev" onclick="changeSlide(-1)">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="carousel-nav next" onclick="changeSlide(1)">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+                
+                <div class="carousel-indicators">
+                    <span class="carousel-indicator active" onclick="currentSlide(1)"></span>
+                    <span class="carousel-indicator" onclick="currentSlide(2)"></span>
+                    <span class="carousel-indicator" onclick="currentSlide(3)"></span>
+                    <span class="carousel-indicator" onclick="currentSlide(4)"></span>
+                    <span class="carousel-indicator" onclick="currentSlide(5)"></span>
+                    <span class="carousel-indicator" onclick="currentSlide(6)"></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Details -->
+    <section class="project-details">
+        <div class="container">
+            <div class="details-grid">
+                <div class="detail-card">
+                    <div class="detail-icon">
+                        <i class="fas fa-info-circle"></i>
+                    </div>
+                    <h3>Información del Proyecto</h3>
+                    <ul>
+                        <li><strong>Cliente:</strong> MADECOR</li>
+                        <li><strong>Duración:</strong> 4 meses</li>
+                        <li><strong>Tipo:</strong> E-commerce Especializado</li>
+                        <li><strong>Estado:</strong> Completado y En Producción</li>
+                        <li><strong>Productos:</strong> 1,500+ artículos didácticos</li>
+                    </ul>
+                </div>
+
+                <div class="detail-card">
+                    <div class="detail-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <h3>Funcionalidades E-commerce</h3>
+                    <ul>
+                        <li>Catálogo organizado por categorías educativas</li>
+                        <li>Sistema de búsqueda y filtros avanzados</li>
+                        <li>Carrito de compras persistente</li>
+                        <li>Múltiples métodos de pago (PayPal, Stripe)</li>
+                        <li>Sistema de envíos con seguimiento</li>
+                        <li>Gestión de inventario en tiempo real</li>
+                    </ul>
+                </div>
+
+                <div class="detail-card">
+                    <div class="detail-icon">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <h3>Resultados y Métricas</h3>
+                    <ul>
+                        <li>300% aumento en ventas online</li>
+                        <li>4.8/5 rating de satisfacción del cliente</li>
+                        <li>25% reducción en abandono de carrito</li>
+                        <li>60% aumento en conversión</li>
+                        <li>Tiempo de carga promedio: 2.1 segundos</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Description -->
+    <section class="project-description">
+        <div class="container">
+            <div class="description-content">
+                <h3>Sobre el Proyecto</h3>
+                <p>
+                    El e-commerce MADECOR fue desarrollado como una plataforma especializada para la venta 
+                    de material didáctico y educativo. El proyecto requería una solución robusta que 
+                    manejara un amplio catálogo de productos organizados por categorías específicas del 
+                    sector educativo, desde material preescolar hasta recursos universitarios.
+                </p>
+                <p>
+                    Implementamos la solución sobre WordPress con WooCommerce, aprovechando su flexibilidad 
+                    y las ventajas del ecosistema existente. La integración con múltiples pasarelas de 
+                    pago (PayPal y Stripe) garantiza opciones seguras para todos los clientes. El sistema 
+                    incluye gestión automática de inventario, cálculo de envíos en tiempo real y un 
+                    completo panel administrativo.
+                </p>
+                <p>
+                    El diseño responsive asegura una experiencia óptima en todos los dispositivos, 
+                    mientras que las optimizaciones de SEO y velocidad mejoraron significativamente 
+                    la visibilidad online y la conversión de visitantes en clientes. El resultado 
+                    fue un incremento del 300% en ventas online para MADECOR.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tech Stack -->
+    <section class="tech-stack">
+        <div class="container">
+            <h3>Tecnologías Utilizadas</h3>
+            <div class="tech-grid">
+                <div class="tech-item">
+                    <i class="fab fa-wordpress"></i>
+                    <h4>WordPress</h4>
+                    <p>CMS base para el e-commerce</p>
+                </div>
+                <div class="tech-item">
+                    <i class="fas fa-shopping-cart"></i>
+                    <h4>WooCommerce</h4>
+                    <p>Plugin principal para funcionalidad e-commerce</p>
+                </div>
+                <div class="tech-item">
+                    <i class="fab fa-paypal"></i>
+                    <h4>PayPal</h4>
+                    <p>Pasarela de pagos principal</p>
+                </div>
+                <div class="tech-item">
+                    <i class="fab fa-stripe"></i>
+                    <h4>Stripe</h4>
+                    <p>Procesamiento de tarjetas de crédito</p>
+                </div>
+                <div class="tech-item">
+                    <i class="fas fa-database"></i>
+                    <h4>MySQL</h4>
+                    <p>Base de datos para almacenamiento</p>
+                </div>
+                <div class="tech-item">
+                    <i class="fab fa-php"></i>
+                    <h4>PHP</h4>
+                    <p>Programación backend y personalizaciones</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-text">
+                    <p>&copy; 2024 Elkinext Solutions. Transformando ideas en realidad tecnológica.</p>
+                </div>
+                <div class="footer-links">
+                    <a href="../index.html">Inicio</a>
+                    <a href="../projects.html">Proyectos</a>
+                    <a href="../index.html#contact">Contacto</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        let currentSlideIndex = 0;
+        const slides = document.querySelectorAll('.carousel-slide');
+        const indicators = document.querySelectorAll('.carousel-indicator');
+        const totalSlides = slides.length;
+
+        function updateCarousel() {
+            const offset = -currentSlideIndex * 100;
+            document.getElementById('carousel-slides').style.transform = `translateX(${offset}%)`;
+            
+            indicators.forEach((indicator, index) => {
+                indicator.classList.toggle('active', index === currentSlideIndex);
+            });
+        }
+
+        function changeSlide(direction) {
+            currentSlideIndex += direction;
+            if (currentSlideIndex >= totalSlides) currentSlideIndex = 0;
+            if (currentSlideIndex < 0) currentSlideIndex = totalSlides - 1;
+            updateCarousel();
+        }
+
+        function currentSlide(index) {
+            currentSlideIndex = index - 1;
+            updateCarousel();
+        }
+
+        // Auto-slide every 5 seconds
+        setInterval(() => {
+            changeSlide(1);
+        }, 5000);
+
+        // Mobile navigation
+        document.getElementById('nav-toggle').addEventListener('click', function() {
+            const navMenu = document.getElementById('nav-menu');
+            navMenu.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

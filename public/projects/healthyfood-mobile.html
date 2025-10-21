@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplicación Móvil Control de Asistencias HealthyFood - Elkinext Solutions</title>
+    <meta name="description" content="Aplicación móvil para control de asistencias desarrollada para HealthyFood">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/navigation.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="../css/styles.css">
+    
+    <!-- Global Theme Manager -->
+    <script src="../js/theme.js"></script>
+    
+    <!-- Project Specific CSS -->
+    <style>
+        .project-hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: var(--space-20) 0 var(--space-16);
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .project-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="mobile" width="20" height="20" patternUnits="userSpaceOnUse"><rect x="8" y="5" width="4" height="10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5" rx="1"/></pattern></defs><rect width="100" height="100" fill="url(%23mobile)"/></svg>');
+            opacity: 0.3;
+        }
+        
+        .project-hero .container {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .project-title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: var(--space-4);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .project-subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: var(--space-8);
+        }
+        
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-2);
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: var(--space-3) var(--space-6);
+            border-radius: var(--border-radius);
+            text-decoration: none;
+            transition: var(--transition);
+            margin-bottom: var(--space-8);
+        }
+        
+        .back-button:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateX(-5px);
+        }
+        
+        .project-carousel {
+            background: var(--bg-primary);
+            padding: var(--space-16) 0;
+        }
+        
+        .carousel-container {
+            position: relative;
+            max-width: 600px;
+            margin: 0 auto;
+            overflow: hidden;
+            border-radius: var(--border-radius-lg);
+            box-shadow: 0 20px 40px var(--shadow-lg);
+        }
+        
+        .carousel-slides {
+            display: flex;
+            transition: transform 0.8s ease;
+        }
+        
+        .carousel-slide {
+            min-width: 100%;
+            position: relative;
+        }
+        
+        .carousel-slide img {
+            width: 100%;
+            height: 600px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .carousel-navigation {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+        
+        .carousel-navigation:hover {
+            background: rgba(0, 0, 0, 0.8);
+            transform: translateY(-50%) scale(1.1);
+        }
+        
+        .carousel-prev {
+            left: 20px;
+        }
+        
+        .carousel-next {
+            right: 20px;
+        }
+        
+        .carousel-indicators {
+            display: flex;
+            justify-content: center;
+            gap: var(--space-2);
+            margin-top: var(--space-4);
+        }
+        
+        .carousel-indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--border-color);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .carousel-indicator.active {
+            background: #667eea;
+            transform: scale(1.2);
+        }
+        
+        .project-details {
+            background: var(--bg-secondary);
+            padding: var(--space-16) 0;
+        }
+        
+        .details-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-12);
+            margin-bottom: var(--space-12);
+        }
+        
+        .detail-card {
+            background: var(--bg-primary);
+            padding: var(--space-8);
+            border-radius: var(--border-radius-lg);
+            box-shadow: 0 4px 15px var(--shadow);
+            border-left: 4px solid #667eea;
+        }
+        
+        .detail-card h3 {
+            color: #667eea;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: var(--space-4);
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+        }
+        
+        .project-description {
+            grid-column: 1 / -1;
+            background: var(--bg-primary);
+            padding: var(--space-8);
+            border-radius: var(--border-radius-lg);
+            box-shadow: 0 4px 15px var(--shadow);
+        }
+        
+        .project-description h3 {
+            color: #667eea;
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: var(--space-6);
+            text-align: center;
+        }
+        
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-3);
+            margin-top: var(--space-4);
+        }
+        
+        .tech-item {
+            background: #667eea;
+            color: white;
+            padding: var(--space-2) var(--space-4);
+            border-radius: var(--border-radius);
+            font-size: var(--font-size-sm);
+            font-weight: 500;
+        }
+        
+        @media (max-width: 768px) {
+            .project-title {
+                font-size: 2rem;
+            }
+            
+            .details-grid {
+                grid-template-columns: 1fr;
+                gap: var(--space-6);
+            }
+            
+            .carousel-slide img {
+                height: 400px;
+            }
+            
+            .carousel-navigation {
+                width: 40px;
+                height: 40px;
+            }
+        }
+    </style>
+</head>
+<body class="dark-theme">
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="../index.html" class="nav-logo">
+                <span class="logo-text">Elkinext</span>
+                <span class="logo-accent">Solutions</span>
+            </a>
+            
+            <div class="nav-menu" id="nav-menu">
+                <a href="../index.html" class="nav-link">Inicio</a>
+                <a href="../index.html#about" class="nav-link">Nosotros</a>
+                <a href="../index.html#skills" class="nav-link">Tecnologías</a>
+                <a href="../projects.html" class="nav-link active">Proyectos</a>
+                <a href="../index.html#contact" class="nav-link">Contacto</a>
+            </div>
+            
+            <div class="nav-toggle" id="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Project Hero -->
+    <section class="project-hero">
+        <div class="container">
+            <a href="../projects.html" class="back-button">
+                <i class="fas fa-arrow-left"></i>
+                Volver a Proyectos
+            </a>
+            <h1 class="project-title">Aplicación Móvil Control de Asistencias</h1>
+            <p class="project-subtitle">HealthyFood - App nativa para gestión de asistencias</p>
+        </div>
+    </section>
+
+    <!-- Project Carousel -->
+    <section class="project-carousel">
+        <div class="container">
+            <div class="carousel-container">
+                <div class="carousel-slides" id="carousel-slides">
+                    <div class="carousel-slide">
+                        <img src="https://via.placeholder.com/400x600/667eea/ffffff?text=Login+Screen" alt="Pantalla de Login">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="https://via.placeholder.com/400x600/667eea/ffffff?text=Dashboard+Principal" alt="Dashboard Principal">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="https://via.placeholder.com/400x600/667eea/ffffff?text=Check-in+Biométrico" alt="Check-in Biométrico">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="https://via.placeholder.com/400x600/667eea/ffffff?text=Historial+Asistencias" alt="Historial de Asistencias">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="https://via.placeholder.com/400x600/667eea/ffffff?text=Solicitud+Permisos" alt="Solicitud de Permisos">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="https://via.placeholder.com/400x600/667eea/ffffff?text=Notificaciones" alt="Sistema de Notificaciones">
+                    </div>
+                </div>
+                
+                <button class="carousel-navigation carousel-prev" onclick="previousSlide()">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="carousel-navigation carousel-next" onclick="nextSlide()">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+            
+            <div class="carousel-indicators" id="carousel-indicators">
+                <div class="carousel-indicator active" onclick="goToSlide(0)"></div>
+                <div class="carousel-indicator" onclick="goToSlide(1)"></div>
+                <div class="carousel-indicator" onclick="goToSlide(2)"></div>
+                <div class="carousel-indicator" onclick="goToSlide(3)"></div>
+                <div class="carousel-indicator" onclick="goToSlide(4)"></div>
+                <div class="carousel-indicator" onclick="goToSlide(5)"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Details -->
+    <section class="project-details">
+        <div class="container">
+            <div class="details-grid">
+                <div class="detail-card">
+                    <h3><i class="fas fa-building"></i> Cliente</h3>
+                    <p><strong>HealthyFood S.A.</strong></p>
+                    <p>Aplicación complementaria al sistema web de RRHH para optimizar el control de asistencias en tiempo real.</p>
+                </div>
+                
+                <div class="detail-card">
+                    <h3><i class="fas fa-clock"></i> Tiempo de Desarrollo</h3>
+                    <p><strong>4 meses</strong></p>
+                    <p>Desarrollo nativo para Android e iOS, incluyendo integración con sistemas biométricos.</p>
+                </div>
+                
+                <div class="detail-card">
+                    <h3><i class="fas fa-users"></i> Equipo de Trabajo</h3>
+                    <p><strong>4 profesionales</strong></p>
+                    <ul>
+                        <li>1 Project Manager</li>
+                        <li>2 Desarrolladores Mobile</li>
+                        <li>1 UI/UX Designer especializado en móvil</li>
+                    </ul>
+                </div>
+                
+                <div class="detail-card">
+                    <h3><i class="fas fa-cogs"></i> Tecnologías Utilizadas</h3>
+                    <div class="tech-stack">
+                        <span class="tech-item"><i class="fas fa-mobile-alt"></i> Flutter</span>
+                        <span class="tech-item"><i class="fas fa-code"></i> Dart</span>
+                        <span class="tech-item"><i class="fas fa-fingerprint"></i> Biometric SDK</span>
+                        <span class="tech-item"><i class="fas fa-database"></i> SQLite</span>
+                        <span class="tech-item"><i class="fas fa-wifi"></i> REST API</span>
+                        <span class="tech-item"><i class="fas fa-bell"></i> Push Notifications</span>
+                    </div>
+                </div>
+                
+                <div class="project-description">
+                    <h3><i class="fas fa-mobile-alt"></i> Descripción del Proyecto</h3>
+                    <p>
+                        Desarrollamos una aplicación móvil nativa multiplataforma que permite a los empleados de HealthyFood 
+                        registrar su asistencia de manera rápida y segura mediante autenticación biométrica.
+                    </p>
+                    <br>
+                    <p>
+                        <strong>Funcionalidades principales:</strong>
+                    </p>
+                    <ul>
+                        <li><strong>Autenticación Biométrica:</strong> Huella dactilar y reconocimiento facial</li>
+                        <li><strong>Check-in/Check-out:</strong> Registro de entrada y salida con geolocalización</li>
+                        <li><strong>Modo Offline:</strong> Funcionamiento sin conexión con sincronización automática</li>
+                        <li><strong>Historial Personal:</strong> Consulta de asistencias y horas trabajadas</li>
+                        <li><strong>Solicitud de Permisos:</strong> Gestión digital de ausencias y permisos</li>
+                        <li><strong>Notificaciones Push:</strong> Recordatorios y comunicados importantes</li>
+                        <li><strong>Dashboard Personal:</strong> Métricas individuales y estado actual</li>
+                        <li><strong>Modo Supervisor:</strong> Vista especial para coordinadores y jefes</li>
+                    </ul>
+                    <br>
+                    <p>
+                        La aplicación incrementó la precisión del control de asistencias en un 95% y redujo el tiempo 
+                        de registro a menos de 3 segundos por empleado, mejorando significativamente la experiencia del usuario 
+                        y la eficiencia operacional.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <h3>Elkinext Solutions</h3>
+                        <p>Transformando ideas en soluciones tecnológicas innovadoras</p>
+                    </div>
+                    <div class="footer-social">
+                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Servicios</h4>
+                    <ul>
+                        <li><a href="#">Desarrollo Web</a></li>
+                        <li><a href="#">Aplicaciones Móviles</a></li>
+                        <li><a href="#">Sistemas Empresariales</a></li>
+                        <li><a href="#">Consultoría IT</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Contacto</h4>
+                    <div class="contact-info">
+                        <p><i class="fas fa-envelope"></i> elkin.pabon@elkinext.com</p>
+                        <p><i class="fas fa-phone"></i> +57 300 123 4567</p>
+                        <p><i class="fas fa-map-marker-alt"></i> Bogotá, Colombia</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Elkinext Solutions. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.carousel-slide');
+        const indicators = document.querySelectorAll('.carousel-indicator');
+        const totalSlides = slides.length;
+
+        function updateCarousel() {
+            const slidesContainer = document.getElementById('carousel-slides');
+            slidesContainer.style.transform = `translateX(-${currentSlide * 100}%)`;
+            
+            indicators.forEach((indicator, index) => {
+                indicator.classList.toggle('active', index === currentSlide);
+            });
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            updateCarousel();
+        }
+
+        function previousSlide() {
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            updateCarousel();
+        }
+
+        function goToSlide(index) {
+            currentSlide = index;
+            updateCarousel();
+        }
+
+        // Auto-advance slides
+        setInterval(nextSlide, 5000);
+
+        // Navigation toggle
+        const navToggle = document.getElementById('nav-toggle');
+        const navMenu = document.getElementById('nav-menu');
+
+        navToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

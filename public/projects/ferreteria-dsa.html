@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Inventarios Ferretería DSA - Elkinext Solutions</title>
+    <meta name="description" content="Sistema web de gestión de inventarios y ventas para Ferretería DSA">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/navigation.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="../css/styles.css">
+    
+    <!-- Global Theme Manager -->
+    <script src="../js/theme.js"></script>
+    
+    <!-- Project Specific CSS -->
+    <style>
+        .project-hero {
+            background: linear-gradient(135deg, #FF6B6B 0%, #4ECDC4 100%);
+            padding: var(--space-20) 0 var(--space-16);
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .project-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="inventory" width="20" height="20" patternUnits="userSpaceOnUse"><rect x="5" y="5" width="10" height="10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/><circle cx="10" cy="10" r="2" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23inventory)"/></svg>');
+            opacity: 0.3;
+        }
+        
+        .project-hero .container {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .project-title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: var(--space-4);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .project-subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: var(--space-8);
+        }
+        
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-2);
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: var(--space-3) var(--space-6);
+            border-radius: var(--border-radius);
+            text-decoration: none;
+            transition: var(--transition);
+            margin-bottom: var(--space-8);
+        }
+        
+        .back-button:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateX(-5px);
+        }
+        
+        .project-carousel {
+            background: var(--bg-primary);
+            padding: var(--space-16) 0;
+        }
+        
+        .carousel-container {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+            overflow: hidden;
+            border-radius: var(--border-radius-lg);
+            box-shadow: 0 20px 40px var(--shadow-lg);
+        }
+        
+        .carousel-slides {
+            display: flex;
+            transition: transform 0.8s ease;
+        }
+        
+        .carousel-slide {
+            min-width: 100%;
+            position: relative;
+        }
+        
+        .carousel-slide img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .carousel-navigation {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+        
+        .carousel-navigation:hover {
+            background: rgba(0, 0, 0, 0.8);
+            transform: translateY(-50%) scale(1.1);
+        }
+        
+        .carousel-prev {
+            left: 20px;
+        }
+        
+        .carousel-next {
+            right: 20px;
+        }
+        
+        .carousel-indicators {
+            display: flex;
+            justify-content: center;
+            gap: var(--space-2);
+            margin-top: var(--space-4);
+        }
+        
+        .carousel-indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--border-color);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .carousel-indicator.active {
+            background: #FF6B6B;
+            transform: scale(1.2);
+        }
+        
+        .project-details {
+            background: var(--bg-secondary);
+            padding: var(--space-16) 0;
+        }
+        
+        .details-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-12);
+            margin-bottom: var(--space-12);
+        }
+        
+        .detail-card {
+            background: var(--bg-primary);
+            padding: var(--space-8);
+            border-radius: var(--border-radius-lg);
+            box-shadow: 0 4px 15px var(--shadow);
+            border-left: 4px solid #FF6B6B;
+        }
+        
+        .detail-card h3 {
+            color: #FF6B6B;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: var(--space-4);
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+        }
+        
+        .project-description {
+            grid-column: 1 / -1;
+            background: var(--bg-primary);
+            padding: var(--space-8);
+            border-radius: var(--border-radius-lg);
+            box-shadow: 0 4px 15px var(--shadow);
+        }
+        
+        .project-description h3 {
+            color: #FF6B6B;
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: var(--space-6);
+            text-align: center;
+        }
+        
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-3);
+            margin-top: var(--space-4);
+        }
+        
+        .tech-item {
+            background: #FF6B6B;
+            color: white;
+            padding: var(--space-2) var(--space-4);
+            border-radius: var(--border-radius);
+            font-size: var(--font-size-sm);
+            font-weight: 500;
+        }
+        
+        @media (max-width: 768px) {
+            .project-title {
+                font-size: 2rem;
+            }
+            
+            .details-grid {
+                grid-template-columns: 1fr;
+                gap: var(--space-6);
+            }
+            
+            .carousel-slide img {
+                height: 300px;
+            }
+            
+            .carousel-navigation {
+                width: 40px;
+                height: 40px;
+            }
+        }
+    </style>
+</head>
+<body class="dark-theme">
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="../index.html" class="nav-logo">
+                <span class="logo-text">Elkinext</span>
+                <span class="logo-accent">Solutions</span>
+            </a>
+            
+            <div class="nav-menu" id="nav-menu">
+                <a href="../index.html" class="nav-link">Inicio</a>
+                <a href="../index.html#about" class="nav-link">Nosotros</a>
+                <a href="../index.html#skills" class="nav-link">Tecnologías</a>
+                <a href="../projects.html" class="nav-link active">Proyectos</a>
+                <a href="../index.html#contact" class="nav-link">Contacto</a>
+            </div>
+            
+            <div class="nav-toggle" id="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Project Hero -->
+    <section class="project-hero">
+        <div class="container">
+            <a href="../projects.html" class="back-button">
+                <i class="fas fa-arrow-left"></i>
+                Volver a Proyectos
+            </a>
+            <h1 class="project-title">Sistema de Inventarios Ferretería DSA</h1>
+            <p class="project-subtitle">Gestión integral de inventarios y punto de venta</p>
+        </div>
+    </section>
+
+    <!-- Project Carousel -->
+    <section class="project-carousel">
+        <div class="container">
+            <div class="carousel-container">
+                <div class="carousel-slides" id="carousel-slides">
+                    <div class="carousel-slide">
+                        <img src="https://via.placeholder.com/900x500/FF6B6B/ffffff?text=Dashboard+Inventarios" alt="Dashboard de Inventarios">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="https://via.placeholder.com/900x500/FF6B6B/ffffff?text=Punto+de+Venta" alt="Punto de Venta">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="https://via.placeholder.com/900x500/FF6B6B/ffffff?text=Gestión+Productos" alt="Gestión de Productos">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="https://via.placeholder.com/900x500/FF6B6B/ffffff?text=Reportes+Ventas" alt="Reportes de Ventas">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="https://via.placeholder.com/900x500/FF6B6B/ffffff?text=Control+Stock" alt="Control de Stock">
+                    </div>
+                </div>
+                
+                <button class="carousel-navigation carousel-prev" onclick="previousSlide()">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="carousel-navigation carousel-next" onclick="nextSlide()">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+            
+            <div class="carousel-indicators" id="carousel-indicators">
+                <div class="carousel-indicator active" onclick="goToSlide(0)"></div>
+                <div class="carousel-indicator" onclick="goToSlide(1)"></div>
+                <div class="carousel-indicator" onclick="goToSlide(2)"></div>
+                <div class="carousel-indicator" onclick="goToSlide(3)"></div>
+                <div class="carousel-indicator" onclick="goToSlide(4)"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Details -->
+    <section class="project-details">
+        <div class="container">
+            <div class="details-grid">
+                <div class="detail-card">
+                    <h3><i class="fas fa-store"></i> Cliente</h3>
+                    <p><strong>Ferretería DSA</strong></p>
+                    <p>Ferretería familiar con 25 años de experiencia, especializada en herramientas y materiales de construcción.</p>
+                </div>
+                
+                <div class="detail-card">
+                    <h3><i class="fas fa-clock"></i> Tiempo de Desarrollo</h3>
+                    <p><strong>5 meses</strong></p>
+                    <p>Desarrollo completo incluyendo migración de datos del sistema anterior y capacitación del personal.</p>
+                </div>
+                
+                <div class="detail-card">
+                    <h3><i class="fas fa-users"></i> Equipo de Trabajo</h3>
+                    <p><strong>4 profesionales</strong></p>
+                    <ul>
+                        <li>1 Project Manager</li>
+                        <li>2 Desarrolladores Full Stack</li>
+                        <li>1 Especialista en UX/UI</li>
+                    </ul>
+                </div>
+                
+                <div class="detail-card">
+                    <h3><i class="fas fa-cogs"></i> Tecnologías Utilizadas</h3>
+                    <div class="tech-stack">
+                        <span class="tech-item"><i class="fab fa-laravel"></i> Laravel</span>
+                        <span class="tech-item"><i class="fab fa-php"></i> PHP</span>
+                        <span class="tech-item"><i class="fas fa-database"></i> MySQL</span>
+                        <span class="tech-item"><i class="fab fa-bootstrap"></i> Bootstrap</span>
+                        <span class="tech-item"><i class="fab fa-js-square"></i> JavaScript</span>
+                        <span class="tech-item"><i class="fas fa-print"></i> Thermal Printer</span>
+                    </div>
+                </div>
+                
+                <div class="project-description">
+                    <h3><i class="fas fa-boxes"></i> Descripción del Proyecto</h3>
+                    <p>
+                        Desarrollamos un sistema integral de gestión de inventarios y punto de venta para Ferretería DSA, 
+                        modernizando completamente sus procesos comerciales y de control de stock.
+                    </p>
+                    <br>
+                    <p>
+                        <strong>Funcionalidades principales:</strong>
+                    </p>
+                    <ul>
+                        <li><strong>Gestión de Inventarios:</strong> Control completo de productos, categorías y proveedores</li>
+                        <li><strong>Punto de Venta:</strong> Interface intuitiva con código de barras y impresión de tickets</li>
+                        <li><strong>Control de Stock:</strong> Alertas automáticas de stock mínimo y agotados</li>
+                        <li><strong>Gestión de Clientes:</strong> Base de datos con historial de compras y créditos</li>
+                        <li><strong>Reportes de Ventas:</strong> Análisis detallado por periodo, producto y vendedor</li>
+                        <li><strong>Cuentas por Cobrar:</strong> Seguimiento de créditos y pagos pendientes</li>
+                        <li><strong>Multi-usuario:</strong> Roles y permisos diferenciados para empleados</li>
+                        <li><strong>Backup Automático:</strong> Respaldo diario de información crítica</li>
+                    </ul>
+                    <br>
+                    <p>
+                        El sistema incrementó la eficiencia operacional en un 60%, reduciendo errores de inventario y 
+                        agilizando el proceso de ventas. La ferretería reportó un mejor control financiero y 
+                        mayor satisfacción del cliente.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <h3>Elkinext Solutions</h3>
+                        <p>Transformando ideas en soluciones tecnológicas innovadoras</p>
+                    </div>
+                    <div class="footer-social">
+                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Servicios</h4>
+                    <ul>
+                        <li><a href="#">Desarrollo Web</a></li>
+                        <li><a href="#">Aplicaciones Móviles</a></li>
+                        <li><a href="#">Sistemas Empresariales</a></li>
+                        <li><a href="#">Consultoría IT</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Contacto</h4>
+                    <div class="contact-info">
+                        <p><i class="fas fa-envelope"></i> elkin.pabon@elkinext.com</p>
+                        <p><i class="fas fa-phone"></i> +57 300 123 4567</p>
+                        <p><i class="fas fa-map-marker-alt"></i> Bogotá, Colombia</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Elkinext Solutions. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.carousel-slide');
+        const indicators = document.querySelectorAll('.carousel-indicator');
+        const totalSlides = slides.length;
+
+        function updateCarousel() {
+            const slidesContainer = document.getElementById('carousel-slides');
+            slidesContainer.style.transform = `translateX(-${currentSlide * 100}%)`;
+            
+            indicators.forEach((indicator, index) => {
+                indicator.classList.toggle('active', index === currentSlide);
+            });
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            updateCarousel();
+        }
+
+        function previousSlide() {
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            updateCarousel();
+        }
+
+        function goToSlide(index) {
+            currentSlide = index;
+            updateCarousel();
+        }
+
+        setInterval(nextSlide, 5000);
+
+        const navToggle = document.getElementById('nav-toggle');
+        const navMenu = document.getElementById('nav-menu');
+
+        navToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
