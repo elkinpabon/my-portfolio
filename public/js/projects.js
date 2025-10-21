@@ -1,99 +1,159 @@
-// JavaScript específico para la página de proyectos
+// JavaScript específico para la página de proyectos - SIMPLIFICADO
 document.addEventListener('DOMContentLoaded', function() {
-    // Solo inicializar las funciones originales si no hay sidebar
-    if (!document.querySelector('.projects-sidebar')) {
-        initProjectsPage();
-        initProjectFilters();
-        initProjectSearch();
-        initProjectSort();
-    } else {
-        // Si hay sidebar, solo inicializar lo básico
-        initProjectsPage();
-        initProjectModal();
-    }
-    
-    initMobileMenu();
-    initAnimations();
-    initLoadMore();
+    initSimpleFilters();
+    initSimpleSearch();
 });
 
-// Inicialización de la página de proyectos
-function initProjectsPage() {
-    // Animación de contadores en el header
-    animateCounters();
-    
-    // Configurar Animate UI
-    if (typeof AnimateUI !== 'undefined') {
-        AnimateUI.init({
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        });
-    }
-}
-
-// Sistema de filtros de proyectos
-function initProjectFilters() {
+// Sistema de filtros simplificado
+function initSimpleFilters() {
     const filterButtons = document.querySelectorAll('.filter-btn');
     const projectCards = document.querySelectorAll('.project-card');
     
+    if (!filterButtons.length || !projectCards.length) {
+        console.log('No se encontraron filtros o proyectos');
+        return;
+    }
+
     filterButtons.forEach(button => {
         button.addEventListener('click', function() {
             const filter = this.dataset.filter;
             
-            // Actualizar botones activos
+            // Quitar clase active de todos los botones
             filterButtons.forEach(btn => btn.classList.remove('active'));
+            
+            // Añadir clase active al botón clickeado
             this.classList.add('active');
             
-            // Filtrar proyectos con animación
-            projectCards.forEach((card, index) => {
-                const shouldShow = filter === 'all' || card.dataset.category === filter;
+            // Mostrar/ocultar proyectos
+            projectCards.forEach(card => {
+                const category = card.dataset.category;
                 
-                if (shouldShow) {
-                    card.style.animation = `fadeInUp 0.5s ease ${index * 0.1}s both`;
+                if (filter === 'all' || category === filter) {
                     card.style.display = 'block';
                 } else {
-                    card.style.animation = 'fadeOutDown 0.3s ease both';
-                    setTimeout(() => {
-                        card.style.display = 'none';
-                    }, 300);
+                    card.style.display = 'none';
                 }
             });
             
-            // Actualizar contador
-            updateProjectCount(filter);
+            console.log(`Filtro aplicado: ${filter}`);
         });
     });
 }
 
-// Sistema de búsqueda de proyectos
-function initProjectSearch() {
+// Sistema de búsqueda simplificado con botón
+function initSimpleSearch() {
     const searchInput = document.getElementById('projectSearch');
+    const searchButton = document.getElementById('searchButton');
     const projectCards = document.querySelectorAll('.project-card');
     
-    searchInput.addEventListener('input', function() {
-        const searchTerm = this.value.toLowerCase();
+    // Si no existe el botón de búsqueda, crearlo
+    if (searchInput && !searchButton) {
+        const button = document.createElement('button');
+        button.id = 'searchButton';
+        button.type = 'button';
+        button.innerHTML = '<i class="fas fa-search"></i> Buscar';
+        button.className = 'btn btn-primary search-btn';
+        
+        // Insertar el botón después del input
+        searchInput.parentNode.insertBefore(button, searchInput.nextSibling);
+    }
+    
+    // Función de búsqueda
+    function performSearch() {
+        const searchTerm = searchInput.value.toLowerCase().trim();
+        let visibleCount = 0;
         
         projectCards.forEach(card => {
-            const projectName = card.dataset.name.toLowerCase();
-            const projectContent = card.textContent.toLowerCase();
-            const shouldShow = projectName.includes(searchTerm) || projectContent.includes(searchTerm);
-            
-            if (shouldShow) {
+            if (searchTerm === '') {
+                // Si no hay término de búsqueda, mostrar todos
                 card.style.display = 'block';
-                card.style.animation = 'fadeInUp 0.3s ease both';
+                visibleCount++;
             } else {
-                card.style.animation = 'fadeOutDown 0.3s ease both';
-                setTimeout(() => {
+                // Buscar en título y descripción
+                const title = card.querySelector('.project-title')?.textContent?.toLowerCase() || '';
+                const description = card.querySelector('.project-description')?.textContent?.toLowerCase() || '';
+                
+                if (title.includes(searchTerm) || description.includes(searchTerm)) {
+                    card.style.display = 'block';
+                    visibleCount++;
+                } else {
                     card.style.display = 'none';
-                }, 300);
+                }
             }
         });
         
         // Mostrar mensaje si no hay resultados
-        const visibleCards = Array.from(projectCards).filter(card => card.style.display !== 'none');
-        showNoResults(visibleCards.length === 0);
-    });
+        showSimpleNoResults(visibleCount === 0 && searchTerm !== '');
+        
+        console.log(`Búsqueda: "${searchTerm}" - ${visibleCount} resultados`);
+    }
+    
+    // Event listeners
+    if (searchInput) {
+        // Buscar al hacer clic en el botón
+        const actualSearchButton = document.getElementById('searchButton');
+        if (actualSearchButton) {
+            actualSearchButton.addEventListener('click', performSearch);
+        }
+        
+        // Buscar al presionar Enter
+        searchInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                performSearch();
+            }
+        });
+        
+        // Limpiar con Escape
+        searchInput.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                this.value = '';
+                performSearch();
+            }
+        });
+    }
 }
+
+// Mostrar mensaje simple de "sin resultados"
+function showSimpleNoResults(show) {
+    let noResults = document.getElementById('noResults');
+    const projectsGrid = document.querySelector('.projects-grid');
+    
+    if (show && !noResults && projectsGrid) {
+        noResults = document.createElement('div');
+        noResults.id = 'noResults';
+        noResults.innerHTML = `
+            <div style="text-align: center; padding: 40px; color: #666;">
+                <h3>No se encontraron proyectos</h3>
+                <p>Intenta con otros términos de búsqueda</p>
+                <button onclick="clearSearch()" style="background: #22c55e; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer;">
+                    Limpiar búsqueda
+                </button>
+            </div>
+        `;
+        projectsGrid.appendChild(noResults);
+    } else if (!show && noResults) {
+        noResults.remove();
+    }
+}
+
+// Función global para limpiar búsqueda
+window.clearSearch = function() {
+    const searchInput = document.getElementById('projectSearch');
+    if (searchInput) {
+        searchInput.value = '';
+        
+        // Mostrar todos los proyectos
+        const projectCards = document.querySelectorAll('.project-card');
+        projectCards.forEach(card => {
+            card.style.display = 'block';
+        });
+        
+        // Quitar mensaje de "sin resultados"
+        showSimpleNoResults(false);
+        
+        console.log('Búsqueda limpiada');
+    }
+};
 
 // Sistema de ordenamiento de proyectos
 function initProjectSort() {
@@ -291,13 +351,19 @@ function animateProjectCard(element) {
 }
 
 function updateProjectCount(filter) {
+    // Contar dinámicamente los proyectos por categoría
+    const allProjects = document.querySelectorAll('.project-card');
     const counts = {
-        'all': 12,
-        'web': 5,
-        'api': 4,
-        'mobile': 2,
-        'tools': 1
+        'all': allProjects.length
     };
+    
+    // Contar proyectos por categoría
+    allProjects.forEach(project => {
+        const category = project.dataset.category;
+        if (category) {
+            counts[category] = (counts[category] || 0) + 1;
+        }
+    });
     
     const filterBtn = document.querySelector(`[data-filter="${filter}"]`);
     const countSpan = filterBtn.querySelector('.count');
@@ -308,8 +374,9 @@ function updateProjectCount(filter) {
 
 function showNoResults(show) {
     let noResults = document.getElementById('noResults');
+    const projectsGrid = document.querySelector('.projects-grid') || document.getElementById('projectsGrid');
     
-    if (show && !noResults) {
+    if (show && !noResults && projectsGrid) {
         noResults = document.createElement('div');
         noResults.id = 'noResults';
         noResults.className = 'no-results';
@@ -318,12 +385,57 @@ function showNoResults(show) {
                 <i class="fas fa-search"></i>
                 <h3>No se encontraron proyectos</h3>
                 <p>Intenta con otros términos de búsqueda o filtra por categoría.</p>
+                <button class="btn btn-primary" onclick="resetFilters()">
+                    <i class="fas fa-refresh"></i> Mostrar todos
+                </button>
             </div>
         `;
-        document.getElementById('projectsGrid').appendChild(noResults);
+        
+        // Añadir animación
+        noResults.style.opacity = '0';
+        noResults.style.transform = 'translateY(20px)';
+        projectsGrid.appendChild(noResults);
+        
+        // Animar entrada
+        setTimeout(() => {
+            noResults.style.transition = 'all 0.4s ease';
+            noResults.style.opacity = '1';
+            noResults.style.transform = 'translateY(0)';
+        }, 100);
+        
     } else if (!show && noResults) {
-        noResults.remove();
+        // Animar salida
+        noResults.style.transition = 'all 0.3s ease';
+        noResults.style.opacity = '0';
+        noResults.style.transform = 'translateY(-20px)';
+        
+        setTimeout(() => {
+            if (noResults.parentNode) {
+                noResults.remove();
+            }
+        }, 300);
     }
+}
+
+// Función para resetear filtros
+function resetFilters() {
+    const allButton = document.querySelector('[data-filter="all"]');
+    if (allButton) {
+        allButton.click();
+    }
+}
+
+// Función debounce para optimizar performance
+function debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+        const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
 }
 
 // Función global para abrir modal de proyecto

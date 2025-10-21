@@ -214,38 +214,197 @@ function initTypingAnimation() {
 
 // Manejador del formulario de contacto
 function initFormHandler() {
-    const form = document.querySelector('.contact-form');
-    if (!form) return;
+    console.log('🔄 Iniciando manejador del formulario...');
     
-    form.addEventListener('submit', function(e) {
+    const form = document.querySelector('.contact-form');
+    const formById = document.querySelector('#contactForm');
+    
+    console.log('📋 Formulario por clase:', form);
+    console.log('📋 Formulario por ID:', formById);
+    
+    const targetForm = form || formById;
+    
+    if (!targetForm) {
+        console.log('❌ No se encontró el formulario de contacto');
+        return;
+    }
+    
+    console.log('✅ Formulario de contacto encontrado:', targetForm);
+    
+    targetForm.addEventListener('submit', async function(e) {
         e.preventDefault();
+        console.log('📝 Evento submit capturado - Formulario enviado');
         
         // Obtener datos del formulario
-        const formData = new FormData(form);
+        const formData = new FormData(targetForm);
         const data = Object.fromEntries(formData);
         
-        // Simular envío (aquí conectarías con tu backend)
-        const submitBtn = form.querySelector('button[type="submit"]');
+        console.log('📋 Datos del formulario:', data);
+        
+        // Validación básica del lado del cliente
+        if (!data.name || !data.email || !data.subject || !data.message) {
+            console.log('❌ Validación fallida: campos vacíos');
+            showNotification('❌ Por favor, completa todos los campos', 'error');
+            return;
+        }
+
+        const submitBtn = targetForm.querySelector('button[type="submit"]');
         const originalText = submitBtn.innerHTML;
         
+        console.log('🔄 Cambiando estado del botón a "enviando"');
+        
+        // Mostrar estado de carga
         submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
         submitBtn.disabled = true;
         
-        setTimeout(() => {
-            submitBtn.innerHTML = '<i class="fas fa-check"></i> ¡Enviado!';
-            submitBtn.style.background = '#22c55e';
+        try {
+            console.log('🚀 Enviando solicitud al servidor...');
             
+            // Enviar al servidor
+            const response = await fetch('/api/contact', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            });
+            
+            console.log('📡 Respuesta del servidor recibida:', response.status, response.statusText);
+            
+            if (!response.ok) {
+                throw new Error(`Error del servidor: ${response.status} ${response.statusText}`);
+            }
+            
+            const result = await response.json();
+            console.log('📦 Resultado parseado:', result);
+            
+            if (result.success) {
+                console.log('✅ Éxito confirmado del servidor');
+                
+                // Éxito - cambiar botón
+                submitBtn.innerHTML = '<i class="fas fa-check"></i> ¡Enviado!';
+                submitBtn.style.background = '#10B981';
+                
+                console.log('🔔 Mostrando notificación de éxito...');
+                
+                // Mostrar notificación de éxito
+                showNotification('✅ ¡Correo enviado exitosamente! Gracias por consultar con nosotros', 'success');
+                
+                // Alert de respaldo (se puede quitar después)
+                alert('✅ ¡Correo enviado exitosamente! Gracias por consultar con nosotros');
+                
+                // Limpiar formulario después de 3 segundos
+                setTimeout(() => {
+                    targetForm.reset();
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                    submitBtn.style.background = '';
+                }, 3000);
+                
+            } else {
+                console.log('❌ Error reportado por el servidor:', result.message);
+                throw new Error(result.message || 'Error desconocido del servidor');
+            }
+            
+        } catch (error) {
+            console.error('❌ Error capturado:', error);
+            
+            // Mostrar error en el botón
+            submitBtn.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Error';
+            submitBtn.style.background = '#EF4444';
+            
+            // Mostrar notificación de error
+            showNotification(`❌ Error: ${error.message}`, 'error');
+            
+            // Alert de respaldo para errores
+            alert(`❌ Error al enviar el correo: ${error.message}`);
+            
+            // Restaurar botón después de 3 segundos
             setTimeout(() => {
                 submitBtn.innerHTML = originalText;
                 submitBtn.disabled = false;
                 submitBtn.style.background = '';
-                form.reset();
-                
-                // Mostrar mensaje de éxito
-                showNotification('¡Mensaje enviado correctamente!', 'success');
-            }, 2000);
-        }, 1500);
+            }, 3000);
+        }
     });
+    
+    console.log('✅ Event listener agregado al formulario');
+}
+
+// Función para mostrar notificaciones (versión ultra-simple y garantizada)
+function showNotification(message, type = 'info') {
+    console.log(`🔔 showNotification llamada: "${message}" (${type})`);
+    
+    // Remover notificaciones existentes
+    const existing = document.querySelectorAll('.simple-notification');
+    existing.forEach(el => el.remove());
+    
+    // Crear notificación
+    const notification = document.createElement('div');
+    notification.className = 'simple-notification';
+    
+    // Configurar colores
+    const colors = {
+        success: { bg: '#10B981', icon: '✅' },
+        error: { bg: '#EF4444', icon: '❌' },
+        info: { bg: '#3B82F6', icon: 'ℹ️' }
+    };
+    
+    const color = colors[type] || colors.info;
+    
+    // HTML simple
+    notification.innerHTML = `
+        <div style="display: flex; align-items: center; gap: 12px; width: 100%;">
+            <span style="font-size: 18px;">${color.icon}</span>
+            <span style="flex: 1; font-weight: 500;">${message}</span>
+            <span onclick="this.parentElement.parentElement.remove()" 
+                  style="cursor: pointer; font-size: 20px; opacity: 0.7; padding: 4px;">×</span>
+        </div>
+    `;
+    
+    // Estilos absolutamente garantizados
+    notification.style.position = 'fixed';
+    notification.style.top = '20px';
+    notification.style.right = '20px';
+    notification.style.zIndex = '999999';
+    notification.style.backgroundColor = color.bg;
+    notification.style.color = 'white';
+    notification.style.padding = '16px 20px';
+    notification.style.borderRadius = '8px';
+    notification.style.boxShadow = '0 8px 32px rgba(0,0,0,0.3)';
+    notification.style.minWidth = '350px';
+    notification.style.maxWidth = '500px';
+    notification.style.fontSize = '14px';
+    notification.style.fontFamily = 'Arial, sans-serif';
+    notification.style.border = '2px solid rgba(255,255,255,0.3)';
+    notification.style.transform = 'translateX(600px)';
+    notification.style.transition = 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)';
+    
+    // Agregar inmediatamente al DOM
+    document.body.appendChild(notification);
+    console.log('📍 Notificación agregada al DOM');
+    
+    // Forzar re-render y animar
+    requestAnimationFrame(() => {
+        notification.style.transform = 'translateX(0)';
+        console.log('🎭 Animación de entrada iniciada');
+    });
+    
+    // Auto-remover después de 7 segundos
+    setTimeout(() => {
+        if (notification.parentNode) {
+            notification.style.transform = 'translateX(600px)';
+            setTimeout(() => {
+                if (notification.parentNode) {
+                    notification.remove();
+                    console.log('🗑️ Notificación removida');
+                }
+            }, 400);
+        }
+    }, 7000);
+    
+    console.log(`✅ Notificación "${message}" creada exitosamente`);
+    return notification;
 }
 
 // Scroll suave para enlaces de navegación
@@ -263,48 +422,6 @@ function initSmoothScroll() {
             }
         });
     });
-}
-
-// Sistema de notificaciones
-function showNotification(message, type = 'info') {
-    const notification = document.createElement('div');
-    notification.className = `notification notification-${type}`;
-    notification.innerHTML = `
-        <div class="notification-content">
-            <i class="fas fa-${type === 'success' ? 'check-circle' : 'info-circle'}"></i>
-            <span>${message}</span>
-        </div>
-    `;
-    
-    // Estilos para la notificación
-    notification.style.cssText = `
-        position: fixed;
-        top: 100px;
-        right: 20px;
-        background: ${type === 'success' ? '#22c55e' : '#3b82f6'};
-        color: white;
-        padding: 1rem 1.5rem;
-        border-radius: 0.5rem;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        z-index: 10000;
-        transform: translateX(400px);
-        transition: all 0.3s ease;
-    `;
-    
-    document.body.appendChild(notification);
-    
-    // Animar entrada
-    setTimeout(() => {
-        notification.style.transform = 'translateX(0)';
-    }, 100);
-    
-    // Remover después de 3 segundos
-    setTimeout(() => {
-        notification.style.transform = 'translateX(400px)';
-        setTimeout(() => {
-            document.body.removeChild(notification);
-        }, 300);
-    }, 3000);
 }
 
 // Efectos de partículas en el background (opcional)

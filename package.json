@@ -8,13 +8,20 @@
     "dev": "nodemon server.js"
   },
   "dependencies": {
+    "dotenv": "^17.2.3",
     "express": "^4.18.2",
+    "nodemailer": "^7.0.9",
     "path": "^0.12.7"
   },
   "devDependencies": {
     "nodemon": "^3.0.1"
   },
-  "keywords": ["portfolio", "developer", "node.js", "landing-page"],
+  "keywords": [
+    "portfolio",
+    "developer",
+    "node.js",
+    "landing-page"
+  ],
   "author": "Tu Nombre",
   "license": "MIT"
 }

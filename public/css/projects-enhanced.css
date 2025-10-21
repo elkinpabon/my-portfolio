@@ -36,19 +36,21 @@
 
 .project-status {
   position: absolute;
-  top: 1rem;
-  right: 1rem;
+  top: 0.75rem;
+  right: 0.75rem;
   background: rgba(16, 185, 129, 0.95);
   color: white;
-  padding: 0.375rem 0.875rem;
+  padding: 0.25rem 0.5rem;
   border-radius: var(--border-radius);
-  font-size: 0.75rem;
+  font-size: 0.625rem;
   font-weight: 600;
   z-index: 10;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.3px;
   backdrop-filter: blur(8px);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  white-space: nowrap;
+  display: inline-block;
 }
 
 .project-status.completed {
@@ -182,6 +184,15 @@
   color: var(--primary-green);
 }
 
+/* View project overlay text styling */
+.view-project {
+  font-size: 0.75rem; /* Texto más pequeño */
+  font-weight: bold; /* Texto en negrita */
+  color: inherit;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
 .project-description {
   color: var(--text-secondary);
   font-size: 0.9375rem;
@@ -313,6 +324,7 @@
 .project-footer {
   padding: 0 1.5rem 1.25rem;
   margin-top: auto;
+  text-align: center;
 }
 
 .project-links {
@@ -415,6 +427,7 @@
 
   .project-footer {
     padding: 0 1.125rem 1rem;
+    text-align: center;
   }
 
   .project-card.featured .project-body {
@@ -424,6 +437,7 @@
 
   .project-card.featured .project-footer {
     padding: 0 1.125rem 1rem;
+    text-align: center;
   }
 
   .project-title {
@@ -453,6 +467,7 @@
 
   .project-footer {
     padding: 0 1rem 0.875rem;
+    text-align: center;
   }
 
   .project-card.featured .project-body {
@@ -462,6 +477,7 @@
 
   .project-card.featured .project-footer {
     padding: 0 1rem 0.875rem;
+    text-align: center;
   }
 
   .project-image {
@@ -474,8 +490,10 @@
 
   .project-status,
   .project-featured-badge {
-    font-size: 0.6875rem;
-    padding: 0.3125rem 0.625rem;
+    font-size: 0.625rem;
+    padding: 0.25rem 0.5rem;
+    top: 0.5rem;
+    right: 0.5rem;
   }
 
   .project-tech {
@@ -521,6 +539,7 @@
 
   .project-footer {
     padding: 0 0.875rem 0.75rem;
+    text-align: center;
   }
 
   .project-card.featured .project-body {
@@ -528,8 +547,14 @@
     gap: 0.5rem;
   }
 
+  /* Ajuste del texto del overlay en móviles */
+  .view-project {
+    font-size: 0.625rem; /* Aún más pequeño en móviles */
+  }
+
   .project-card.featured .project-footer {
     padding: 0 0.875rem 0.75rem;
+    text-align: center;
   }
 
   .project-image {
@@ -538,6 +563,13 @@
 
   .project-card.featured .project-image {
     height: 180px;
+  }
+
+  .project-status {
+    font-size: 0.5rem;
+    padding: 0.1875rem 0.375rem;
+    top: 0.375rem;
+    right: 0.375rem;
   }
 
   .project-title {
@@ -592,10 +624,10 @@
   }
 
   .project-status {
-    top: 0.5rem;
-    right: 0.5rem;
-    font-size: 0.625rem;
-    padding: 0.25rem 0.5rem;
+    top: 0.25rem;
+    right: 0.25rem;
+    font-size: 0.4375rem;
+    padding: 0.125rem 0.25rem;
   }
 
   .project-featured-badge {
@@ -612,6 +644,7 @@
 
   .project-footer {
     padding: 0 0.75rem 0.625rem;
+    text-align: center;
   }
 
   .project-card.featured .project-body {
@@ -621,6 +654,7 @@
 
   .project-card.featured .project-footer {
     padding: 0 0.75rem 0.625rem;
+    text-align: center;
   }
 
   .project-title {

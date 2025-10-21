@@ -6,13 +6,13 @@ class SidebarManager {
   constructor() {
     this.sidebar = document.querySelector('.projects-sidebar');
     this.overlay = document.querySelector('.sidebar-overlay');
-    this.toggleBtn = document.querySelector('.floating-filter-btn');
+        this.toggleBtn = document.querySelector('.floating-filter-btn');
     this.closeBtn = document.querySelector('.sidebar-toggle');
-    this.searchInput = document.querySelector('#project-search');
-    this.sortSelect = document.querySelector('#sort-select');
+    this.searchInput = document.querySelector('#projectSearchSidebar');
+    this.sortSelect = document.querySelector('#sortProjectsSidebar');
     this.categoryFilters = document.querySelectorAll('.filter-option');
     this.techFilters = document.querySelectorAll('.tech-filter');
-    this.clearFiltersBtn = document.querySelector('.clear-filters');
+    this.clearFiltersBtn = document.querySelector('#clearFilters');
     this.clearSearchBtn = document.querySelector('.clear-search');
     
     this.projectsContainer = document.querySelector('.projects-grid');
@@ -179,23 +179,42 @@ class SidebarManager {
   }
 
   handleCategoryFilter(filterElement) {
-    const category = filterElement.dataset.category;
+    const category = filterElement.dataset.filter;
     
     // Toggle active state
     filterElement.classList.toggle('active');
     
-    // Obtener todas las categorías activas
-    const activeCategories = Array.from(this.categoryFilters)
-      .filter(filter => filter.classList.contains('active'))
-      .map(filter => filter.dataset.category);
-    
-    // Si no hay categorías activas, mostrar todos
-    if (activeCategories.length === 0) {
+    // Si se selecciona "all", mostrar todos y limpiar otros filtros
+    if (category === 'all') {
+      this.categoryFilters.forEach(filter => {
+        if (filter !== filterElement) {
+          filter.classList.remove('active');
+        }
+      });
       this.filteredProjects = [...this.allProjects];
     } else {
-      this.filteredProjects = this.allProjects.filter(project => 
-        activeCategories.includes(project.category)
-      );
+      // Desactivar el filtro "all" si se selecciona otro
+      const allFilter = Array.from(this.categoryFilters).find(f => f.dataset.filter === 'all');
+      if (allFilter) {
+        allFilter.classList.remove('active');
+      }
+      
+      // Obtener todas las categorías activas
+      const activeCategories = Array.from(this.categoryFilters)
+        .filter(filter => filter.classList.contains('active') && filter.dataset.filter !== 'all')
+        .map(filter => filter.dataset.filter);
+      
+      // Si no hay categorías activas, mostrar todos
+      if (activeCategories.length === 0) {
+        this.filteredProjects = [...this.allProjects];
+        if (allFilter) {
+          allFilter.classList.add('active');
+        }
+      } else {
+        this.filteredProjects = this.allProjects.filter(project => 
+          activeCategories.includes(project.category)
+        );
+      }
     }
     
     this.renderProjects();
@@ -396,3 +415,13 @@ function addSmoothAnimations() {
 
 // Ejecutar animaciones
 addSmoothAnimations();
+
+// ===================================
+// INICIALIZACIÓN
+// ===================================
+
+// Inicializar el sidebar cuando el DOM esté listo
+document.addEventListener('DOMContentLoaded', () => {
+  const sidebar = new SidebarManager();
+  console.log('Sidebar Manager initialized');
+});

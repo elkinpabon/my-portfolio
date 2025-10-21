@@ -7,10 +7,15 @@
     <meta name="description" content="Aplicación de mensajería instantánea con cifrado extremo a extremo para comunicaciones corporativas seguras">
     
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="../favicon.ico">
+    <link rel="icon" type="image/x-icon" href="../assets/logo/logo_pequeño.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="../assets/logo/logo_pequeño.ico">
+    <link rel="apple-touch-icon" href="../assets/logo/logo_pequeño.png">
     
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
     
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -122,6 +127,11 @@
                 height: 40px;
                 font-size: 1rem;
             }
+            
+            .back-button {
+                margin-top: var(--space-8);
+                margin-bottom: var(--space-4);
+            }
         }
     </style>
     
@@ -130,26 +140,35 @@
 </head>
 <body class="dark-theme">
     <!-- Navigation -->
-    <nav class="navbar">
-        <div class="container nav-container">
-            <a href="../index.html" class="nav-logo">
-                <span class="logo-text">Elkinext</span>
-                <span class="logo-accent">Solutions</span>
-            </a>
-            
-            <div class="nav-menu" id="nav-menu">
-                <a href="../index.html" class="nav-link">Inicio</a>
-                <a href="../index.html#about" class="nav-link">Nosotros</a>
-                <a href="../index.html#skills" class="nav-link">Tecnologías</a>
-                <a href="../projects.html" class="nav-link active">Proyectos</a>
-                <a href="../index.html#contact" class="nav-link">Contacto</a>
+    <nav class="navbar-modern">
+        <div class="nav-pill">
+            <div class="nav-logo">
+                <i data-lucide="code-2"></i>
+                <span>ELKINEXT</span>
             </div>
-            
-            <div class="nav-toggle" id="nav-toggle">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
+            <ul class="nav-links">
+                <li><a href="../index.html" class="nav-item">
+                    <i data-lucide="home"></i>
+                    <span>Inicio</span>
+                </a></li>
+                <li><a href="../index.html#about" class="nav-item">
+                    <i data-lucide="building-2"></i>
+                    <span>Empresa</span>
+                </a></li>
+                <li><a href="../index.html#skills" class="nav-item">
+                    <i data-lucide="zap"></i>
+                    <span>Tecnologías</span>
+                </a></li>
+                <li><a href="../projects.html" class="nav-item active">
+                    <i data-lucide="folder"></i>
+                    <span>Proyectos</span>
+                </a></li>
+                <li><a href="../index.html#contact" class="nav-item">
+                    <i data-lucide="mail"></i>
+                    <span>Contacto</span>
+                </a></li>
+            </ul>
+            <div class="nav-indicator"></div>
         </div>
     </nav>
 
@@ -268,7 +287,7 @@
                     </div>
                     <div style="background: var(--bg-secondary); padding: var(--space-8); border-radius: var(--border-radius); text-align: center; border-left: 4px solid #7c3aed;">
                         <i class="fas fa-clock" style="font-size: 3rem; color: #7c3aed; margin-bottom: var(--space-4);"></i>
-                        <h4 style="font-size: 1.3rem; margin-bottom: var(--space-2); color: #7c3aed;">5 Meses</h4>
+                        <h4 style="font-size: 1.3rem; margin-bottom: var(--space-2); color: #7c3aed;">2 Semanas</h4>
                         <p>Desarrollo completo con foco en seguridad</p>
                     </div>
                 </div>
@@ -380,7 +399,7 @@
             <!-- Footer Bottom -->
             <div class="footer-bottom">
                 <div class="footer-copyright">
-                    <p>&copy; 2024 <strong>Elkinext Solutions</strong> - Todos los derechos reservados</p>
+                    <p>&copy; 2025 <strong>Elkinext Solutions</strong> - Todos los derechos reservados</p>
                 </div>
                 <div class="footer-credits">
                     <span>Hecho con ❤️ en Ecuador 🇪🇨</span>
@@ -425,11 +444,8 @@
             showSlide(currentSlide);
         }, 5000);
 
-        // Mobile navigation
-        document.getElementById('nav-toggle').addEventListener('click', function() {
-            const navMenu = document.getElementById('nav-menu');
-            navMenu.classList.toggle('active');
-        });
+        // Initialize Lucide icons
+        lucide.createIcons();
     </script>
 </body>
 </html>
