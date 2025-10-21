@@ -117,8 +117,11 @@
         .carousel-slide img {
             width: 100%;
             height: 500px;
-            object-fit: cover;
+            object-fit: contain;
+            object-position: center;
+            background: #f8f9fa;
             display: block;
+            border-radius: 8px;
         }
         
         .carousel-nav {
@@ -397,39 +400,19 @@
             <div class="carousel-container">
                 <div class="carousel-slides" id="carousel-slides">
                     <div class="carousel-slide">
-                        <img src="../assets/empresa/healthyfood-dashboard.jpg" alt="Dashboard Principal HealthyFood" loading="lazy">
-                        <div class="slide-overlay">
-                            <h3>Dashboard Principal</h3>
-                            <p>Panel de control empresarial con métricas en tiempo real y KPIs</p>
-                        </div>
+                        <img src="../assets/proyectos/healthyFoodWEB/healthy1.png" alt="HealthyFood Web - Pantalla 1" loading="lazy">
                     </div>
                     <div class="carousel-slide">
-                        <img src="../assets/empresa/healthyfood-admin.jpg" alt="Panel Administrativo HealthyFood" loading="lazy">
-                        <div class="slide-overlay">
-                            <h3>Dashboard Administrativo</h3>
-                            <p>Panel de control con métricas y gestión de contenido</p>
-                        </div>
+                        <img src="../assets/proyectos/healthyFoodWEB/healthy2.png" alt="HealthyFood Web - Pantalla 2" loading="lazy">
                     </div>
                     <div class="carousel-slide">
-                        <img src="../assets/empresa/healthyfood-users.jpg" alt="Gestión de Usuarios HealthyFood" loading="lazy">
-                        <div class="slide-overlay">
-                            <h3>Gestión de Usuarios</h3>
-                            <p>Sistema de roles y permisos granulares para empleados</p>
-                        </div>
+                        <img src="../assets/proyectos/healthyFoodWEB/healthy3.png" alt="HealthyFood Web - Pantalla 3" loading="lazy">
                     </div>
                     <div class="carousel-slide">
-                        <img src="../assets/empresa/healthyfood-reports.jpg" alt="Módulo de Reportes HealthyFood" loading="lazy">
-                        <div class="slide-overlay">
-                            <h3>Módulo de Reportes</h3>
-                            <p>Generación automática de reportes con exportación múltiple</p>
-                        </div>
+                        <img src="../assets/proyectos/healthyFoodWEB/healthy4.png" alt="HealthyFood Web - Pantalla 4" loading="lazy">
                     </div>
                     <div class="carousel-slide">
-                        <img src="../assets/empresa/healthyfood-chat.jpg" alt="Chat Interno HealthyFood" loading="lazy">
-                        <div class="slide-overlay">
-                            <h3>Chat Empresarial en Tiempo Real</h3>
-                            <p>Comunicación instantánea interdepartamental con Socket.IO</p>
-                        </div>
+                        <img src="../assets/proyectos/healthyFoodWEB/healthy5.png" alt="HealthyFood Web - Pantalla 5" loading="lazy">
                     </div>
 
                 </div>
@@ -441,12 +424,8 @@
                     <i class="fas fa-chevron-right"></i>
                 </button>
                 
-                <div class="carousel-indicators">
-                    <span class="carousel-indicator active" onclick="currentSlide(1)"></span>
-                    <span class="carousel-indicator" onclick="currentSlide(2)"></span>
-                    <span class="carousel-indicator" onclick="currentSlide(3)"></span>
-                    <span class="carousel-indicator" onclick="currentSlide(4)"></span>
-                    <span class="carousel-indicator" onclick="currentSlide(5)"></span>
+                <div class="carousel-indicators" id="carousel-indicators">
+                    <!-- Los indicadores se generarán automáticamente -->
                 </div>
             </div>
         </div>
@@ -681,6 +660,60 @@
     </footer>
     
     <script>
+        // Carousel functionality
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.carousel-slide');
+        const totalSlides = slides.length;
+        const indicatorsContainer = document.getElementById('carousel-indicators');
+
+        // Generate indicators automatically based on number of slides
+        function generateIndicators() {
+            indicatorsContainer.innerHTML = '';
+            for (let i = 0; i < totalSlides; i++) {
+                const indicator = document.createElement('span');
+                indicator.className = 'carousel-indicator';
+                if (i === 0) indicator.classList.add('active');
+                indicator.onclick = () => currentSlideFunc(i + 1);
+                indicatorsContainer.appendChild(indicator);
+            }
+        }
+
+        function showSlide(n) {
+            if (n >= totalSlides) currentSlide = 0;
+            if (n < 0) currentSlide = totalSlides - 1;
+            
+            const slidesContainer = document.getElementById('carousel-slides');
+            slidesContainer.style.transform = `translateX(-${currentSlide * 100}%)`;
+            
+            // Update indicators
+            const indicators = document.querySelectorAll('.carousel-indicator');
+            indicators.forEach((indicator, index) => {
+                indicator.classList.toggle('active', index === currentSlide);
+            });
+        }
+
+        function changeSlide(n) {
+            currentSlide += n;
+            showSlide(currentSlide);
+        }
+
+        function currentSlideFunc(n) {
+            currentSlide = n - 1;
+            showSlide(currentSlide);
+        }
+
+        // Initialize carousel
+        document.addEventListener('DOMContentLoaded', function() {
+            generateIndicators();
+            showSlide(0);
+        });
+
+        // Auto-play carousel
+        setInterval(() => {
+            currentSlide++;
+            showSlide(currentSlide);
+        }, 5000);
+
         // Initialize Lucide icons
         lucide.createIcons();
     </script>
