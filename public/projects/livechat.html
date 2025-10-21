@@ -24,6 +24,107 @@
     <link rel="stylesheet" href="../css/responsive.css">
     <link rel="stylesheet" href="../css/styles.css">
     
+    <!-- Carousel Styles -->
+    <style>
+        .project-carousel {
+            padding: var(--space-16) 0;
+            background: var(--bg-secondary);
+        }
+
+        .carousel-container {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+            border-radius: var(--border-radius-lg);
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .carousel-slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .carousel-slide {
+            min-width: 100%;
+            position: relative;
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .carousel-navigation {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            z-index: 10;
+        }
+
+        .carousel-navigation:hover {
+            background: rgba(124, 58, 237, 0.9);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .carousel-prev {
+            left: 20px;
+        }
+
+        .carousel-next {
+            right: 20px;
+        }
+
+        .carousel-indicators {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+        }
+
+        .carousel-indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .carousel-indicator.active {
+            background: #7c3aed;
+            transform: scale(1.2);
+        }
+
+        @media (max-width: 768px) {
+            .carousel-slide img {
+                height: 300px;
+            }
+            
+            .carousel-navigation {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
+        }
+    </style>
+    
     <!-- Global Theme Manager -->
     <script src="../js/theme.js"></script>
 </head>
@@ -64,16 +165,95 @@
         </div>
     </section>
 
+    <!-- Project Carousel -->
+    <section class="project-carousel">
+        <div class="container">
+            <h3 style="text-align: center; font-size: 2.5rem; margin-bottom: var(--space-8); color: #7c3aed;">Galería del Proyecto</h3>
+            <div class="carousel-container">
+                <div class="carousel-slides" id="carousel-slides">
+                    <div class="carousel-slide">
+                        <img src="../assets/empresa/livechat-main.jpg" alt="LiveChat Interface Principal" loading="lazy">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="../assets/empresa/livechat-security.jpg" alt="Panel de Seguridad LiveChat" loading="lazy">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="../assets/empresa/livechat-encryption.jpg" alt="Sistema de Cifrado" loading="lazy">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="../assets/empresa/livechat-rooms.jpg" alt="Salas Privadas LiveChat" loading="lazy">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="../assets/empresa/livechat-files.jpg" alt="Intercambio de Archivos Seguro" loading="lazy">
+                    </div>
+                </div>
+                
+                <button class="carousel-navigation carousel-prev" onclick="changeSlide(-1)">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="carousel-navigation carousel-next" onclick="changeSlide(1)">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+                
+                <div class="carousel-indicators">
+                    <div class="carousel-indicator active" onclick="currentSlide(1)"></div>
+                    <div class="carousel-indicator" onclick="currentSlide(2)"></div>
+                    <div class="carousel-indicator" onclick="currentSlide(3)"></div>
+                    <div class="carousel-indicator" onclick="currentSlide(4)"></div>
+                    <div class="carousel-indicator" onclick="currentSlide(5)"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Project Description -->
     <section style="padding: var(--space-16) 0; background: var(--bg-primary);">
         <div class="container">
             <div style="max-width: 800px; margin: 0 auto; text-align: center;">
                 <h3 style="font-size: 2.5rem; margin-bottom: var(--space-8); color: #7c3aed;">Sobre el Proyecto</h3>
                 <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: var(--space-6); text-align: justify;">
-                    LiveChat es una aplicación de mensajería instantánea diseñada para comunicaciones 
-                    corporativas seguras. Incluye cifrado extremo a extremo, salas privadas, intercambio 
-                    de archivos seguro, indicadores de escritura y historial encriptado. Desarrollado 
-                    en 5 meses para 1,000+ usuarios con cifrado AES-256.
+                    <strong>Aplicación de chat en tiempo real con cifrado extremo a extremo</strong>, desarrollada para proporcionar 
+                    comunicaciones seguras. Permite a los usuarios interactuar en tiempo real con respuestas instantáneas, 
+                    manteniendo la privacidad de las conversaciones.
+                </p>
+                <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: var(--space-6); text-align: justify;">
+                    <strong>Stack de desarrollo:</strong> El backend fue desarrollado con Node.js y Express, proporcionando 
+                    una base sólida para el manejo de conexiones en tiempo real. El frontend utiliza React con TypeScript 
+                    para crear una interfaz de usuario robusta y tipada. La base de datos MongoDB almacena eficientemente 
+                    los mensajes y datos de usuarios.
+                </p>
+                <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: var(--space-6); text-align: justify;">
+                    <strong>Tecnologías implementadas:</strong> WebSockets fueron integrados para proporcionar comunicación 
+                    bidireccional en tiempo real entre usuarios. JWT maneja la autenticación segura, mientras que CryptoJS 
+                    proporciona las funcionalidades de cifrado para proteger la privacidad de las conversaciones.
+                </p>
+                <div style="margin: var(--space-8) 0;">
+                    <h4 style="font-size: 1.5rem; margin-bottom: var(--space-4); color: #7c3aed;">Características Implementadas</h4>
+                    <ul style="list-style: none; padding: 0; margin: 0;">
+                        <li style="margin-bottom: var(--space-3); padding: var(--space-3); background: rgba(124, 58, 237, 0.1); border-left: 4px solid #7c3aed; border-radius: 8px; font-size: 1rem;">
+                            ✅ Chat en tiempo real con WebSockets
+                        </li>
+                        <li style="margin-bottom: var(--space-3); padding: var(--space-3); background: rgba(124, 58, 237, 0.1); border-left: 4px solid #7c3aed; border-radius: 8px; font-size: 1rem;">
+                            ✅ Cifrado extremo a extremo
+                        </li>
+                        <li style="margin-bottom: var(--space-3); padding: var(--space-3); background: rgba(124, 58, 237, 0.1); border-left: 4px solid #7c3aed; border-radius: 8px; font-size: 1rem;">
+                            ✅ Autenticación segura con JWT
+                        </li>
+                        <li style="margin-bottom: var(--space-3); padding: var(--space-3); background: rgba(124, 58, 237, 0.1); border-left: 4px solid #7c3aed; border-radius: 8px; font-size: 1rem;">
+                            ✅ Interface tipada con TypeScript
+                        </li>
+                        <li style="margin-bottom: var(--space-3); padding: var(--space-3); background: rgba(124, 58, 237, 0.1); border-left: 4px solid #7c3aed; border-radius: 8px; font-size: 1rem;">
+                            ✅ Base de datos MongoDB optimizada
+                        </li>
+                    </ul>
+                </div>
+                <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: var(--space-6); text-align: justify;">
+                    <strong>Equipo de desarrollo:</strong> Proyecto desarrollado por 3 personas especializadas en backend, 
+                    frontend y seguridad.
+                </p>
+                <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: var(--space-6); text-align: justify;">
+                    <strong>Tiempo de desarrollo:</strong> El proyecto fue completado en un período de 2 semanas, 
+                    incluyendo la implementación del sistema de cifrado y comunicación en tiempo real.
                 </p>
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: var(--space-6); margin-top: var(--space-8);">
                     <div style="background: var(--bg-secondary); padding: var(--space-8); border-radius: var(--border-radius); text-align: center; border-left: 4px solid #7c3aed;">
@@ -210,6 +390,41 @@
     </footer>
     
     <script>
+        // Carousel functionality
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.carousel-slide');
+        const indicators = document.querySelectorAll('.carousel-indicator');
+        const totalSlides = slides.length;
+
+        function showSlide(n) {
+            if (n >= totalSlides) currentSlide = 0;
+            if (n < 0) currentSlide = totalSlides - 1;
+            
+            const slidesContainer = document.getElementById('carousel-slides');
+            slidesContainer.style.transform = `translateX(-${currentSlide * 100}%)`;
+            
+            // Update indicators
+            indicators.forEach((indicator, index) => {
+                indicator.classList.toggle('active', index === currentSlide);
+            });
+        }
+
+        function changeSlide(n) {
+            currentSlide += n;
+            showSlide(currentSlide);
+        }
+
+        function currentSlideFunc(n) {
+            currentSlide = n - 1;
+            showSlide(currentSlide);
+        }
+
+        // Auto-play carousel
+        setInterval(() => {
+            currentSlide++;
+            showSlide(currentSlide);
+        }, 5000);
+
         // Mobile navigation
         document.getElementById('nav-toggle').addEventListener('click', function() {
             const navMenu = document.getElementById('nav-menu');

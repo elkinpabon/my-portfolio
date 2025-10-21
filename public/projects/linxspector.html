@@ -362,49 +362,23 @@
     <!-- Project Carousel -->
     <section class="project-carousel">
         <div class="container">
+            <h3 style="text-align: center; font-size: 2.5rem; margin-bottom: var(--space-8); color: #dc2626;">Galería del Proyecto</h3>
             <div class="carousel-container">
                 <div class="carousel-slides" id="carousel-slides">
                     <div class="carousel-slide">
-                        <img src="https://via.placeholder.com/900x500/dc2626/ffffff?text=Dashboard+Principal+Linxspector" alt="Dashboard Principal">
-                        <div class="slide-overlay">
-                            <h3>Dashboard Principal</h3>
-                            <p>Vista general del estado de toda la infraestructura</p>
-                        </div>
+                        <img src="../assets/empresa/linxspector-dashboard.jpg" alt="Dashboard Principal LinxSpector" loading="lazy">
                     </div>
                     <div class="carousel-slide">
-                        <img src="https://via.placeholder.com/900x500/b91c1c/ffffff?text=Monitoreo+en+Tiempo+Real" alt="Monitoreo en Tiempo Real">
-                        <div class="slide-overlay">
-                            <h3>Monitoreo en Tiempo Real</h3>
-                            <p>Métricas de rendimiento y disponibilidad actualizadas</p>
-                        </div>
+                        <img src="../assets/empresa/linxspector-monitoring.jpg" alt="Monitoreo en Tiempo Real LinxSpector" loading="lazy">
                     </div>
                     <div class="carousel-slide">
-                        <img src="https://via.placeholder.com/900x500/991b1b/ffffff?text=Sistema+de+Alertas" alt="Sistema de Alertas">
-                        <div class="slide-overlay">
-                            <h3>Sistema de Alertas</h3>
-                            <p>Notificaciones automáticas ante incidencias</p>
-                        </div>
+                        <img src="../assets/empresa/linxspector-alerts.jpg" alt="Sistema de Alertas LinxSpector" loading="lazy">
                     </div>
                     <div class="carousel-slide">
-                        <img src="https://via.placeholder.com/900x500/7f1d1d/ffffff?text=Analisis+de+Logs" alt="Análisis de Logs">
-                        <div class="slide-overlay">
-                            <h3>Análisis de Logs</h3>
-                            <p>Búsqueda y análisis centralizado de logs</p>
-                        </div>
+                        <img src="../assets/empresa/linxspector-logs.jpg" alt="Análisis de Logs LinxSpector" loading="lazy">
                     </div>
                     <div class="carousel-slide">
-                        <img src="https://via.placeholder.com/900x500/6f1e1e/ffffff?text=Reportes+Ejecutivos" alt="Reportes Ejecutivos">
-                        <div class="slide-overlay">
-                            <h3>Reportes Ejecutivos</h3>
-                            <p>Informes detallados de rendimiento y disponibilidad</p>
-                        </div>
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="https://via.placeholder.com/900x500/5f1f1f/ffffff?text=Configuracion+Avanzada" alt="Configuración Avanzada">
-                        <div class="slide-overlay">
-                            <h3>Configuración Avanzada</h3>
-                            <p>Personalización de umbrales y parámetros</p>
-                        </div>
+                        <img src="../assets/empresa/linxspector-reports.jpg" alt="Reportes Ejecutivos LinxSpector" loading="lazy">
                     </div>
                 </div>
                 
@@ -421,7 +395,6 @@
                     <span class="carousel-indicator" onclick="currentSlide(3)"></span>
                     <span class="carousel-indicator" onclick="currentSlide(4)"></span>
                     <span class="carousel-indicator" onclick="currentSlide(5)"></span>
-                    <span class="carousel-indicator" onclick="currentSlide(6)"></span>
                 </div>
             </div>
         </div>
@@ -438,10 +411,10 @@
                     <h3>Información del Proyecto</h3>
                     <ul>
                         <li><strong>Cliente:</strong> Empresas Tecnológicas</li>
-                        <li><strong>Duración:</strong> 7 meses</li>
+                        <li><strong>Duración:</strong> 3 meses</li>
                         <li><strong>Tipo:</strong> Plataforma de Monitoreo IT</li>
                         <li><strong>Estado:</strong> Completado y En Producción</li>
-                        <li><strong>Servidores:</strong> 200+ monitoreados</li>
+                        <li><strong>Equipo:</strong> 2 personas</li>
                     </ul>
                 </div>
 
@@ -481,26 +454,50 @@
     <section class="project-description">
         <div class="container">
             <div class="description-content">
-                <h3>Sobre el Proyecto</h3>
-                <p>
-                    Linxspector es una plataforma avanzada de monitoreo diseñada para empresas que 
-                    requieren visibilidad completa de su infraestructura IT. El sistema integra 
-                    monitoreo de servidores, aplicaciones, bases de datos y servicios en la nube 
-                    desde una interfaz unificada y fácil de usar.
+                <h3 style="font-size: 2.5rem; margin-bottom: var(--space-8); color: #dc2626; text-align: center;">Sobre el Proyecto</h3>
+                <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: var(--space-6); text-align: justify;">
+                    <strong>Plataforma de monitoreo en tiempo real de los recursos computacionales de equipos Linux y Windows</strong>. 
+                    Permite visualizar estadísticas de uso de CPU, RAM, disco y red, con alertas automáticas y reportes generados 
+                    para facilitar la administración de los recursos.
                 </p>
-                <p>
-                    Desarrollado con una arquitectura de microservicios usando Python y Django para 
-                    el backend, la plataforma utiliza PostgreSQL para almacenamiento de métricas 
-                    históricas y Redis para caché de alta velocidad. La integración con Grafana 
-                    proporciona visualizaciones avanzadas y dashboards personalizables, mientras 
-                    que Docker garantiza un despliegue consistente y escalable.
+                <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: var(--space-6); text-align: justify;">
+                    <strong>Stack de desarrollo:</strong> El backend fue desarrollado con Python y Django, proporcionando 
+                    una base sólida y escalable para el procesamiento de datos de monitoreo. El frontend utiliza React con Vite 
+                    para crear una interfaz de usuario rápida y moderna. La base de datos MySQL almacena eficientemente 
+                    las métricas históricas y configuraciones del sistema.
                 </p>
-                <p>
-                    El sistema incluye capacidades de machine learning para detección proactiva 
-                    de anomalías, sistema de alertas multi-canal (email, SMS, Slack), y APIs 
-                    robustas para integración con herramientas existentes. La plataforma ha 
-                    demostrado una reducción del 70% en el tiempo de detección de incidencias 
-                    y mantiene un 99.9% de disponibilidad.
+                <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: var(--space-6); text-align: justify;">
+                    <strong>Tecnologías de visualización:</strong> Chart.js, Plotly y Matplotlib fueron integrados para 
+                    proporcionar visualizaciones avanzadas y gráficos interactivos de los datos de rendimiento. Estas 
+                    herramientas permiten crear dashboards informativos y reportes detallados del estado de los sistemas.
+                </p>
+                <div style="margin: var(--space-8) 0;">
+                    <h4 style="font-size: 1.5rem; margin-bottom: var(--space-4); color: #3b82f6;">Características Implementadas</h4>
+                    <ul style="list-style: none; padding: 0; margin: 0;">
+                        <li style="margin-bottom: var(--space-3); padding: var(--space-3); background: rgba(59, 130, 246, 0.1); border-left: 4px solid #3b82f6; border-radius: 8px; font-size: 1rem;">
+                            ✅ Monitoreo en tiempo real de sistemas
+                        </li>
+                        <li style="margin-bottom: var(--space-3); padding: var(--space-3); background: rgba(59, 130, 246, 0.1); border-left: 4px solid #3b82f6; border-radius: 8px; font-size: 1rem;">
+                            ✅ Visualización de métricas con Chart.js
+                        </li>
+                        <li style="margin-bottom: var(--space-3); padding: var(--space-3); background: rgba(59, 130, 246, 0.1); border-left: 4px solid #3b82f6; border-radius: 8px; font-size: 1rem;">
+                            ✅ Sistema de alertas automáticas
+                        </li>
+                        <li style="margin-bottom: var(--space-3); padding: var(--space-3); background: rgba(59, 130, 246, 0.1); border-left: 4px solid #3b82f6; border-radius: 8px; font-size: 1rem;">
+                            ✅ Dashboard interactivo con React
+                        </li>
+                        <li style="margin-bottom: var(--space-3); padding: var(--space-3); background: rgba(59, 130, 246, 0.1); border-left: 4px solid #3b82f6; border-radius: 8px; font-size: 1rem;">
+                            ✅ Reportes históricos en MySQL
+                        </li>
+                    </ul>
+                </div>
+                <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: var(--space-6); text-align: justify;">
+                    <strong>Equipo de desarrollo:</strong> Proyecto desarrollado por 2 personas especializadas en Python 
+                    y desarrollo frontend.
+                </p>
+                <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: var(--space-6); text-align: justify;">
+                    <strong>Tiempo de desarrollo:</strong> El proyecto fue completado en un período de 3 meses, 
+                    incluyendo el desarrollo de agentes de monitoreo, interfaz web y sistema de alertas.
                 </p>
             </div>
         </div>

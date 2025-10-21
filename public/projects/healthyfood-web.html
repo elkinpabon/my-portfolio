@@ -372,50 +372,45 @@
     <!-- Project Carousel -->
     <section class="project-carousel">
         <div class="container">
+            <h3 style="text-align: center; font-size: 2.5rem; margin-bottom: var(--space-8); color: #11998e;">Galería del Proyecto</h3>
             <div class="carousel-container">
                 <div class="carousel-slides" id="carousel-slides">
                     <div class="carousel-slide">
-                        <img src="https://via.placeholder.com/900x500/11998e/ffffff?text=Portal+Principal+HealthyFood" alt="Portal Principal">
+                        <img src="../assets/empresa/healthyfood-dashboard.jpg" alt="Dashboard Principal HealthyFood" loading="lazy">
                         <div class="slide-overlay">
-                            <h3>Portal Principal</h3>
-                            <p>Página de inicio con información corporativa y navegación intuitiva</p>
+                            <h3>Dashboard Principal</h3>
+                            <p>Panel de control empresarial con métricas en tiempo real y KPIs</p>
                         </div>
                     </div>
                     <div class="carousel-slide">
-                        <img src="https://via.placeholder.com/900x500/38ef7d/ffffff?text=Dashboard+Administrativo" alt="Dashboard Administrativo">
+                        <img src="../assets/empresa/healthyfood-admin.jpg" alt="Panel Administrativo HealthyFood" loading="lazy">
                         <div class="slide-overlay">
                             <h3>Dashboard Administrativo</h3>
                             <p>Panel de control con métricas y gestión de contenido</p>
                         </div>
                     </div>
                     <div class="carousel-slide">
-                        <img src="https://via.placeholder.com/900x500/10b981/ffffff?text=Gestion+de+Usuarios" alt="Gestión de Usuarios">
+                        <img src="../assets/empresa/healthyfood-users.jpg" alt="Gestión de Usuarios HealthyFood" loading="lazy">
                         <div class="slide-overlay">
                             <h3>Gestión de Usuarios</h3>
-                            <p>Sistema de roles y permisos para empleados</p>
+                            <p>Sistema de roles y permisos granulares para empleados</p>
                         </div>
                     </div>
                     <div class="carousel-slide">
-                        <img src="https://via.placeholder.com/900x500/059669/ffffff?text=Modulo+de+Reportes" alt="Módulo de Reportes">
+                        <img src="../assets/empresa/healthyfood-reports.jpg" alt="Módulo de Reportes HealthyFood" loading="lazy">
                         <div class="slide-overlay">
                             <h3>Módulo de Reportes</h3>
-                            <p>Generación de reportes dinámicos y exportación</p>
+                            <p>Generación automática de reportes con exportación múltiple</p>
                         </div>
                     </div>
                     <div class="carousel-slide">
-                        <img src="https://via.placeholder.com/900x500/047857/ffffff?text=Chat+Interno+Tiempo+Real" alt="Chat Interno">
+                        <img src="../assets/empresa/healthyfood-chat.jpg" alt="Chat Interno HealthyFood" loading="lazy">
                         <div class="slide-overlay">
-                            <h3>Chat Interno en Tiempo Real</h3>
-                            <p>Comunicación instantánea entre departamentos</p>
+                            <h3>Chat Empresarial en Tiempo Real</h3>
+                            <p>Comunicación instantánea interdepartamental con Socket.IO</p>
                         </div>
                     </div>
-                    <div class="carousel-slide">
-                        <img src="https://via.placeholder.com/900x500/065f46/ffffff?text=Panel+de+Configuracion" alt="Panel de Configuración">
-                        <div class="slide-overlay">
-                            <h3>Panel de Configuración</h3>
-                            <p>Configuración del sistema y personalización</p>
-                        </div>
-                    </div>
+
                 </div>
                 
                 <button class="carousel-nav prev" onclick="changeSlide(-1)">
@@ -431,7 +426,6 @@
                     <span class="carousel-indicator" onclick="currentSlide(3)"></span>
                     <span class="carousel-indicator" onclick="currentSlide(4)"></span>
                     <span class="carousel-indicator" onclick="currentSlide(5)"></span>
-                    <span class="carousel-indicator" onclick="currentSlide(6)"></span>
                 </div>
             </div>
         </div>
@@ -448,10 +442,10 @@
                     <h3>Información del Proyecto</h3>
                     <ul>
                         <li><strong>Cliente:</strong> HealthyFood S.A.</li>
-                        <li><strong>Duración:</strong> 3 meses</li>
+                        <li><strong>Duración:</strong> 1 mes</li>
                         <li><strong>Tipo:</strong> Aplicación Web Corporativa</li>
                         <li><strong>Estado:</strong> Completado y En Producción</li>
-                        <li><strong>Usuarios:</strong> 200+ empleados activos</li>
+                        <li><strong>Equipo:</strong> 1 persona</li>
                     </ul>
                 </div>
 
@@ -491,24 +485,49 @@
     <section class="project-description">
         <div class="container">
             <div class="description-content">
-                <h3>Sobre el Proyecto</h3>
-                <p>
-                    La aplicación web HealthyFood fue desarrollada como una solución integral para modernizar 
-                    los procesos internos de la empresa. El proyecto incluyó el diseño y desarrollo de un 
-                    portal corporativo completo que sirviera como centro de información y herramientas de 
-                    gestión para todos los empleados.
+                <h3 style="font-size: 2.5rem; margin-bottom: var(--space-8); color: #11998e; text-align: center;">Sobre el Proyecto</h3>
+                <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: var(--space-6); text-align: justify;">
+                    <strong>Aplicación web informativa y de presentación para Healthy Food</strong>, mostrando la misión, visión, 
+                    servicios y productos de la empresa. Desarrollada para ofrecer una experiencia accesible y moderna tanto en 
+                    dispositivos móviles como de escritorio.
                 </p>
-                <p>
-                    Implementamos una arquitectura moderna basada en Vue.js para el frontend, garantizando 
-                    una experiencia de usuario fluida y responsive. El backend fue desarrollado con Express.js 
-                    y MongoDB, permitiendo un manejo eficiente de los datos y una escalabilidad óptima. 
-                    La integración de WebSocket habilitó las funcionalidades de chat en tiempo real.
+                <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: var(--space-6); text-align: justify;">
+                    <strong>Stack de desarrollo:</strong> El frontend fue desarrollado con Next.js, aprovechando sus capacidades 
+                    de renderizado del lado del servidor para optimizar el rendimiento y SEO. Tailwind CSS fue utilizado para 
+                    crear un diseño moderno, responsive y mantenible con un sistema de utilidades eficiente.
                 </p>
-                <p>
-                    El sistema incluye un completo sistema de autenticación y autorización, dashboard 
-                    administrativo con métricas en tiempo real, generador de reportes personalizables, 
-                    y un sistema de comunicación interna que mejoró significativamente la colaboración 
-                    entre departamentos.
+                <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: var(--space-6); text-align: justify;">
+                    <strong>Características técnicas:</strong> Esta aplicación estática no requiere backend ni base de datos, 
+                    lo que garantiza tiempos de carga rápidos y alta disponibilidad. El diseño responsive asegura una experiencia 
+                    óptima en todos los dispositivos, desde móviles hasta pantallas de escritorio.
+                </p>
+                <div style="margin: var(--space-8) 0;">
+                    <h4 style="font-size: 1.5rem; margin-bottom: var(--space-4); color: #10b981;">Características Implementadas</h4>
+                    <ul style="list-style: none; padding: 0; margin: 0;">
+                        <li style="margin-bottom: var(--space-3); padding: var(--space-3); background: rgba(16, 185, 129, 0.1); border-left: 4px solid #10b981; border-radius: 8px; font-size: 1rem;">
+                            ✅ Página informativa responsive
+                        </li>
+                        <li style="margin-bottom: var(--space-3); padding: var(--space-3); background: rgba(16, 185, 129, 0.1); border-left: 4px solid #10b981; border-radius: 8px; font-size: 1rem;">
+                            ✅ Diseño optimizado para SEO
+                        </li>
+                        <li style="margin-bottom: var(--space-3); padding: var(--space-3); background: rgba(16, 185, 129, 0.1); border-left: 4px solid #10b981; border-radius: 8px; font-size: 1rem;">
+                            ✅ Tiempos de carga rápidos
+                        </li>
+                        <li style="margin-bottom: var(--space-3); padding: var(--space-3); background: rgba(16, 185, 129, 0.1); border-left: 4px solid #10b981; border-radius: 8px; font-size: 1rem;">
+                            ✅ Aplicación estática sin backend
+                        </li>
+                        <li style="margin-bottom: var(--space-3); padding: var(--space-3); background: rgba(16, 185, 129, 0.1); border-left: 4px solid #10b981; border-radius: 8px; font-size: 1rem;">
+                            ✅ Presentación de servicios y productos
+                        </li>
+                    </ul>
+                </div>
+                <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: var(--space-6); text-align: justify;">
+                    <strong>Equipo de desarrollo:</strong> Proyecto desarrollado por 1 persona especializada en frontend 
+                    y diseño web.
+                </p>
+                <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: var(--space-6); text-align: justify;">
+                    <strong>Tiempo de desarrollo:</strong> El proyecto fue completado en un período de 1 mes, 
+                    incluyendo diseño, desarrollo y optimización para diferentes dispositivos.
                 </p>
             </div>
         </div>

@@ -290,25 +290,23 @@
     <!-- Project Carousel -->
     <section class="project-carousel">
         <div class="container">
+            <h3 style="text-align: center; font-size: 2.5rem; margin-bottom: var(--space-8); color: #667eea;">Galería del Proyecto</h3>
             <div class="carousel-container">
                 <div class="carousel-slides" id="carousel-slides">
                     <div class="carousel-slide">
-                        <img src="https://via.placeholder.com/400x600/667eea/ffffff?text=Login+Screen" alt="Pantalla de Login">
+                        <img src="../assets/empresa/healthyfood-mobile-login.jpg" alt="Pantalla de Login Biométrico HealthyFood" loading="lazy">
                     </div>
                     <div class="carousel-slide">
-                        <img src="https://via.placeholder.com/400x600/667eea/ffffff?text=Dashboard+Principal" alt="Dashboard Principal">
+                        <img src="../assets/empresa/healthyfood-mobile-dashboard.jpg" alt="Dashboard Principal HealthyFood Mobile" loading="lazy">
                     </div>
                     <div class="carousel-slide">
-                        <img src="https://via.placeholder.com/400x600/667eea/ffffff?text=Check-in+Biométrico" alt="Check-in Biométrico">
+                        <img src="../assets/empresa/healthyfood-mobile-checkin.jpg" alt="Check-in Biométrico Geolocalizado" loading="lazy">
                     </div>
                     <div class="carousel-slide">
-                        <img src="https://via.placeholder.com/400x600/667eea/ffffff?text=Historial+Asistencias" alt="Historial de Asistencias">
+                        <img src="../assets/empresa/healthyfood-mobile-history.jpg" alt="Historial de Asistencias" loading="lazy">
                     </div>
                     <div class="carousel-slide">
-                        <img src="https://via.placeholder.com/400x600/667eea/ffffff?text=Solicitud+Permisos" alt="Solicitud de Permisos">
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="https://via.placeholder.com/400x600/667eea/ffffff?text=Notificaciones" alt="Sistema de Notificaciones">
+                        <img src="../assets/empresa/healthyfood-mobile-permissions.jpg" alt="Solicitudes de Permisos" loading="lazy">
                     </div>
                 </div>
                 
@@ -326,7 +324,6 @@
                 <div class="carousel-indicator" onclick="goToSlide(2)"></div>
                 <div class="carousel-indicator" onclick="goToSlide(3)"></div>
                 <div class="carousel-indicator" onclick="goToSlide(4)"></div>
-                <div class="carousel-indicator" onclick="goToSlide(5)"></div>
             </div>
         </div>
     </section>
@@ -343,17 +340,16 @@
                 
                 <div class="detail-card">
                     <h3><i class="fas fa-clock"></i> Tiempo de Desarrollo</h3>
-                    <p><strong>4 meses</strong></p>
+                    <p><strong>2 meses</strong></p>
                     <p>Desarrollo nativo para Android e iOS, incluyendo integración con sistemas biométricos.</p>
                 </div>
                 
                 <div class="detail-card">
                     <h3><i class="fas fa-users"></i> Equipo de Trabajo</h3>
-                    <p><strong>4 profesionales</strong></p>
+                    <p><strong>2 personas</strong></p>
                     <ul>
-                        <li>1 Project Manager</li>
-                        <li>2 Desarrolladores Mobile</li>
-                        <li>1 UI/UX Designer especializado en móvil</li>
+                        <li>1 Desarrollador Flutter</li>
+                        <li>1 Especialista en Backend</li>
                     </ul>
                 </div>
                 
@@ -370,29 +366,52 @@
                 </div>
                 
                 <div class="project-description">
-                    <h3><i class="fas fa-mobile-alt"></i> Descripción del Proyecto</h3>
-                    <p>
-                        Desarrollamos una aplicación móvil nativa multiplataforma que permite a los empleados de HealthyFood 
-                        registrar su asistencia de manera rápida y segura mediante autenticación biométrica.
+                    <h3 style="font-size: 2.5rem; margin-bottom: var(--space-8); color: #667eea; text-align: center;"><i class="fas fa-mobile-alt"></i> Sobre el Proyecto</h3>
+                    <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: var(--space-6); text-align: justify;">
+                        <strong>Aplicación móvil diseñada para el control de asistencia de empleados en tiempo real</strong>. 
+                        Desarrollada para tablets, permite registrar la entrada y salida mediante escaneo de QR o PIN. 
+                        Está conectada a un servicio web que registra cualquier novedad y envía notificaciones a los administradores.
                     </p>
-                    <br>
-                    <p>
-                        <strong>Funcionalidades principales:</strong>
+                    <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: var(--space-6); text-align: justify;">
+                        <strong>Stack de desarrollo:</strong> El frontend fue desarrollado con Flutter y Dart, proporcionando 
+                        una experiencia nativa multiplataforma optimizada para tablets. El backend utiliza Node.js con Express 
+                        para manejar las operaciones del servidor de manera eficiente. La base de datos MongoDB almacena 
+                        toda la información de asistencias y empleados de forma segura y escalable.
                     </p>
-                    <ul>
-                        <li><strong>Autenticación Biométrica:</strong> Huella dactilar y reconocimiento facial</li>
-                        <li><strong>Check-in/Check-out:</strong> Registro de entrada y salida con geolocalización</li>
-                        <li><strong>Modo Offline:</strong> Funcionamiento sin conexión con sincronización automática</li>
-                        <li><strong>Historial Personal:</strong> Consulta de asistencias y horas trabajadas</li>
-                        <li><strong>Solicitud de Permisos:</strong> Gestión digital de ausencias y permisos</li>
-                        <li><strong>Notificaciones Push:</strong> Recordatorios y comunicados importantes</li>
-                        <li><strong>Dashboard Personal:</strong> Métricas individuales y estado actual</li>
-                        <li><strong>Modo Supervisor:</strong> Vista especial para coordinadores y jefes</li>
-                    </ul>
-                    <br>
-                    <p>
-                        La aplicación incrementó la precisión del control de asistencias en un 95% y redujo el tiempo 
-                        de registro a menos de 3 segundos por empleado, mejorando significativamente la experiencia del usuario 
+                    <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: var(--space-6); text-align: justify;">
+                        <strong>Tecnologías implementadas:</strong> Firebase fue integrado para proporcionar notificaciones 
+                        en tiempo real, asegurando que los administradores reciban alertas instantáneas sobre cualquier 
+                        novedad en el sistema de asistencias. El sistema de autenticación mediante QR y PIN garantiza 
+                        un acceso rápido y seguro.
+                    </p>
+                    <div style="margin: var(--space-8) 0;">
+                        <h4 style="font-size: 1.5rem; margin-bottom: var(--space-4); color: #10b981;">Características Implementadas</h4>
+                        <ul style="list-style: none; padding: 0; margin: 0;">
+                            <li style="margin-bottom: var(--space-3); padding: var(--space-3); background: rgba(16, 185, 129, 0.1); border-left: 4px solid #10b981; border-radius: 8px; font-size: 1rem;">
+                                ✅ Interfaz móvil optimizada para tablets
+                            </li>
+                            <li style="margin-bottom: var(--space-3); padding: var(--space-3); background: rgba(16, 185, 129, 0.1); border-left: 4px solid #10b981; border-radius: 8px; font-size: 1rem;">
+                                ✅ Aplicación multiplataforma con Flutter
+                            </li>
+                            <li style="margin-bottom: var(--space-3); padding: var(--space-3); background: rgba(16, 185, 129, 0.1); border-left: 4px solid #10b981; border-radius: 8px; font-size: 1rem;">
+                                ✅ Notificaciones push con Firebase
+                            </li>
+                            <li style="margin-bottom: var(--space-3); padding: var(--space-3); background: rgba(16, 185, 129, 0.1); border-left: 4px solid #10b981; border-radius: 8px; font-size: 1rem;">
+                                ✅ Backend robusto con Node.js
+                            </li>
+                            <li style="margin-bottom: var(--space-3); padding: var(--space-3); background: rgba(16, 185, 129, 0.1); border-left: 4px solid #10b981; border-radius: 8px; font-size: 1rem;">
+                                ✅ Base de datos escalable con MongoDB
+                            </li>
+                        </ul>
+                    </div>
+                    <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: var(--space-6); text-align: justify;">
+                        <strong>Equipo de desarrollo:</strong> Proyecto desarrollado por 2 personas especializadas en desarrollo 
+                        móvil y backend.
+                    </p>
+                    <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: var(--space-6); text-align: justify;">
+                        <strong>Tiempo de desarrollo:</strong> El proyecto fue completado en un período de 2 meses, 
+                        desde la conceptualización hasta el deployment final en tablets de la empresa.
+                    </p> 
                         y la eficiencia operacional.
                     </p>
                 </div>
