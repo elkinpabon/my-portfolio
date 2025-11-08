@@ -420,3 +420,15 @@
     padding: var(--space-1) var(--space-2);
   }
 }
+
+/* ===== FILTER ANIMATIONS ===== */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

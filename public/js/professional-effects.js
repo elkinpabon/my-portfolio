@@ -14,9 +14,9 @@ document.addEventListener('DOMContentLoaded', function() {
     initScrollReveal();
     initParallaxEffects();
     initNavigationEffects();
-    initCounterAnimations();
+    // initCounterAnimations(); // DESHABILITADO - los números son estáticos
     // initTypingAnimation(); // Comentado - ahora usamos código estático
-    initParticleSystem();
+    // initParticleSystem(); // DESHABILITADO - sin animaciones
 });
 
 // Efectos avanzados de entrada
@@ -404,7 +404,8 @@ function initSmoothScroll() {
 // Initialize smooth scroll
 initSmoothScroll();
 
-// Mouse cursor enhancement
+// Mouse cursor enhancement - DESHABILITADO
+/*
 function initCursorEffects() {
     const cursor = document.createElement('div');
     cursor.className = 'custom-cursor';
@@ -441,6 +442,7 @@ function initCursorEffects() {
 if (window.innerWidth > 768) {
     initCursorEffects();
 }
+*/
 
 // Performance monitoring
 const PerformanceMonitor = {

@@ -172,10 +172,10 @@ function initAnimations() {
                 const element = entry.target;
                 element.classList.add('animate-in');
                 
-                // Animación especial para contadores
-                if (element.classList.contains('stat-item')) {
-                    animateCounter(element);
-                }
+                // Animación especial para contadores - DESHABILITADA
+                // if (element.classList.contains('stat-item')) {
+                //     animateCounter(element);
+                // }
                 
                 // Animación para barras de progreso de habilidades
                 if (element.classList.contains('skill-item')) {
