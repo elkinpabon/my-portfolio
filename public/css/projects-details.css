@@ -1,0 +1,500 @@
+/* ===================================
+   ESTILOS PARA PÁGINAS INDIVIDUALES DE PROYECTOS
+   =================================== */
+
+/* ===== HERO SECTION ===== */
+.project-hero {
+    background: linear-gradient(135deg, var(--primary-green) 0%, var(--primary-green-dark) 100%);
+    padding: var(--space-20) 0 var(--space-16);
+    color: white;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.project-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+    opacity: 0.3;
+}
+
+.project-hero .container {
+    position: relative;
+    z-index: 1;
+}
+
+.project-title {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: var(--space-4);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.project-subtitle {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    margin-bottom: var(--space-8);
+}
+
+/* ===== BACK BUTTON ===== */
+.back-button {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    padding: var(--space-3) var(--space-6);
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    transition: var(--transition);
+    margin-bottom: var(--space-8);
+}
+
+.back-button:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateX(-5px);
+}
+
+/* ===== CAROUSEL ===== */
+.project-carousel {
+    background: var(--bg-primary);
+    padding: var(--space-16) 0;
+}
+
+.carousel-container {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: var(--border-radius-lg);
+    box-shadow: 0 20px 40px var(--shadow-lg);
+}
+
+.carousel-slides {
+    display: flex;
+    transition: transform 0.8s ease;
+}
+
+.carousel-slide {
+    min-width: 100%;
+    position: relative;
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    display: block;
+}
+
+.carousel-navigation {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+    z-index: 10;
+}
+
+.carousel-navigation:hover {
+    background: rgba(0, 0, 0, 0.8);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.carousel-prev {
+    left: 20px;
+}
+
+.carousel-next {
+    right: 20px;
+}
+
+/* Alias para diferentes nombres */
+.carousel-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+}
+
+.carousel-nav:hover {
+    background: rgba(0, 0, 0, 0.8);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.carousel-nav.prev {
+    left: 20px;
+}
+
+.carousel-nav.next {
+    right: 20px;
+}
+
+/* ===== TYPOGRAPHY UTILITIES ===== */
+.project-description-text {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: var(--space-6);
+    text-align: justify;
+    color: var(--text-secondary);
+}
+
+.project-description-title {
+    font-size: 2.5rem;
+    margin-bottom: var(--space-8);
+    color: var(--primary-green);
+    text-align: center;
+}
+
+.project-characteristics-title {
+    font-size: 1.5rem;
+    margin-bottom: var(--space-4);
+    color: var(--primary-green);
+}
+
+.project-characteristics {
+    margin: var(--space-8) 0;
+}
+
+.characteristics-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+}
+
+.characteristics-item {
+    margin-bottom: var(--space-3);
+    padding: var(--space-3);
+    background: rgba(16, 185, 129, 0.1);
+    border-left: 4px solid var(--primary-green);
+    border-radius: 8px;
+    font-size: 1rem;
+    color: var(--text-secondary);
+    transition: var(--transition);
+}
+
+.characteristics-item:hover {
+    background: rgba(16, 185, 129, 0.2);
+    transform: translateX(4px);
+}
+
+/* ===== CAROUSEL TITLE ===== */
+.carousel-indicators {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-2);
+    margin-top: var(--space-4);
+}
+
+.carousel-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: var(--space-8);
+    color: var(--primary-green);
+}
+
+.carousel-indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--border-color);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.carousel-indicator.active {
+    background: var(--primary-green);
+    transform: scale(1.2);
+}
+
+/* Variante con overlay */
+.slide-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0,0,0,0.8));
+    color: white;
+    padding: var(--space-8) var(--space-6) var(--space-6);
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+
+.carousel-slide:hover .slide-overlay {
+    transform: translateY(0);
+}
+
+.slide-overlay h3 {
+    font-size: 1.5rem;
+    margin-bottom: var(--space-2);
+    color: white;
+}
+
+/* ===== PROJECT DETAILS ===== */
+.project-details {
+    background: var(--bg-secondary);
+    padding: var(--space-16) 0;
+}
+
+.details-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-12);
+    margin-bottom: var(--space-12);
+}
+
+.detail-card {
+    background: var(--bg-primary);
+    padding: var(--space-8);
+    border-radius: var(--border-radius-lg);
+    box-shadow: 0 4px 15px var(--shadow);
+    border-left: 4px solid var(--primary-green);
+}
+
+.detail-card h3 {
+    color: var(--primary-green);
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: var(--space-4);
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+}
+
+.detail-card p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+/* ===== TECHNOLOGY STACK ===== */
+.tech-stack {
+    background: var(--bg-primary);
+    padding: var(--space-12);
+    border-radius: var(--border-radius-lg);
+    box-shadow: 0 4px 15px var(--shadow);
+}
+
+.tech-stack h3 {
+    color: var(--primary-green);
+    margin-bottom: var(--space-6);
+    font-size: 1.5rem;
+}
+
+.tech-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: var(--space-4);
+}
+
+.tech-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: var(--space-3) var(--space-4);
+    background: var(--bg-secondary);
+    border-radius: var(--border-radius);
+    border-left: 3px solid var(--primary-green);
+}
+
+.tech-item i {
+    color: var(--primary-green);
+    font-size: 1.3rem;
+}
+
+.tech-item span {
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+/* ===== FEATURES SECTION ===== */
+.project-features {
+    background: var(--bg-primary);
+    padding: var(--space-12);
+    border-radius: var(--border-radius-lg);
+    box-shadow: 0 4px 15px var(--shadow);
+}
+
+.project-features h3 {
+    color: var(--primary-green);
+    margin-bottom: var(--space-6);
+    font-size: 1.5rem;
+}
+
+.features-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-6);
+}
+
+.feature {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-3);
+}
+
+.feature-icon {
+    color: var(--primary-green);
+    font-size: 1.5rem;
+    margin-top: var(--space-2);
+    flex-shrink: 0;
+}
+
+.feature-text h4 {
+    color: var(--text-primary);
+    margin-bottom: var(--space-1);
+    font-weight: 600;
+}
+
+.feature-text p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+/* ===== METRICS ===== */
+.project-metrics {
+    background: rgba(16, 185, 129, 0.1);
+    padding: var(--space-8);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--primary-green);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: var(--space-6);
+}
+
+.metric {
+    text-align: center;
+}
+
+.metric-label {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-bottom: var(--space-2);
+}
+
+.metric-value {
+    color: var(--primary-green);
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .project-title {
+        font-size: 2rem;
+    }
+
+    .carousel-slide img {
+        height: 300px;
+    }
+
+    .carousel-navigation,
+    .carousel-nav {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+
+    .details-grid,
+    .features-list {
+        grid-template-columns: 1fr;
+    }
+
+    .carousel-indicators {
+        gap: var(--space-1);
+    }
+
+    .carousel-indicator {
+        width: 8px;
+        height: 8px;
+    }
+
+    .project-carousel {
+        padding: var(--space-8) 0;
+    }
+
+    .project-details {
+        padding: var(--space-8) 0;
+    }
+
+    .tech-list {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    }
+
+    .back-button {
+        margin-top: var(--space-8);
+        margin-bottom: var(--space-4);
+    }
+}
+
+@media (max-width: 480px) {
+    .project-title {
+        font-size: 1.5rem;
+    }
+
+    .project-subtitle {
+        font-size: 1rem;
+    }
+
+    .carousel-container {
+        max-width: 100%;
+    }
+
+    .carousel-slide img {
+        height: 200px;
+    }
+
+    .carousel-navigation,
+    .carousel-nav {
+        width: 35px;
+        height: 35px;
+        font-size: 0.9rem;
+    }
+
+    .carousel-prev,
+    .carousel-nav.prev {
+        left: 10px;
+    }
+
+    .carousel-next,
+    .carousel-nav.next {
+        right: 10px;
+    }
+
+    .tech-list {
+        grid-template-columns: 1fr;
+    }
+
+    .project-metrics {
+        grid-template-columns: 1fr;
+    }
+}

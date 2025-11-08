@@ -14,9 +14,6 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
-    
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
@@ -268,28 +265,28 @@
     <nav class="navbar-modern" data-animate="fade-in-down">
         <div class="nav-pill">
             <div class="nav-logo">
-                <i data-lucide="code-2"></i>
+                <i class="fas fa-code"></i>
                 <span>ELKINEXT</span>
             </div>
             <ul class="nav-links">
                 <li><a href="../index.html" class="nav-item">
-                    <i data-lucide="home"></i>
+                    <i class="fas fa-home"></i>
                     <span>Inicio</span>
                 </a></li>
                 <li><a href="../index.html#about" class="nav-item">
-                    <i data-lucide="building-2"></i>
+                    <i class="fas fa-building"></i>
                     <span>Empresa</span>
                 </a></li>
                 <li><a href="../index.html#skills" class="nav-item">
-                    <i data-lucide="zap"></i>
+                    <i class="fas fa-bolt"></i>
                     <span>Tecnologías</span>
                 </a></li>
                 <li><a href="../projects.html" class="nav-item active">
-                    <i data-lucide="folder"></i>
+                    <i class="fas fa-folder"></i>
                     <span>Proyectos</span>
                 </a></li>
                 <li><a href="../index.html#contact" class="nav-item">
-                    <i data-lucide="mail"></i>
+                    <i class="fas fa-envelope"></i>
                     <span>Contacto</span>
                 </a></li>
             </ul>
@@ -581,11 +578,6 @@
         });
 
         setInterval(nextSlide, 5000);
-
-        // Initialize Lucide icons
-        if (typeof lucide !== 'undefined') {
-            lucide.createIcons();
-        }
 
         const navToggle = document.getElementById('nav-toggle');
         const navMenu = document.getElementById('nav-menu');

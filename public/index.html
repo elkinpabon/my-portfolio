@@ -28,18 +28,13 @@
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <!-- Font Awesome Icons -->
     
     <!-- Animate UI CSS -->
     <link rel="stylesheet" href="https://unpkg.com/animate-ui@1.0.0/dist/animate-ui.min.css">
     
     <!-- Custom CSS Modular -->
     <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/company-section.css">
-    <link rel="stylesheet" href="css/projects.css">
-    <link rel="stylesheet" href="css/projects-page.css">
-    <link rel="stylesheet" href="css/projects-enhanced.css">
     
     <!-- Global Theme Manager (debe cargarse en head) -->
     <script src="js/theme.js"></script>
@@ -50,28 +45,28 @@
     <nav class="navbar-modern" data-animate="fade-in-down">
         <div class="nav-pill">
             <div class="nav-logo">
-                <i data-lucide="code-2"></i>
+                <i class="fas fa-code"></i>
                 <span>ELKINEXT</span>
             </div>
             <ul class="nav-links">
                 <li><a href="#home" class="nav-item active">
-                    <i data-lucide="home"></i>
+                    <i class="fas fa-home"></i>
                     <span>Inicio</span>
                 </a></li>
                 <li><a href="#about" class="nav-item">
-                    <i data-lucide="building-2"></i>
+                    <i class="fas fa-building"></i>
                     <span>Empresa</span>
                 </a></li>
                 <li><a href="#skills" class="nav-item">
-                    <i data-lucide="zap"></i>
+                    <i class="fas fa-bolt"></i>
                     <span>Tecnologías</span>
                 </a></li>
                 <li><a href="projects.html" class="nav-item">
-                    <i data-lucide="folder"></i>
+                    <i class="fas fa-folder"></i>
                     <span>Proyectos</span>
                 </a></li>
                 <li><a href="#contact" class="nav-item">
-                    <i data-lucide="mail"></i>
+                    <i class="fas fa-envelope"></i>
                     <span>Contacto</span>
                 </a></li>
             </ul>
@@ -93,35 +88,35 @@
                 </p>
                 <div class="hero-buttons">
                     <a href="projects.html" class="btn-pro hover-lift-pro" data-animate="fade-in-left" data-delay="400">
-                        <i data-lucide="rocket"></i>
+                        <i class="fas fa-rocket"></i>
                         Ver Proyectos
                     </a>
                     <a href="#contact" class="btn btn-secondary hover-lift-pro" data-animate="fade-in-right" data-delay="400">
-                        <i data-lucide="mail"></i>
+                        <i class="fas fa-envelope"></i>
                         Contactar
                     </a>
                 </div>
                 <div class="hero-stats">
                     <div class="stat-item glass-effect">
                         <div class="stat-icon">
-                            <i data-lucide="code"></i>
+                            <i class="fas fa-code"></i>
                         </div>
-                        <h3 data-counter="10">10</h3>
+                        <h3>10</h3>
                         <p>Proyectos Entregados</p>
                     </div>
                     <div class="stat-item glass-effect">
                         <div class="stat-icon">
-                            <i data-lucide="cpu"></i>
+                            <i class="fas fa-microchip"></i>
                         </div>
-                        <h3 data-counter="15">15</h3>
+                        <h3>15</h3>
                         <p>Tecnologías Utilizadas</p>
                     </div>
                     <div class="stat-item glass-effect">
                         <div class="stat-icon">
-                            <i data-lucide="clock"></i>
+                            <i class="fas fa-clock"></i>
                         </div>
-                        <h3 data-counter="100">100</h3>
-                        <p>% Entregas a Tiempo 24/7</p>
+                        <h3>100%</h3>
+                        <p>Entregas a Tiempo 24/7</p>
                     </div>
                 </div>
             </div>
@@ -161,13 +156,12 @@
             </div>
         </div>
         <div class="hero-scroll morph-hover" data-animate="bounce-in-up" data-delay="1000" onclick="location.href='projects.html'">
-            <i data-lucide="chevron-down"></i>
+            <i class="fas fa-chevron-down"></i>
         </div>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="about animated-bg-gradient">
-        <div class="decorative-circles"></div>
+    <section id="about" class="about">
         <div class="container">
             <h2 class="section-title" data-animate="fade-in-up">Nuestra Empresa</h2>
             <div class="about-content">
@@ -175,58 +169,59 @@
                     <div class="company-intro">
                         <h3 class="company-tagline">
                             <i class="fas fa-rocket"></i>
-                            <span class="highlight-text">Transformando Ideas en Realidad Digital</span>
+                            Transformando Ideas en Realidad Digital
                         </h3>
                         <p class="company-description">
-                            <strong class="brand-name">Elkinext Solutions</strong> es una <strong class="highlight-green">empresa innovadora</strong> especializada en el <strong class="highlight-green">desarrollo de software a medida</strong>. 
-                            Nos dedicamos a transformar <strong>ideas</strong> en <strong class="highlight-green">soluciones tecnológicas robustas y escalables</strong> que impulsan el <strong class="highlight-green">crecimiento</strong> 
-                            de nuestros clientes. Con un enfoque centrado en la <strong class="highlight-green">calidad</strong> y la <strong class="highlight-green">innovación</strong>, desarrollamos <strong>aplicaciones web modernas</strong>, 
-                            <strong>sistemas empresariales</strong>, <strong>plataformas de e-commerce</strong> y <strong>aplicaciones móviles</strong> que <strong class="highlight-green">destacan en el mercado</strong>.
+                            <strong>Elkinext Solutions</strong> es una empresa especializada en desarrollo de software a medida. Transformamos ideas en soluciones tecnológicas robustas que impulsan el crecimiento de nuestros clientes. Nos basamos en normas ISO como <strong>ISO/IEC 27001</strong> (seguridad), <strong>ISO 9001</strong> (calidad), <strong>ISO/IEC 25010</strong> (calidad de software) e <strong>ISO/IEC 12207</strong> (ciclo de vida) para garantizar excelencia.
                         </p>
                     </div>
 
                     <div class="company-values">
-                        <div class="value-item" data-animate="slide-in-left" data-delay="100">
+                        <div class="value-item">
                             <div class="value-icon">
                                 <i class="fas fa-handshake"></i>
                             </div>
                             <div class="value-content">
-                                <h4><strong class="highlight-green">Compromiso Total</strong></h4>
-                                <p>Trabajamos <strong class="highlight-green">estrechamente</strong> con cada cliente para entender sus necesidades específicas y diseñar <strong class="highlight-green">soluciones personalizadas</strong> que superen expectativas.</p>
+                                <h4>Compromiso Total</h4>
+                                <p>Soluciones personalizadas que superan expectativas</p>
                             </div>
                         </div>
                         
-                        <div class="value-item" data-animate="slide-in-left" data-delay="200">
+                        <div class="value-item">
                             <div class="value-icon">
                                 <i class="fas fa-cogs"></i>
                             </div>
                             <div class="value-content">
-                                <h4><strong class="highlight-green">Tecnología Avanzada</strong></h4>
-                                <p>Utilizamos las <strong class="highlight-green">tecnologías más avanzadas</strong> y mejores prácticas de la industria para garantizar <strong class="highlight-green">productos finales de alta calidad</strong>, seguros y mantenibles.</p>
+                                <h4>Tecnología Avanzada</h4>
+                                <p>Productos de alta calidad, seguros y mantenibles</p>
                             </div>
                         </div>
                         
-                        <div class="value-item" data-animate="slide-in-left" data-delay="300">
+                        <div class="value-item">
                             <div class="value-icon">
                                 <i class="fas fa-users"></i>
                             </div>
                             <div class="value-content">
-                                <h4><strong class="highlight-green">Atención Personalizada</strong></h4>
-                                <p><strong class="highlight-green">Cada proyecto es único</strong> y merece atención especializada. Desde pequeños emprendimientos hasta grandes corporaciones, <strong class="highlight-green">adaptamos nuestros servicios</strong>.</p>
+                                <h4>Atención Personalizada</h4>
+                                <p>Servicios adaptados a cada proyecto único</p>
                             </div>
                         </div>
                     </div>
                     
                     <div class="services-grid">
-                        <h4><i class="fas fa-briefcase"></i> Nuestros Servicios</h4>
+                        <h4><i class="fas fa-briefcase"></i> Servicios</h4>
                         <div class="services-list">
                             <div class="service-item">
                                 <i class="fas fa-globe"></i>
+                                <span>Páginas Web</span>
+                            </div>
+                            <div class="service-item">
+                                <i class="fas fa-code"></i>
                                 <span>Aplicaciones Web</span>
                             </div>
                             <div class="service-item">
                                 <i class="fas fa-mobile-alt"></i>
-                                <span>Desarrollo Móvil</span>
+                                <span>Apps Móviles</span>
                             </div>
                             <div class="service-item">
                                 <i class="fas fa-building"></i>
@@ -234,42 +229,23 @@
                             </div>
                             <div class="service-item">
                                 <i class="fas fa-shopping-cart"></i>
-                                <span>E-commerce</span>
+                                <span>Tiendas Online</span>
                             </div>
                             <div class="service-item">
                                 <i class="fas fa-warehouse"></i>
-                                <span>Gestión de Inventarios</span>
+                                <span>Gestión Inventarios</span>
+                            </div>
+                            <div class="service-item">
+                                <i class="fas fa-calculator"></i>
+                                <span>Sistemas Contables</span>
                             </div>
                             <div class="service-item">
                                 <i class="fas fa-desktop"></i>
-                                <span>Apps de Escritorio</span>
+                                <span>Apps Escritorio</span>
                             </div>
                         </div>
                     </div>
                     
-                    <div class="stats">
-                        <div class="stat-item" data-animate="zoom-in-up" data-delay="100">
-                            <div class="stat-icon">
-                                <i class="fas fa-check-circle"></i>
-                            </div>
-                            <h3 data-counter="10">0</h3>
-                            <p>Proyectos Entregados</p>
-                        </div>
-                        <div class="stat-item" data-animate="zoom-in-up" data-delay="200">
-                            <div class="stat-icon">
-                                <i class="fas fa-cogs"></i>
-                            </div>
-                            <h3 data-counter="15">0</h3>
-                            <p>Tecnologías Utilizadas</p>
-                        </div>
-                        <div class="stat-item" data-animate="zoom-in-up" data-delay="300">
-                            <div class="stat-icon">
-                                <i class="fas fa-clock"></i>
-                            </div>
-                            <h3 data-counter="100">0</h3>
-                            <p>% Entregas a Tiempo 24/7</p>
-                        </div>
-                    </div>
                 </div>
                 
                 <div class="about-image-container" data-animate="fade-in-right">
@@ -278,19 +254,6 @@
                             <!-- Espacio para imagen fija de la empresa -->
                             <div class="company-image">
                                 <img src="assets/empresa/empresa1.jpg" alt="Equipo Elkinext Solutions" class="main-company-image" loading="lazy">
-                                <!-- Fallback si no hay imagen -->
-                                <div class="image-placeholder">
-                                    <div class="placeholder-content">
-                                        <i class="fas fa-building"></i>
-                                        <span>Elkinext Solutions</span>
-                                        <p>Nuestro Equipo</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="image-decoration">
-                                <div class="decoration-dot dot-1"></div>
-                                <div class="decoration-dot dot-2"></div>
-                                <div class="decoration-dot dot-3"></div>
                             </div>
                         </div>
                         
@@ -332,12 +295,11 @@
     </section>
 
     <!-- Skills Section -->
-    <section id="skills" class="skills animated-bg-particles">
-        <div class="floating-particles"></div>
+    <section id="skills" class="skills">
         <div class="container">
             <h2 class="section-title" data-animate="fade-in-up">Nuestras Tecnologías</h2>
             <div class="skills-grid">
-                <div class="skill-category backend-section" data-category="backend" data-animate="fade-in-up" data-delay="100">
+                <div class="skill-category backend-section" data-category="backend" data-animate="fade-in-up">
                     <h3>Backend & Servidores</h3>
                     <div class="skill-items">
                         <span class="skill-item advanced"><i class="fab fa-java"></i> Java</span>
@@ -356,7 +318,7 @@
                     </div>
                 </div>
                 
-                <div class="skill-category frontend-section" data-category="frontend" data-animate="fade-in-up" data-delay="200">
+                <div class="skill-category frontend-section" data-category="frontend" data-animate="fade-in-up">
                     <h3>Frontend & Móvil</h3>
                     <div class="skill-items">
                         <span class="skill-item advanced"><i class="fab fa-js-square"></i> JavaScript</span>
@@ -373,7 +335,7 @@
                     </div>
                 </div>
                 
-                <div class="skill-category devops-section" data-category="devops" data-animate="fade-in-up" data-delay="300">
+                <div class="skill-category devops-section" data-category="devops" data-animate="fade-in-up">
                     <h3>Bases de Datos & DevOps</h3>
                     <div class="skill-items">
                         <span class="skill-item advanced"><i class="fas fa-database"></i> MongoDB</span>
@@ -407,340 +369,8 @@
                 <button class="filter-btn" data-filter="enterprise">Sistemas Empresariales</button>
             </div>
             
-            <div class="projects-grid">
-                <!-- Proyecto 1: Sistema RRHH HealthyFood -->
-                <article class="project-card featured" data-category="web" data-animate="fade-in-up" data-delay="100">
-                    <header class="project-header">
-                        <div class="project-status completed">Completado</div>
-                        <div class="project-image">
-                            <a href="projects/healthyfood-rrhh.html">
-                                <img src="../assets/miniaturas/rhHealthyFood/5.png" 
-                                     alt="Sistema RRHH HealthyFood" 
-                                     class="project-thumbnail" 
-                                     loading="lazy">
-                                <div class="project-overlay">
-                                    <span class="view-project">Ver Detalles</span>
-                                </div>
-                            </a>
-                        </div>
-                    </header>
-                    <div class="project-body">
-                        <div class="project-info">
-                            <h3 class="project-title">Sistema Web de Gestión RRHH HealthyFood</h3>
-                            <p class="project-description">Plataforma integral de recursos humanos con control biométrico, nómina automatizada y dashboard ejecutivo para HealthyFood S.A.</p>
-                        </div>
-                        <div class="project-tech">
-                            <span class="tech-badge">React</span>
-                            <span class="tech-badge">Node.js</span>
-                            <span class="tech-badge">PostgreSQL</span>
-                            <span class="tech-badge">Docker</span>
-                        </div>
-                    </div>
-                    <footer class="project-footer">
-                        <div class="project-links">
-                            <a href="projects/healthyfood-rrhh.html" class="btn btn-small btn-primary">
-                                <i class="fas fa-eye"></i> Ver Proyecto
-                            </a>
-                        </div>
-                    </footer>
-                </article>
-
-                <!-- Proyecto 2: App Móvil HealthyFood -->
-                <article class="project-card" data-category="mobile" data-animate="fade-in-up" data-delay="200">
-                    <header class="project-header">
-                        <div class="project-status completed">Completado</div>
-                        <div class="project-image">
-                            <a href="projects/healthyfood-mobile.html">
-                                <img src="../assets/miniaturas/healthyFoodMovil/1.png" 
-                                     alt="App Asistencias HealthyFood" 
-                                     class="project-thumbnail" 
-                                     loading="lazy">
-                                <div class="project-overlay">
-                                    <span class="view-project">Ver Detalles</span>
-                                </div>
-                            </a>
-                        </div>
-                    </header>
-                    <div class="project-body">
-                        <div class="project-info">
-                            <h3 class="project-title">App Móvil Control de Asistencias HealthyFood</h3>
-                            <p class="project-description">Aplicación móvil nativa con autenticación biométrica, check-in/out geolocalizado y modo offline para control de asistencias.</p>
-                        </div>
-                        <div class="project-tech">
-                            <span class="tech-badge">Flutter</span>
-                            <span class="tech-badge">Dart</span>
-                            <span class="tech-badge">Biometric SDK</span>
-                            <span class="tech-badge">SQLite</span>
-                        </div>
-                    </div>
-                    <footer class="project-footer">
-                        <div class="project-links">
-                            <a href="projects/healthyfood-mobile.html" class="btn btn-small btn-primary">
-                                <i class="fas fa-eye"></i> Ver Proyecto
-                            </a>
-                        </div>
-                    </footer>
-                </article>
-
-                <!-- Proyecto 3: App Web HealthyFood -->
-                <article class="project-card" data-category="web" data-animate="fade-in-up" data-delay="300">
-                    <header class="project-header">
-                        <div class="project-status completed">Completado</div>
-                        <div class="project-image">
-                            <a href="projects/healthyfood-web.html">
-                                <img src="../assets/miniaturas/healthyFoodWeb/healthy1.png" 
-                                     alt="Aplicación Web HealthyFood" 
-                                     class="project-thumbnail" 
-                                     loading="lazy">
-                                <div class="project-overlay">
-                                    <span class="view-project">Ver Detalles</span>
-                                </div>
-                            </a>
-                        </div>
-                    </header>
-                    <div class="project-body">
-                        <div class="project-info">
-                            <h3 class="project-title">Aplicación Web HealthyFood</h3>
-                            <p class="project-description">Portal corporativo integral con gestión de procesos, comunicación interna y herramientas colaborativas para HealthyFood.</p>
-                        </div>
-                        <div class="project-tech">
-                            <span class="tech-badge">Vue.js</span>
-                            <span class="tech-badge">Express.js</span>
-                            <span class="tech-badge">MongoDB</span>
-                            <span class="tech-badge">WebSocket</span>
-                        </div>
-                    </div>
-                    <footer class="project-footer">
-                        <div class="project-links">
-                            <a href="projects/healthyfood-web.html" class="btn btn-small btn-primary">
-                                <i class="fas fa-eye"></i> Ver Proyecto
-                            </a>
-                        </div>
-                    </footer>
-                </article>
-
-                <!-- Proyecto 4: Sistema Ferretería DSA -->
-                <article class="project-card" data-category="web" data-animate="fade-in-up" data-delay="400">
-                    <header class="project-header">
-                        <div class="project-status completed">Completado</div>
-                        <div class="project-image">
-                            <a href="projects/ferreteria-dsa.html">
-                                <img src="../assets/miniaturas/ferreteriaDSA/8.png" 
-                                     alt="Sistema Ferretería DSA" 
-                                     class="project-thumbnail" 
-                                     loading="lazy">
-                                <div class="project-overlay">
-                                    <span class="view-project">Ver Detalles</span>
-                                </div>
-                            </a>
-                        </div>
-                    </header>
-                    <div class="project-body">
-                        <div class="project-info">
-                            <h3 class="project-title">Sistema de Inventarios y Ventas Ferretería DSA</h3>
-                            <p class="project-description">Sistema integral de gestión con punto de venta, control de stock, reportes y cuentas por cobrar para ferretería familiar.</p>
-                        </div>
-                        <div class="project-tech">
-                            <span class="tech-badge">Laravel</span>
-                            <span class="tech-badge">PHP</span>
-                            <span class="tech-badge">MySQL</span>
-                            <span class="tech-badge">Bootstrap</span>
-                        </div>
-                    </div>
-                    <footer class="project-footer">
-                        <div class="project-links">
-                            <a href="projects/ferreteria-dsa.html" class="btn btn-small btn-primary">
-                                <i class="fas fa-eye"></i> Ver Proyecto
-                            </a>
-                        </div>
-                    </footer>
-                </article>
-
-                <!-- Proyecto 5: E-commerce MADECOR -->
-                <article class="project-card" data-category="web" data-animate="fade-in-up" data-delay="500">
-                    <header class="project-header">
-                        <div class="project-status completed">Completado</div>
-                        <div class="project-image">
-                            <a href="projects/madecor-ecommerce.html">
-                                <img src="../assets/miniaturas/madecor/1.png" 
-                                     alt="E-commerce MADECOR" 
-                                     class="project-thumbnail" 
-                                     loading="lazy">
-                                <div class="project-overlay">
-                                    <span class="view-project">Ver Detalles</span>
-                                </div>
-                            </a>
-                        </div>
-                    </header>
-                    <div class="project-body">
-                        <div class="project-info">
-                            <h3 class="project-title">E-commerce MADECOR Material Didáctico</h3>
-                            <p class="project-description">Plataforma de comercio electrónico especializada en material didáctico con catálogo dinámico y pagos seguros.</p>
-                        </div>
-                        <div class="project-tech">
-                            <span class="tech-badge">React</span>
-                            <span class="tech-badge">Node.js</span>
-                            <span class="tech-badge">Stripe</span>
-                            <span class="tech-badge">MongoDB</span>
-                        </div>
-                    </div>
-                    <footer class="project-footer">
-                        <div class="project-links">
-                            <a href="projects/madecor-ecommerce.html" class="btn btn-small btn-primary">
-                                <i class="fas fa-eye"></i> Ver Proyecto
-                            </a>
-                        </div>
-                    </footer>
-                </article>
-
-                <!-- Proyecto 6: Linxspector -->
-                <article class="project-card" data-category="enterprise" data-animate="fade-in-up" data-delay="600">
-                    <header class="project-header">
-                        <div class="project-status completed">Completado</div>
-                        <div class="project-image">
-                            <a href="projects/linxspector.html">
-                                <img src="../assets/miniaturas/linsxpector/13.jpg" 
-                                     alt="Linxspector Platform" 
-                                     class="project-thumbnail" 
-                                     loading="lazy">
-                                <div class="project-overlay">
-                                    <span class="view-project">Ver Detalles</span>
-                                </div>
-                            </a>
-                        </div>
-                    </header>
-                    <div class="project-body">
-                        <div class="project-info">
-                            <h3 class="project-title">Plataforma de Monitoreo Linxspector</h3>
-                            <p class="project-description">Sistema avanzado de monitoreo de recursos con alertas en tiempo real, métricas avanzadas y arquitectura de microservicios.</p>
-                        </div>
-                        <div class="project-tech">
-                            <span class="tech-badge">Microservices</span>
-                            <span class="tech-badge">Docker</span>
-                            <span class="tech-badge">Kubernetes</span>
-                            <span class="tech-badge">Grafana</span>
-                        </div>
-                    </div>
-                    <footer class="project-footer">
-                        <div class="project-links">
-                            <a href="projects/linxspector.html" class="btn btn-small btn-primary">
-                                <i class="fas fa-eye"></i> Ver Proyecto
-                            </a>
-                        </div>
-                    </footer>
-                </article>
-
-                <!-- Proyecto 7: BookTech SaaS -->
-                <article class="project-card" data-category="enterprise" data-animate="fade-in-up" data-delay="700">
-                    <header class="project-header">
-                        <div class="project-status completed">Completado</div>
-                        <div class="project-image">
-                            <a href="projects/booktech-saas.html">
-                                <img src="../assets/miniaturas/booktech/1.png" 
-                                     alt="BookTech SaaS" 
-                                     class="project-thumbnail" 
-                                     loading="lazy">
-                                <div class="project-overlay">
-                                    <span class="view-project">Ver Detalles</span>
-                                </div>
-                            </a>
-                        </div>
-                    </header>
-                    <div class="project-body">
-                        <div class="project-info">
-                            <h3 class="project-title">SaaS BookTech Gestión de Publicaciones</h3>
-                            <p class="project-description">Plataforma SaaS multi-tenant para gestión de publicaciones digitales, suscripciones y biblioteca virtual avanzada.</p>
-                        </div>
-                        <div class="project-tech">
-                            <span class="tech-badge">Next.js</span>
-                            <span class="tech-badge">TypeScript</span>
-                            <span class="tech-badge">Prisma</span>
-                            <span class="tech-badge">AWS</span>
-                        </div>
-                    </div>
-                    <footer class="project-footer">
-                        <div class="project-links">
-                            <a href="projects/booktech-saas.html" class="btn btn-small btn-primary">
-                                <i class="fas fa-eye"></i> Ver Proyecto
-                            </a>
-                        </div>
-                    </footer>
-                </article>
-
-                <!-- Proyecto 8: App Evacuación Cotopaxi -->
-                <article class="project-card" data-category="mobile" data-animate="fade-in-up" data-delay="800">
-                    <header class="project-header">
-                        <div class="project-status completed">Completado</div>
-                        <div class="project-image">
-                            <a href="projects/cotopaxi-evacuacion.html">
-                                <img src="../assets/miniaturas/rutasEmergencia/2.png" 
-                                     alt="App Evacuación Cotopaxi" 
-                                     class="project-thumbnail" 
-                                     loading="lazy">
-                                <div class="project-overlay">
-                                    <span class="view-project">Ver Detalles</span>
-                                </div>
-                            </a>
-                        </div>
-                    </header>
-                    <div class="project-body">
-                        <div class="project-info">
-                            <h3 class="project-title">App Rutas de Evacuación Volcán Cotopaxi</h3>
-                            <p class="project-description">Aplicación híbrida de emergencia con rutas GPS offline, alertas volcánicas y sistema de respuesta rápida gubernamental.</p>
-                        </div>
-                        <div class="project-tech">
-                            <span class="tech-badge">Ionic</span>
-                            <span class="tech-badge">Angular</span>
-                            <span class="tech-badge">Cordova</span>
-                            <span class="tech-badge">OpenStreetMap</span>
-                        </div>
-                    </div>
-                    <footer class="project-footer">
-                        <div class="project-links">
-                            <a href="projects/cotopaxi-evacuacion.html" class="btn btn-small btn-primary">
-                                <i class="fas fa-eye"></i> Ver Proyecto
-                            </a>
-                        </div>
-                    </footer>
-                </article>
-
-                <!-- Proyecto 9: LiveChat -->
-                <article class="project-card" data-category="web" data-animate="fade-in-up" data-delay="900">
-                    <header class="project-header">
-                        <div class="project-status completed">Completado</div>
-                        <div class="project-image">
-                            <a href="projects/livechat.html">
-                                <img src="../assets/miniaturas/liveChat/1.png" 
-                                     alt="LiveChat Cifrado" 
-                                     class="project-thumbnail" 
-                                     loading="lazy">
-                                <div class="project-overlay">
-                                    <span class="view-project">Ver Detalles</span>
-                                </div>
-                            </a>
-                        </div>
-                    </header>
-                    <div class="project-body">
-                        <div class="project-info">
-                            <h3 class="project-title">LiveChat - Chat Cifrado en Tiempo Real</h3>
-                            <p class="project-description">Aplicación web de mensajería instantánea con cifrado end-to-end, rooms privados y comunicación ultra-segura.</p>
-                        </div>
-                        <div class="project-tech">
-                            <span class="tech-badge">Socket.io</span>
-                            <span class="tech-badge">WebRTC</span>
-                            <span class="tech-badge">Encryption</span>
-                            <span class="tech-badge">Redis</span>
-                        </div>
-                    </div>
-                    <footer class="project-footer">
-                        <div class="project-links">
-                            <a href="projects/livechat.html" class="btn btn-small btn-primary">
-                                <i class="fas fa-eye"></i> Ver Proyecto
-                            </a>
-                        </div>
-                    </footer>
-                </article>
-            </div>
+            <!-- Projects Grid - Populated by containers.html -->
+            <div class="projects-grid" id="projectsGrid"></div>
         </div>
     </section>
 
@@ -934,10 +564,33 @@
     <!-- Animate UI JS -->
     <script src="https://unpkg.com/animate-ui@1.0.0/dist/animate-ui.min.js"></script>
     
+    <!-- Contenedores Reutilizables - JavaScript -->
+    <script src="js/containers.js"></script>
+    
     <!-- Custom JS -->
     <script src="js/script.js"></script>
     <script src="js/projects.js"></script>
     <script src="js/animated-backgrounds.js"></script>
     <script src="js/professional-effects.js"></script>
+    
+    <!-- Cargar template de contenedores -->
+    <script>
+        // Cargar template HTML de contenedores
+        fetch('components/containers.html')
+            .then(response => response.text())
+            .then(html => {
+                const div = document.createElement('div');
+                div.innerHTML = html;
+                document.body.appendChild(div);
+            });
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            // Cargar proyectos en la sección de proyectos del index
+            // Mostrar solo los 9 primeros o los destacados
+            setTimeout(() => {
+                cargarProyectos('projectsGrid', 'all', 9);
+            }, 100);
+        });
+    </script>
 </body>
 </html>

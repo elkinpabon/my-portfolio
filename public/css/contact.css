@@ -4,7 +4,7 @@
 
 /* ===== CONTACT CONTAINER ===== */
 .contact {
-  padding: var(--space-20) 0;
+  padding: var(--space-16) 0;
   background: var(--bg-primary);
   position: relative;
   overflow: hidden;
@@ -38,9 +38,26 @@
 .contact-content {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: var(--space-12);
+  gap: var(--space-8);
   position: relative;
   z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--space-4);
+}
+
+@media (max-width: 1024px) {
+  .contact-content {
+    padding: 0 var(--space-3);
+    gap: var(--space-6);
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-content {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
 }
 
 /* ===== CONTACT INFO ===== */

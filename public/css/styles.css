@@ -1,60 +1,37 @@
 /* ===================================
-   PORTAFOLIO CSS PRINCIPAL - MODULAR
+   PORTAFOLIO CSS PRINCIPAL - MODULAR OPTIMIZADO
    =================================== */
 
 /* ===== IMPORTACIÓN DE MÓDULOS CSS ===== */
-@import url('variables.css');       /* Variables globales y temas */
-@import url('animated-backgrounds.css'); /* Fondos animados profesionales */
-@import url('navigation-modern.css'); /* Navegación moderna estilo Google */
-@import url('advanced-effects.css'); /* Efectos avanzados y animaciones */
-@import url('base.css');            /* Reset y estilos base */
-@import url('components.css');      /* Componentes reutilizables */
-@import url('navigation.css');      /* Navegación tradicional (fallback) */
-@import url('hero.css');            /* Sección hero/principal */
-@import url('about.css');           /* Sección sobre mí */
-@import url('skills.css');          /* Sección habilidades */
-@import url('projects.css');        /* Sección proyectos */
-@import url('contact.css');         /* Sección contacto */
-@import url('footer.css');          /* Footer y elementos finales */
-@import url('animations.css');      /* Animaciones y efectos */
-@import url('responsive.css');      /* Media queries responsive */
-@import url('projects-page.css');   /* Página dedicada de proyectos */
-@import url('sidebar-filters.css'); /* Sidebar flotante de filtros */
-@import url('theme-final.css');     /* Sistema de temas corregido */
+@import url('variables.css');
+@import url('base.css');
+@import url('components.css');
+@import url('animations.css');
+@import url('responsive.css');
+/* Cargar solo lo necesario en el viewport */
+@import url('navigation-modern.css');
+@import url('hero.css');
+@import url('about.css');
+@import url('skills.css');
+@import url('projects.css');
+@import url('contact.css');
+@import url('footer.css');
 
-/* ===================================
-   NOTAS DE ORGANIZACIÓN:
-   
-   📁 Variables CSS:     Colores, espaciado, tipografía
-   📁 Base:             Reset, estilos fundamentales  
-   📁 Components:       Botones, elementos reutilizables
-   📁 Navigation:       Header, menú, navegación
-   📁 Hero:             Sección principal/banner
-   📁 About:            Sección sobre mí
-   📁 Skills:           Habilidades técnicas
-   📁 Projects:         Portafolio de proyectos
-   📁 Contact:          Formulario y contacto
-   📁 Footer:           Pie de página
-   📁 Animations:       Efectos y transiciones
-   📁 Responsive:       Diseño adaptativo
-   📁 Projects Page:    Página dedicada de proyectos
-   =================================== */
+/* ===== ESTILOS GLOBALES OPTIMIZADOS ===== */
 
-/* ===== ESTILOS ADICIONALES GLOBALES ===== */
-
-/* Mejoras de rendimiento */
+/* Desabilitar todas las animaciones por defecto */
 * {
   will-change: auto;
 }
 
-/* Smooth scroll mejorado */
+/* Smooth scroll solo si no hay preferencia de movimiento reducido */
 @media (prefers-reduced-motion: no-preference) {
   html {
     scroll-behavior: smooth;
   }
 }
 
-/* Optimizaciones para dispositivos táctiles */
+/* Optimizar para dispositivos táctiles */
 @media (hover: none) and (pointer: coarse) {
   .btn:hover,
   .nav-link:hover,
@@ -70,7 +47,7 @@
   }
 }
 
-/* Modo de alto contraste */
+/* Alto contraste */
 @media (prefers-contrast: high) {
   :root {
     --border-color: #000000;
@@ -83,7 +60,7 @@
   }
 }
 
-/* Soporte para tema del sistema */
+/* Tema del sistema */
 @media (prefers-color-scheme: dark) {
   :root {
     --bg-primary: #0f172a;
@@ -95,5 +72,71 @@
     --border-color: #475569;
     --shadow: rgba(0, 0, 0, 0.3);
     --shadow-lg: rgba(0, 0, 0, 0.4);
+  }
+}
+
+/* CRÍTICO: Optimización agresiva para movimiento reducido */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  [data-animate],
+  .animated-bg,
+  .animated-bg-gradient,
+  .decorative-circles,
+  .floating-particles,
+  .particle,
+  .circle,
+  [data-animate*="float"],
+  [data-animate*="bounce"],
+  [data-animate*="rotate"],
+  [data-animate*="flip"] {
+    animation: none !important;
+    opacity: 1 !important;
+  }
+  
+  :root {
+    --transition: none;
+  }
+}
+
+/* Optimización para pantallas pequeñas */
+@media (max-width: 768px) {
+  * {
+    animation-duration: 0.2s !important;
+  }
+  
+  .decorative-circles,
+  .floating-particles,
+  .wave-background,
+  .animated-bg-gradient {
+    display: none !important;
+  }
+  
+  button, a, input, select, textarea {
+    transition: color 0.15s ease;
+  }
+}
+
+/* Ultra-optimización para móviles antiguos */
+@media (max-width: 480px) {
+  .animated-bg,
+  .animated-bg-gradient,
+  .decorative-circles,
+  .floating-particles,
+  .wave-background,
+  .parallax-element,
+  [data-animate*="float"],
+  [data-animate*="bounce"] {
+    animation: none !important;
+    display: none !important;
+  }
+  
+  * {
+    will-change: auto !important;
   }
 }

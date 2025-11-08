@@ -45,28 +45,28 @@ function updateThemeIcon(icon, theme) {
 
 // Menú móvil
 function initMobileMenu() {
-    const hamburger = document.querySelector('.hamburger');
-    const navMenu = document.querySelector('.nav-menu');
+    const navItems = document.querySelectorAll('.nav-item');
     
-    if (hamburger && navMenu) {
-        hamburger.addEventListener('click', function() {
-            hamburger.classList.toggle('active');
-            navMenu.classList.toggle('active');
+    // Agregar listeners a todos los items del navegador para navegación suave
+    navItems.forEach(item => {
+        item.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            
+            // Si es un hash, hacer scroll suave
+            if (href && href.startsWith('#')) {
+                e.preventDefault();
+                const target = document.querySelector(href);
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            }
         });
-        
-        // Cerrar menú al hacer click en un enlace
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', () => {
-                hamburger.classList.remove('active');
-                navMenu.classList.remove('active');
-            });
-        });
-    }
+    });
 }
 
 // Efectos de scroll
 function initScrollEffects() {
-    const navbar = document.querySelector('.navbar');
+    const navbar = document.querySelector('.navbar-modern');
     
     window.addEventListener('scroll', function() {
         if (window.scrollY > 50) {
@@ -82,20 +82,33 @@ function initScrollEffects() {
 
 function updateActiveNavLink() {
     const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('.nav-link');
+    const navLinks = document.querySelectorAll('.nav-item');
     
     let current = '';
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        if (window.scrollY >= (sectionTop - 200)) {
-            current = section.getAttribute('id');
-        }
-    });
+    
+    // Si hay secciones en la página, encontrar la actual
+    if (sections.length > 0) {
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+            if (window.scrollY >= (sectionTop - 200)) {
+                current = section.getAttribute('id');
+            }
+        });
+    }
     
     navLinks.forEach(link => {
         link.classList.remove('active');
-        if (link.getAttribute('href') === '#' + current) {
+        const href = link.getAttribute('href');
+        
+        // Determinar si el enlace debe estar activo
+        if (current && href === '#' + current) {
+            link.classList.add('active');
+        } else if (!current && href === '../projects.html') {
+            // En página de proyectos, marcar enlace de proyectos como activo
+            link.classList.add('active');
+        } else if (!current && (href.includes('../index.html') || href === '../index.html')) {
+            // En página de inicio, marcar enlace de inicio como activo
             link.classList.add('active');
         }
     });

@@ -74,12 +74,20 @@
     font-size: 2.5rem;
     font-weight: 700;
     margin-bottom: 0.5rem;
-    color: var(--light-green);
+    color: #ffffff;
 }
 
 .page-stats .stat-item p {
     font-size: 1rem;
-    opacity: 0.9;
+    opacity: 1;
+    color: #ffffff;
+}
+
+.page-stats .stat-item .stat-icon {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    opacity: 1;
+    color: #ffffff;
 }
 
 .header-decoration {
@@ -298,23 +306,7 @@
     opacity: 0.9;
 }
 
-.project-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.8);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    transition: all 0.3s ease;
-}
 
-.project-card:hover .project-overlay {
-    opacity: 1;
-}
 
 .overlay-buttons {
     display: flex;
@@ -750,6 +742,11 @@
 }
 
 @media (max-width: 768px) {
+    .page-header {
+        padding: 12rem 0 4rem;
+        margin-top: 2rem;
+    }
+    
     .page-title {
         font-size: 2.5rem;
         flex-direction: column;
@@ -802,6 +799,11 @@
 }
 
 @media (max-width: 480px) {
+    .page-header {
+        padding: 14rem 0 3rem;
+        margin-top: 2.5rem;
+    }
+    
     .page-title {
         font-size: 2rem;
     }
