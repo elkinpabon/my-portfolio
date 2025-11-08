@@ -556,11 +556,13 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 // Efectos de scroll para navbar
 window.addEventListener('scroll', function() {
-    const navbar = document.querySelector('.navbar');
-    if (window.scrollY > 50) {
-        navbar.classList.add('scrolled');
-    } else {
-        navbar.classList.remove('scrolled');
+    const navbar = document.querySelector('.navbar-modern');
+    if (navbar) {
+        if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
     }
 });
 

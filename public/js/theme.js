@@ -6,10 +6,15 @@
     function applyThemeImmediate() {
         const savedTheme = localStorage.getItem('theme') || 'light';
         document.documentElement.setAttribute('data-theme', savedTheme);
-        document.body.className = savedTheme + '-theme';
         
-        // Actualizar el meta tag de color para el tema
-        updateMetaThemeColor(savedTheme);
+        // Esperar a que document.body esté disponible
+        if (document.body) {
+            document.body.className = savedTheme + '-theme';
+            updateMetaThemeColor(savedTheme);
+        } else {
+            // Si body aún no existe, intentar más tarde
+            setTimeout(applyThemeImmediate, 10);
+        }
     }
     
     // Aplicar tema inmediatamente para evitar flash
@@ -26,7 +31,6 @@
         const body = document.body;
         
         if (!themeToggle) {
-            console.log('Theme toggle button not found on this page');
             return; // Si no hay toggle en esta página, solo aplicar tema
         }
         
@@ -57,8 +61,6 @@
             document.dispatchEvent(new CustomEvent('themeChanged', { 
                 detail: { theme: newTheme } 
             }));
-            
-            console.log('Theme changed to:', newTheme);
         });
     }
     
@@ -115,8 +117,6 @@
                 const icon = themeToggle.querySelector('i');
                 updateThemeIcon(icon, newTheme);
             }
-            
-            console.log('Theme synchronized from another tab:', newTheme);
         }
     });
     
@@ -127,7 +127,6 @@
             const defaultTheme = systemPrefersDark ? 'dark' : 'light';
             localStorage.setItem('theme', defaultTheme);
             applyTheme(defaultTheme);
-            console.log('Detected system theme:', defaultTheme);
         }
     }
     
@@ -143,8 +142,6 @@
                 const icon = themeToggle.querySelector('i');
                 updateThemeIcon(icon, newTheme);
             }
-            
-            console.log('System theme preference changed:', newTheme);
         }
     });
     
@@ -163,8 +160,6 @@
                 const icon = themeToggle.querySelector('i');
                 updateThemeIcon(icon, theme);
             }
-            
-            console.log('Theme set programmatically:', theme);
         },
         
         getTheme: function() {
@@ -182,10 +177,5 @@
             return !localStorage.getItem('theme-manual');
         }
     };
-    
-    // Debug: Mostrar información del tema en consola
-    console.log('Theme Manager initialized');
-    console.log('Current theme:', window.ThemeManager.getTheme());
-    console.log('Is system theme:', window.ThemeManager.isSystemTheme());
     
 })();
