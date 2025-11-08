@@ -743,8 +743,8 @@
 
 @media (max-width: 768px) {
     .page-header {
-        padding: 12rem 0 4rem;
-        margin-top: 2rem;
+        padding: 9rem 0 4rem;
+        margin-top: 1rem;
     }
     
     .page-title {
@@ -800,8 +800,8 @@
 
 @media (max-width: 480px) {
     .page-header {
-        padding: 14rem 0 3rem;
-        margin-top: 2.5rem;
+        padding: 10rem 0 3rem;
+        margin-top: 1.5rem;
     }
     
     .page-title {

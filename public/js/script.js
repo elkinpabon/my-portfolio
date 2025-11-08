@@ -1,13 +1,40 @@
 // Inicialización cuando el DOM esté listo
 document.addEventListener('DOMContentLoaded', function() {
-    initThemeToggle();
-    initMobileMenu();
-    initScrollEffects();
-    initAnimations();
-    // initTypingAnimation(); // Comentado - ahora usamos código estático
-    initFormHandler();
-    initSmoothScroll();
-
+    try {
+        initThemeToggle();
+    } catch (e) {
+        // Theme toggle no disponible
+    }
+    
+    try {
+        initMobileMenu();
+    } catch (e) {
+        // Mobile menu no disponible
+    }
+    
+    try {
+        initScrollEffects();
+    } catch (e) {
+        // Scroll effects no disponible
+    }
+    
+    try {
+        initAnimations();
+    } catch (e) {
+        // Animations no disponible
+    }
+    
+    try {
+        initFormHandler();
+    } catch (e) {
+        // Form handler no disponible
+    }
+    
+    try {
+        initSmoothScroll();
+    } catch (e) {
+        // Smooth scroll no disponible
+    }
 });
 
 
@@ -15,6 +42,10 @@ document.addEventListener('DOMContentLoaded', function() {
 // Cambio de tema claro/oscuro
 function initThemeToggle() {
     const themeToggle = document.getElementById('themeToggle');
+    if (!themeToggle) {
+        return;
+    }
+    
     const body = document.body;
     const icon = themeToggle.querySelector('i');
     
@@ -43,25 +74,30 @@ function updateThemeIcon(icon, theme) {
     icon.className = theme === 'light' ? 'fas fa-moon' : 'fas fa-sun';
 }
 
-// Menú móvil
+// Menú móvil - Usando delegación de eventos (event delegation)
 function initMobileMenu() {
-    const navItems = document.querySelectorAll('.nav-item');
-    
-    // Agregar listeners a todos los items del navegador para navegación suave
-    navItems.forEach(item => {
-        item.addEventListener('click', function(e) {
-            const href = this.getAttribute('href');
-            
-            // Si es un hash, hacer scroll suave
-            if (href && href.startsWith('#')) {
-                e.preventDefault();
-                const target = document.querySelector(href);
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth' });
-                }
+    // Usar delegación de eventos en el document para capturar clicks en .nav-item
+    document.addEventListener('click', function(e) {
+        // Verificar si el click fue en un .nav-item
+        const navItem = e.target.closest('.nav-item');
+        if (!navItem) return;
+        
+        const href = navItem.getAttribute('href');
+        
+        // Si es un hash a otra página (ej: index.html#about), permitir navegación normal
+        if (href && href.includes('.html#')) {
+            return; // Permitir que el navegador maneje la navegación
+        }
+        
+        // Si es solo un hash en la página actual (ej: #about), hacer scroll suave
+        if (href && href.startsWith('#')) {
+            e.preventDefault();
+            const target = document.querySelector(href);
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth' });
             }
-        });
-    });
+        }
+    }, true); // Usar captura para asegurar que se capture
 }
 
 // Efectos de scroll
@@ -227,36 +263,24 @@ function initTypingAnimation() {
 
 // Manejador del formulario de contacto
 function initFormHandler() {
-    console.log('🔄 Iniciando manejador del formulario...');
-    
     const form = document.querySelector('.contact-form');
     const formById = document.querySelector('#contactForm');
-    
-    console.log('📋 Formulario por clase:', form);
-    console.log('📋 Formulario por ID:', formById);
     
     const targetForm = form || formById;
     
     if (!targetForm) {
-        console.log('❌ No se encontró el formulario de contacto');
         return;
     }
     
-    console.log('✅ Formulario de contacto encontrado:', targetForm);
-    
     targetForm.addEventListener('submit', async function(e) {
         e.preventDefault();
-        console.log('📝 Evento submit capturado - Formulario enviado');
         
         // Obtener datos del formulario
         const formData = new FormData(targetForm);
         const data = Object.fromEntries(formData);
         
-        console.log('📋 Datos del formulario:', data);
-        
         // Validación básica del lado del cliente
         if (!data.name || !data.email || !data.subject || !data.message) {
-            console.log('❌ Validación fallida: campos vacíos');
             showNotification('❌ Por favor, completa todos los campos', 'error');
             return;
         }
@@ -264,15 +288,11 @@ function initFormHandler() {
         const submitBtn = targetForm.querySelector('button[type="submit"]');
         const originalText = submitBtn.innerHTML;
         
-        console.log('🔄 Cambiando estado del botón a "enviando"');
-        
         // Mostrar estado de carga
         submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
         submitBtn.disabled = true;
         
         try {
-            console.log('🚀 Enviando solicitud al servidor...');
-            
             // Enviar al servidor
             const response = await fetch('/api/contact', {
                 method: 'POST',
@@ -282,29 +302,19 @@ function initFormHandler() {
                 body: JSON.stringify(data)
             });
             
-            console.log('📡 Respuesta del servidor recibida:', response.status, response.statusText);
-            
             if (!response.ok) {
                 throw new Error(`Error del servidor: ${response.status} ${response.statusText}`);
             }
             
             const result = await response.json();
-            console.log('📦 Resultado parseado:', result);
             
             if (result.success) {
-                console.log('✅ Éxito confirmado del servidor');
-                
                 // Éxito - cambiar botón
                 submitBtn.innerHTML = '<i class="fas fa-check"></i> ¡Enviado!';
                 submitBtn.style.background = '#10B981';
                 
-                console.log('🔔 Mostrando notificación de éxito...');
-                
                 // Mostrar notificación de éxito
                 showNotification('✅ ¡Correo enviado exitosamente! Gracias por consultar con nosotros', 'success');
-                
-                // Alert de respaldo (se puede quitar después)
-                alert('✅ ¡Correo enviado exitosamente! Gracias por consultar con nosotros');
                 
                 // Limpiar formulario después de 3 segundos
                 setTimeout(() => {
@@ -315,22 +325,16 @@ function initFormHandler() {
                 }, 3000);
                 
             } else {
-                console.log('❌ Error reportado por el servidor:', result.message);
                 throw new Error(result.message || 'Error desconocido del servidor');
             }
             
         } catch (error) {
-            console.error('❌ Error capturado:', error);
-            
             // Mostrar error en el botón
             submitBtn.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Error';
             submitBtn.style.background = '#EF4444';
             
             // Mostrar notificación de error
             showNotification(`❌ Error: ${error.message}`, 'error');
-            
-            // Alert de respaldo para errores
-            alert(`❌ Error al enviar el correo: ${error.message}`);
             
             // Restaurar botón después de 3 segundos
             setTimeout(() => {
@@ -340,14 +344,10 @@ function initFormHandler() {
             }, 3000);
         }
     });
-    
-    console.log('✅ Event listener agregado al formulario');
 }
 
-// Función para mostrar notificaciones (versión ultra-simple y garantizada)
+// Función para mostrar notificaciones
 function showNotification(message, type = 'info') {
-    console.log(`🔔 showNotification llamada: "${message}" (${type})`);
-    
     // Remover notificaciones existentes
     const existing = document.querySelectorAll('.simple-notification');
     existing.forEach(el => el.remove());
@@ -375,7 +375,7 @@ function showNotification(message, type = 'info') {
         </div>
     `;
     
-    // Estilos absolutamente garantizados
+    // Estilos garantizados
     notification.style.position = 'fixed';
     notification.style.top = '20px';
     notification.style.right = '20px';
@@ -393,14 +393,12 @@ function showNotification(message, type = 'info') {
     notification.style.transform = 'translateX(600px)';
     notification.style.transition = 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)';
     
-    // Agregar inmediatamente al DOM
+    // Agregar al DOM
     document.body.appendChild(notification);
-    console.log('📍 Notificación agregada al DOM');
     
-    // Forzar re-render y animar
+    // Animar entrada
     requestAnimationFrame(() => {
         notification.style.transform = 'translateX(0)';
-        console.log('🎭 Animación de entrada iniciada');
     });
     
     // Auto-remover después de 7 segundos
@@ -410,22 +408,34 @@ function showNotification(message, type = 'info') {
             setTimeout(() => {
                 if (notification.parentNode) {
                     notification.remove();
-                    console.log('🗑️ Notificación removida');
                 }
             }, 400);
         }
     }, 7000);
     
-    console.log(`✅ Notificación "${message}" creada exitosamente`);
     return notification;
 }
 
-// Scroll suave para enlaces de navegación
+// Scroll suave para enlaces de navegación - Usando delegación de eventos
 function initSmoothScroll() {
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
+    // Usar delegación de eventos para capturar clicks en cualquier enlace con hash
+    document.addEventListener('click', function(e) {
+        // Buscar el enlace más cercano
+        const link = e.target.closest('a[href*="#"]');
+        if (!link) return;
+        
+        const href = link.getAttribute('href');
+        
+        // Si es un enlace a otra página con hash (ej: index.html#about)
+        if (href.includes('.html#')) {
+            // Permitir que el navegador maneje la navegación normal
+            return;
+        }
+        
+        // Si es solo un hash en la página actual (ej: #about)
+        if (href.startsWith('#')) {
             e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
+            const target = document.querySelector(href);
             if (target) {
                 const offsetTop = target.offsetTop - 70; // Altura del navbar
                 window.scrollTo({
@@ -433,8 +443,8 @@ function initSmoothScroll() {
                     behavior: 'smooth'
                 });
             }
-        });
-    });
+        }
+    }, true); // Usar captura
 }
 
 // Efectos de partículas en el background (opcional)

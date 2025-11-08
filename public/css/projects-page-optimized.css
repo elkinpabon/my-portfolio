@@ -201,9 +201,9 @@
 /* Responsive - Tablet */
 @media (max-width: 768px) {
     .page-header {
-        padding: 7rem 1.5rem 2.5rem;
+        padding: 5rem 1.5rem 2.5rem;
         min-height: 35vh;
-        margin-top: 2rem;
+        margin-top: 1rem;
     }
 
     .page-title {
@@ -261,9 +261,9 @@
 /* Responsive - Mobile */
 @media (max-width: 480px) {
     .page-header {
-        padding: 8rem 1rem 2rem;
+        padding: 6rem 1rem 2rem;
         min-height: 30vh;
-        margin-top: 2.5rem;
+        margin-top: 1.5rem;
     }
 
     .page-title {
