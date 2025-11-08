@@ -419,11 +419,16 @@
                         </a>
                     </div>
                 </div>
-                <form class="contact-form" data-animate="fade-in-right" id="contactForm">
+                <form class="contact-form" data-animate="fade-in-right" id="contactForm" action="https://formspree.io/f/xkgkwbgo" method="POST">
                     <div class="form-success" id="formSuccess">
                         <i class="fas fa-check-circle"></i>
                         ¡Mensaje enviado correctamente! Nos pondremos en contacto contigo pronto.
                     </div>
+                    
+                    <!-- Campo oculto para personalizar asunto -->
+                    <input type="hidden" id="formSubject" name="_subject" value="">
+                    <!-- Campo de redirección (opcional) -->
+                    <input type="hidden" name="_next" value="/">
                     
                     <div class="form-group">
                         <label for="name">Nombre completo / Empresa</label>
@@ -438,16 +443,16 @@
                     </div>
                     
                     <div class="form-group">
-                        <label for="subject">Tipo de proyecto</label>
-                        <select id="subject" name="subject" required>
+                        <label for="projectType">Tipo de proyecto</label>
+                        <select id="projectType" name="projectType" required>
                             <option value="">Selecciona el tipo de proyecto</option>
-                            <option value="web">Aplicación Web</option>
-                            <option value="mobile">Aplicación Móvil</option>
-                            <option value="desktop">Aplicación de Escritorio</option>
-                            <option value="ecommerce">E-commerce</option>
-                            <option value="inventory">Sistema de Inventarios</option>
-                            <option value="enterprise">Sistema Empresarial</option>
-                            <option value="other">Otro</option>
+                            <option value="Aplicación Web">Aplicación Web</option>
+                            <option value="Aplicación Móvil">Aplicación Móvil</option>
+                            <option value="Aplicación de Escritorio">Aplicación de Escritorio</option>
+                            <option value="E-commerce">E-commerce</option>
+                            <option value="Sistema de Inventarios">Sistema de Inventarios</option>
+                            <option value="Sistema Empresarial">Sistema Empresarial</option>
+                            <option value="Otro">Otro</option>
                         </select>
                         <div class="form-error">Por favor, selecciona el tipo de proyecto</div>
                     </div>

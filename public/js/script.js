@@ -261,7 +261,7 @@ function initTypingAnimation() {
     observer.observe(codeElement.closest('.code-window'));
 }
 
-// Manejador del formulario de contacto
+// Manejador del formulario de contacto - Formspree
 function initFormHandler() {
     const form = document.querySelector('.contact-form');
     const formById = document.querySelector('#contactForm');
@@ -277,13 +277,31 @@ function initFormHandler() {
         
         // Obtener datos del formulario
         const formData = new FormData(targetForm);
-        const data = Object.fromEntries(formData);
+        
+        // Obtener valores
+        const name = formData.get('name');
+        const email = formData.get('email');
+        const projectType = formData.get('projectType');
+        const message = formData.get('message');
         
         // Validación básica del lado del cliente
-        if (!data.name || !data.email || !data.subject || !data.message) {
+        if (!name || !email || !projectType || !message) {
             showNotification('❌ Por favor, completa todos los campos', 'error');
             return;
         }
+
+        // Generar asunto personalizado
+        const timestamp = new Date().toLocaleDateString('es-ES', { 
+            year: 'numeric', 
+            month: 'long', 
+            day: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit'
+        });
+        const subjectLine = `ELKINEXT SOLUTIONS - Nueva solicitud de ${projectType} de ${name}`;
+        
+        // Establecer el asunto en el campo oculto
+        document.getElementById('formSubject').value = subjectLine;
 
         const submitBtn = targetForm.querySelector('button[type="submit"]');
         const originalText = submitBtn.innerHTML;
@@ -293,40 +311,33 @@ function initFormHandler() {
         submitBtn.disabled = true;
         
         try {
-            // Enviar al servidor
-            const response = await fetch('/api/contact', {
+            // Enviar a Formspree
+            const response = await fetch('https://formspree.io/f/xkgkwbgo', {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Accept': 'application/json'
                 },
-                body: JSON.stringify(data)
+                body: new FormData(targetForm)
             });
             
             if (!response.ok) {
                 throw new Error(`Error del servidor: ${response.status} ${response.statusText}`);
             }
             
-            const result = await response.json();
+            // Éxito - cambiar botón
+            submitBtn.innerHTML = '<i class="fas fa-check"></i> ¡Enviado!';
+            submitBtn.style.background = '#10B981';
             
-            if (result.success) {
-                // Éxito - cambiar botón
-                submitBtn.innerHTML = '<i class="fas fa-check"></i> ¡Enviado!';
-                submitBtn.style.background = '#10B981';
-                
-                // Mostrar notificación de éxito
-                showNotification('✅ ¡Correo enviado exitosamente! Gracias por consultar con nosotros', 'success');
-                
-                // Limpiar formulario después de 3 segundos
-                setTimeout(() => {
-                    targetForm.reset();
-                    submitBtn.innerHTML = originalText;
-                    submitBtn.disabled = false;
-                    submitBtn.style.background = '';
-                }, 3000);
-                
-            } else {
-                throw new Error(result.message || 'Error desconocido del servidor');
-            }
+            // Mostrar notificación de éxito
+            showNotification('✅ ¡Correo enviado exitosamente! Nos pondremos en contacto pronto.', 'success');
+            
+            // Limpiar formulario después de 3 segundos
+            setTimeout(() => {
+                targetForm.reset();
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+                submitBtn.style.background = '';
+            }, 3000);
             
         } catch (error) {
             // Mostrar error en el botón
