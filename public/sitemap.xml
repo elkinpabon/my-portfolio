@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+    
+    <!-- Página Principal -->
+    <url>
+        <loc>https://my-portfolio-henna-eta-55.vercel.app/</loc>
+        <lastmod>2025-11-09</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+    </url>
+    
+    <!-- Página de Proyectos -->
+    <url>
+        <loc>https://my-portfolio-henna-eta-55.vercel.app/projects.html</loc>
+        <lastmod>2025-11-09</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <!-- Proyecto: HealthyFood Mobile -->
+    <url>
+        <loc>https://my-portfolio-henna-eta-55.vercel.app/projects/healthyfood-mobile.html</loc>
+        <lastmod>2025-11-09</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <!-- Proyecto: HealthyFood RRHH -->
+    <url>
+        <loc>https://my-portfolio-henna-eta-55.vercel.app/projects/healthyfood-rrhh.html</loc>
+        <lastmod>2025-11-09</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <!-- Proyecto: HealthyFood Web -->
+    <url>
+        <loc>https://my-portfolio-henna-eta-55.vercel.app/projects/healthyfood-web.html</loc>
+        <lastmod>2025-11-09</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <!-- Proyecto: Ferretería DSA -->
+    <url>
+        <loc>https://my-portfolio-henna-eta-55.vercel.app/projects/ferreteria-dsa.html</loc>
+        <lastmod>2025-11-09</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <!-- Proyecto: Madecor E-commerce -->
+    <url>
+        <loc>https://my-portfolio-henna-eta-55.vercel.app/projects/madecor-ecommerce.html</loc>
+        <lastmod>2025-11-09</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <!-- Proyecto: LinxSpector -->
+    <url>
+        <loc>https://my-portfolio-henna-eta-55.vercel.app/projects/linxspector.html</loc>
+        <lastmod>2025-11-09</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <!-- Proyecto: BookTech SaaS -->
+    <url>
+        <loc>https://my-portfolio-henna-eta-55.vercel.app/projects/booktech-saas.html</loc>
+        <lastmod>2025-11-09</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <!-- Proyecto: Cotopaxi Evacuación -->
+    <url>
+        <loc>https://my-portfolio-henna-eta-55.vercel.app/projects/cotopaxi-evacuacion.html</loc>
+        <lastmod>2025-11-09</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <!-- Proyecto: LiveChat -->
+    <url>
+        <loc>https://my-portfolio-henna-eta-55.vercel.app/projects/livechat.html</loc>
+        <lastmod>2025-11-09</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+</urlset>
