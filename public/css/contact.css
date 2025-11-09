@@ -570,3 +570,84 @@
     transform: translateY(0);
   }
 }
+
+/* ===== FIX PARA MÓVILES MUY PEQUEÑOS (320px - 480px) ===== */
+@media screen and (max-width: 480px) {
+  .contact-content {
+    display: block !important;
+    width: 100% !important;
+  }
+  
+  .contact-form {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    transform: translate(0, 0) !important;
+    position: relative !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto var(--space-6) auto !important;
+    padding: var(--space-4) !important;
+    order: 1 !important;
+    animation: none !important;
+  }
+  
+  /* Desactivar animaciones de data-animate en móviles */
+  .contact-form[data-animate] {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  
+  .contact-info {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    width: 100% !important;
+    order: 2 !important;
+  }
+  
+  .contact-info[data-animate] {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  
+  .form-group {
+    display: block !important;
+    width: 100% !important;
+    margin-bottom: var(--space-4) !important;
+  }
+  
+  .form-group input,
+  .form-group textarea,
+  .form-group select {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  
+  .form-group label {
+    display: block !important;
+    width: 100% !important;
+    margin-bottom: var(--space-2) !important;
+  }
+  
+  .contact-form .btn {
+    display: block !important;
+    width: 100% !important;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .contact-form {
+    padding: var(--space-3) !important;
+  }
+  
+  .form-group input,
+  .form-group textarea,
+  .form-group select {
+    font-size: 16px !important; /* Evita zoom en iOS */
+  }
+}

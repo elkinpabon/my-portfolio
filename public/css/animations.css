@@ -89,3 +89,13 @@
     opacity: 1 !important;
   }
 }
+
+/* ===== DESACTIVAR ANIMACIONES EN MÓVILES PARA FORMULARIO ===== */
+@media screen and (max-width: 480px) {
+  .contact-form[data-animate],
+  .contact-info[data-animate] {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
