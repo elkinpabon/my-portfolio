@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LiveChat - Sistema de Mensajería en Tiempo Real - Elkinext Solutions</title>
+    <meta name="description" content="Plataforma de chat en tiempo real con WebSockets y arquitectura escalable">
+    
+    <link rel="icon" type="image/x-icon" href="../assets/logo/logo_pequeño.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="../assets/logo/logo_pequeño.ico">
+    <link rel="apple-touch-icon" href="../assets/logo/logo_pequeño.png">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/navigation-modern.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/css-projects/project-base.css">
+    
+    <script src="../js/theme.js"></script>
+</head>
+<body class="dark-theme" data-project="livechat">
+    <nav class="navbar-modern">
+        <div class="nav-pill">
+            <div class="nav-logo">
+                <i class="fas fa-code"></i>
+                <span>ELKINEXT</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="../index.html" class="nav-item"><i class="fas fa-home"></i><span>Inicio</span></a></li>
+                <li><a href="../index.html#about" class="nav-item"><i class="fas fa-building"></i><span>Empresa</span></a></li>
+                <li><a href="../index.html#skills" class="nav-item"><i class="fas fa-code"></i><span>Habilidades</span></a></li>
+                <li><a href="../projects.html" class="nav-item active"><i class="fas fa-briefcase"></i><span>Proyectos</span></a></li>
+                <li><a href="../index.html#contact" class="nav-item"><i class="fas fa-envelope"></i><span>Contacto</span></a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="project-hero">
+        <div class="project-hero-content">
+            <a href="../projects.html" class="back-button">
+                <i class="fas fa-arrow-left"></i>
+                Volver a Proyectos
+            </a>
+            
+            <h1>LiveChat - Mensajería en Tiempo Real</h1>
+            <p class="subtitle">Sistema de chat empresarial con WebSockets</p>
+            
+            <div class="tags">
+                <span class="tag"><i class="fas fa-calendar-alt"></i> 2024</span>
+                <span class="tag"><i class="fas fa-comments"></i> Comunicación</span>
+                <span class="tag"><i class="fas fa-bolt"></i> Tiempo Real</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="project-carousel-section">
+        <div class="carousel-container">
+            <div class="carousel-wrapper">
+                <div class="carousel-slides">
+                    <div class="carousel-slide">
+                        <img src="../assets/proyectos/liveChat/1.png" alt="Interfaz principal">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="../assets/proyectos/liveChat/2.png" alt="Chat en tiempo real">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="../assets/proyectos/liveChat/3.png" alt="Gestión de canales">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="../assets/proyectos/liveChat/4.png" alt="Compartir archivos">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="../assets/proyectos/liveChat/5.png" alt="Videollamadas integradas">
+                    </div>
+                </div>
+                
+                <button class="carousel-navigation prev" aria-label="Imagen anterior">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="carousel-navigation next" aria-label="Siguiente imagen">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+                
+                <div class="carousel-indicators"></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="project-details">
+        <div class="container">
+            <div class="details-grid">
+                <div class="detail-card">
+                    <div class="detail-card-icon">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h3>Objetivo del Proyecto</h3>
+                    <ul>
+                        <li>Crear plataforma de comunicación instantánea</li>
+                        <li>Implementar arquitectura escalable</li>
+                        <li>Garantizar entrega de mensajes confiable</li>
+                        <li>Soportar miles de usuarios simultáneos</li>
+                    </ul>
+                </div>
+                
+                <div class="detail-card">
+                    <div class="detail-card-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3>Características Principales</h3>
+                    <ul>
+                        <li>Mensajería instantánea en tiempo real</li>
+                        <li>Canales públicos y privados</li>
+                        <li>Compartir archivos y multimedia</li>
+                        <li>Videollamadas y llamadas de voz</li>
+                        <li>Notificaciones push inteligentes</li>
+                    </ul>
+                </div>
+                
+                <div class="detail-card">
+                    <div class="detail-card-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h3>Resultados</h3>
+                    <ul>
+                        <li>Latencia menor a 100ms</li>
+                        <li>99.99% uptime alcanzado</li>
+                        <li>10K+ usuarios concurrentes</li>
+                        <li>Cifrado end-to-end implementado</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="project-description">
+        <div class="container">
+            <h2>Sobre el Proyecto</h2>
+            <p>
+                LiveChat es una <strong>plataforma empresarial de mensajería en tiempo real</strong> construida sobre 
+                WebSockets para garantizar <strong>comunicación instantánea y bidireccional</strong>. El sistema soporta 
+                chats individuales, <strong>canales grupales</strong>, compartir archivos, <strong>videollamadas</strong> y notificaciones 
+                push, todo en una <strong>interfaz moderna e intuitiva</strong>.
+            </p>
+            <p>
+                La <strong>arquitectura del sistema</strong> está diseñada para <strong>escalar horizontalmente</strong>, permitiendo 
+                manejar miles de usuarios concurrentes sin degradación del rendimiento. Implementa 
+                <strong>balanceo de carga</strong>, caché distribuido con Redis, y un <strong>sistema de colas</strong> para garantizar 
+                la entrega confiable de mensajes incluso cuando los usuarios están offline.
+            </p>
+            <p>
+                Con <strong>funcionalidades avanzadas</strong> como búsqueda de mensajes históricos, reacciones emoji, 
+                <strong>hilos de conversación</strong>, integración con bots, y <strong>APIs REST completas</strong> para integraciones, 
+                LiveChat se posiciona como una <strong>solución robusta</strong> para comunicación empresarial moderna.
+            </p>
+        </div>
+    </section>
+
+    <section class="tech-stack">
+        <div class="container">
+            <h2>Tecnologías Utilizadas</h2>
+            <div class="tech-grid">
+                <div class="tech-item">
+                    <i class="fab fa-node-js"></i>
+                    <h4>Node.js</h4>
+                    <p>Backend escalable de alto rendimiento</p>
+                </div>
+                
+                <div class="tech-item">
+                    <i class="fas fa-plug"></i>
+                    <h4>Socket.io</h4>
+                    <p>WebSockets para comunicación real-time</p>
+                </div>
+                
+                <div class="tech-item">
+                    <i class="fab fa-react"></i>
+                    <h4>React</h4>
+                    <p>Interfaz de usuario reactiva</p>
+                </div>
+                
+                <div class="tech-item">
+                    <i class="fas fa-database"></i>
+                    <h4>MongoDB</h4>
+                    <p>Base de datos NoSQL flexible</p>
+                </div>
+                
+                <div class="tech-item">
+                    <i class="fas fa-server"></i>
+                    <h4>Redis</h4>
+                    <p>Caché en memoria de alta velocidad</p>
+                </div>
+                
+                <div class="tech-item">
+                    <i class="fas fa-video"></i>
+                    <h4>WebRTC</h4>
+                    <p>Videollamadas peer-to-peer</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-info">
+                    <div class="footer-brand">
+                        <i class="fas fa-code"></i>
+                        <h3>Elkinext Solutions</h3>
+                    </div>
+                    <p class="footer-description">
+                        Transformamos ideas en soluciones tecnológicas innovadoras. 
+                        Desarrollo de software a medida con calidad y experiencia.
+                    </p>
+                    <div class="footer-contact">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>elkindres2@gmail.com</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span>+593 0995473517</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Quito - Ecuador</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Enlaces</h4>
+                    <ul>
+                        <li><a href="../index.html">Inicio</a></li>
+                        <li><a href="../index.html#about">Empresa</a></li>
+                        <li><a href="../index.html#skills">Tecnologías</a></li>
+                        <li><a href="../projects.html">Proyectos</a></li>
+                        <li><a href="../index.html#contact">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-tech">
+                    <h4>Tecnologías</h4>
+                    <div class="tech-tags">
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">Node.js</span>
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Flutter</span>
+                        <span class="tech-tag">Angular</span>
+                        <span class="tech-tag">PHP</span>
+                    </div>
+                </div>
+                <div class="footer-social">
+                    <h4>Conecta</h4>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-copyright">
+                    <p>&copy; 2024 <strong>Elkinext Solutions</strong> - Todos los derechos reservados</p>
+                </div>
+                <div class="footer-credits">
+                    <span>Hecho con ❤️ en Ecuador 🇪🇨</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/573001234567" class="whatsapp-button" target="_blank" aria-label="Contactar por WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script src="../js/script.js"></script>
+    <script src="../css/css-projects/carousel.js"></script>
+</body>
+</html>
