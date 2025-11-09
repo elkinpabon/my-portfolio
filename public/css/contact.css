@@ -384,15 +384,34 @@
   .contact-content {
     grid-template-columns: 1fr;
     gap: var(--space-8);
+    display: flex;
+    flex-direction: column;
   }
   
   .contact-info {
     text-align: center;
     order: 2;
+    display: block !important;
+    width: 100%;
   }
   
   .contact-form {
     order: 1;
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+    width: 100%;
+  }
+  
+  .form-group {
+    width: 100%;
+  }
+  
+  .form-group input,
+  .form-group textarea,
+  .form-group select {
+    width: 100%;
   }
   
   .social-links {
@@ -416,10 +435,22 @@
   
   .contact-content {
     gap: var(--space-6);
+    display: flex;
+    flex-direction: column;
   }
   
   .contact-form {
     padding: var(--space-6);
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+    width: 100%;
+  }
+  
+  .contact-info {
+    display: block !important;
+    width: 100%;
   }
   
   .contact-info h3 {
@@ -431,8 +462,10 @@
   }
   
   .form-group input,
-  .form-group textarea {
+  .form-group textarea,
+  .form-group select {
     font-size: var(--font-size-sm);
+    width: 100%;
   }
   
   .social-links {
