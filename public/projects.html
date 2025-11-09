@@ -292,6 +292,19 @@
     <!-- Animate UI JS -->
     <script src="https://unpkg.com/animate-ui@1.0.0/dist/animate-ui.min.js"></script>
     
+    <!-- Cargar template de contenedores primero -->
+    <script>
+        // Cargar template HTML de contenedores
+        fetch('/components/containers.html')
+            .then(response => response.text())
+            .then(html => {
+                const div = document.createElement('div');
+                div.innerHTML = html;
+                document.body.appendChild(div);
+            })
+            .catch(error => console.error('Error cargando template:', error));
+    </script>
+    
     <!-- Contenedores Reutilizables - JavaScript -->
     <script src="js/containers.js"></script>
     
@@ -313,22 +326,18 @@
     <!-- Professional effects -->
     <script src="js/professional-effects.js"></script>
     
-    <!-- Cargar template de contenedores -->
+    <!-- Inicializar proyectos después de cargar containers.js -->
     <script>
-        // Cargar template HTML de contenedores
-        fetch('components/containers.html')
-            .then(response => response.text())
-            .then(html => {
-                const div = document.createElement('div');
-                div.innerHTML = html;
-                document.body.appendChild(div);
-            });
-        
         document.addEventListener('DOMContentLoaded', function() {
-            // Cargar todos los proyectos en la página de proyectos
-            setTimeout(() => {
-                cargarProyectos('projectsGrid', 'all', 0);
-            }, 100);
+            console.log('DOM cargado, intentando cargar proyectos...');
+            // Verificar si la función existe
+            if (typeof cargarProyectos === 'function') {
+                setTimeout(() => {
+                    cargarProyectos('projectsGrid', 'all', 0);
+                }, 200);
+            } else {
+                console.error('cargarProyectos no está definida');
+            }
         });
     </script>
 </body>
