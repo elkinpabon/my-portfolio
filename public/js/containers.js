@@ -210,3 +210,13 @@ function obtenerProyectosPorCategoria(category) {
 function obtenerProyectosDestacados() {
     return PROYECTOS_DATA.filter(p => p.featured);
 }
+
+// Asegurar que las funciones estén disponibles globalmente
+window.cargarProyectos = cargarProyectos;
+window.PROYECTOS_DATA = PROYECTOS_DATA;
+window.obtenerProyecto = obtenerProyecto;
+window.obtenerProyectosPorCategoria = obtenerProyectosPorCategoria;
+window.obtenerProyectosDestacados = obtenerProyectosDestacados;
+
+// Log de confirmación
+console.log('✅ containers.js cargado correctamente - ' + PROYECTOS_DATA.length + ' proyectos disponibles');

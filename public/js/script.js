@@ -152,12 +152,37 @@ function updateActiveNavLink() {
 
 // Inicializar animaciones con Animate UI
 function initAnimations() {
+    // Detectar si es móvil
+    const isMobile = window.innerWidth <= 480;
+    
     // Configurar Animate UI
     if (typeof AnimateUI !== 'undefined') {
         AnimateUI.init({
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
         });
+    }
+    
+    // FIX: Forzar visibilidad del formulario en móviles
+    if (isMobile) {
+        const contactForm = document.querySelector('.contact-form');
+        const contactInfo = document.querySelector('.contact-info');
+        
+        if (contactForm) {
+            contactForm.style.display = 'block';
+            contactForm.style.visibility = 'visible';
+            contactForm.style.opacity = '1';
+            contactForm.style.transform = 'none';
+            contactForm.removeAttribute('data-animate');
+        }
+        
+        if (contactInfo) {
+            contactInfo.style.display = 'block';
+            contactInfo.style.visibility = 'visible';
+            contactInfo.style.opacity = '1';
+            contactInfo.style.transform = 'none';
+            contactInfo.removeAttribute('data-animate');
+        }
     }
     
     // Observer para animaciones personalizadas
@@ -555,6 +580,24 @@ document.addEventListener('DOMContentLoaded', function() {
     // initParticleEffect();
     // initParallax();
     initLazyLoading();
+    
+    // FIX CRÍTICO: Asegurar visibilidad del formulario en móviles
+    if (window.innerWidth <= 480) {
+        setTimeout(() => {
+            const contactForm = document.querySelector('.contact-form');
+            const contactInfo = document.querySelector('.contact-info');
+            
+            if (contactForm) {
+                contactForm.style.cssText = 'display: block !important; visibility: visible !important; opacity: 1 !important; transform: none !important;';
+                contactForm.removeAttribute('data-animate');
+            }
+            
+            if (contactInfo) {
+                contactInfo.style.cssText = 'display: block !important; visibility: visible !important; opacity: 1 !important; transform: none !important;';
+                contactInfo.removeAttribute('data-animate');
+            }
+        }, 100);
+    }
 });
 
 // Manejo de errores global

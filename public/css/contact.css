@@ -53,9 +53,17 @@
   }
 }
 
+/* CAMBIO CRÍTICO: 1 columna desde 900px para móviles y tablets */
+@media (max-width: 900px) {
+  .contact-content {
+    grid-template-columns: 1fr !important;
+    gap: var(--space-6);
+  }
+}
+
 @media (max-width: 768px) {
   .contact-content {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr !important;
     gap: var(--space-4);
   }
 }
@@ -572,13 +580,41 @@
 }
 
 /* ===== FIX PARA MÓVILES MUY PEQUEÑOS (320px - 480px) ===== */
+/* MÁXIMA ESPECIFICIDAD PARA MÓVILES */
 @media screen and (max-width: 480px) {
-  .contact-content {
+  /* Forzar visibilidad de toda la sección de contacto */
+  section.contact {
     display: block !important;
-    width: 100% !important;
+    visibility: visible !important;
+    opacity: 1 !important;
   }
   
-  .contact-form {
+  section.contact .container {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+  
+  /* Forzar contenedor de contacto como grid */
+  section.contact .contact-content,
+  .contact .contact-content {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: var(--space-6) !important;
+    width: 100% !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+  
+  /* ESPECIFICIDAD MÁXIMA - Forzar visibilidad del formulario */
+  section.contact .contact-form,
+  section.contact form.contact-form,
+  section.contact form#contactForm,
+  .contact .contact-form,
+  .contact form.contact-form,
+  .contact form#contactForm,
+  form.contact-form,
+  form#contactForm {
     display: block !important;
     visibility: visible !important;
     opacity: 1 !important;
@@ -590,21 +626,31 @@
     padding: var(--space-4) !important;
     order: 1 !important;
     animation: none !important;
+    background: var(--bg-secondary) !important;
+    border-radius: var(--radius-lg) !important;
+    box-shadow: var(--shadow-lg) !important;
   }
   
   /* Desactivar animaciones de data-animate en móviles */
-  .contact-form[data-animate] {
+  section.contact .contact-form[data-animate],
+  .contact-form[data-animate],
+  form[data-animate] {
     animation: none !important;
     opacity: 1 !important;
     transform: none !important;
   }
   
+  /* Forzar contact-info visible */
+  section.contact .contact-info,
+  .contact .contact-info,
   .contact-info {
     display: block !important;
     visibility: visible !important;
     opacity: 1 !important;
     width: 100% !important;
     order: 2 !important;
+    animation: none !important;
+    transform: none !important;
   }
   
   .contact-info[data-animate] {
@@ -613,30 +659,45 @@
     transform: none !important;
   }
   
-  .form-group {
+  /* Forzar form-group visible */
+  .contact-form .form-group,
+  form.contact-form .form-group {
     display: block !important;
     width: 100% !important;
     margin-bottom: var(--space-4) !important;
   }
   
-  .form-group input,
-  .form-group textarea,
-  .form-group select {
+  /* Forzar inputs, textarea y selects visibles */
+  .contact-form .form-group input,
+  .contact-form .form-group textarea,
+  .contact-form .form-group select,
+  .contact-form input,
+  .contact-form textarea,
+  .contact-form select {
     display: block !important;
     width: 100% !important;
     max-width: 100% !important;
     box-sizing: border-box !important;
+    visibility: visible !important;
+    opacity: 1 !important;
   }
   
-  .form-group label {
+  .contact-form .form-group label,
+  .contact-form label {
     display: block !important;
     width: 100% !important;
     margin-bottom: var(--space-2) !important;
   }
   
-  .contact-form .btn {
+  /* Forzar botón visible */
+  .contact-form .btn,
+  .contact-form button,
+  form.contact-form .btn,
+  form.contact-form button {
     display: block !important;
     width: 100% !important;
+    visibility: visible !important;
+    opacity: 1 !important;
   }
 }
 
@@ -649,5 +710,286 @@
   .form-group textarea,
   .form-group select {
     font-size: 16px !important; /* Evita zoom en iOS */
+  }
+}
+
+/* ==========================================
+   FIXES UNIVERSALES PARA TODOS LOS BREAKPOINTS
+   ========================================== */
+
+/* Para tablets grandes (1024px - 900px) */
+@media screen and (min-width: 901px) and (max-width: 1024px) {
+  section.contact .contact-content {
+    grid-template-columns: 1fr !important;
+  }
+  
+  section.contact .contact-form,
+  .contact-form {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    width: 100% !important;
+  }
+}
+
+/* Para tablets medianas (900px - 768px) */
+@media screen and (min-width: 769px) and (max-width: 900px) {
+  section.contact .contact-content {
+    grid-template-columns: 1fr !important;
+  }
+  
+  section.contact .contact-form,
+  .contact-form {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    width: 100% !important;
+  }
+}
+
+/* Para tablets pequeñas y móviles grandes (768px - 600px) */
+@media screen and (min-width: 601px) and (max-width: 768px) {
+  section.contact .contact-content {
+    grid-template-columns: 1fr !important;
+  }
+  
+  section.contact .contact-form,
+  .contact-form {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    width: 100% !important;
+    transform: none !important;
+  }
+}
+
+/* Para móviles grandes (600px - 480px) */
+@media screen and (min-width: 481px) and (max-width: 600px) {
+  section.contact .contact-content {
+    grid-template-columns: 1fr !important;
+  }
+  
+  section.contact .contact-form,
+  .contact-form {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    width: 100% !important;
+    transform: none !important;
+  }
+}
+
+/* FIX ESPECÍFICO: Pixel 7 Pro y dispositivos similares (390px - 430px) */
+@media screen and (min-width: 390px) and (max-width: 430px) {
+  /* Forzar visibilidad de toda la sección de contacto */
+  section.contact,
+  .contact {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+  
+  section.contact .container,
+  .contact .container {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+  
+  /* Forzar contenedor de contacto como grid de 1 columna */
+  section.contact .contact-content,
+  .contact .contact-content,
+  .contact-content {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: var(--space-6) !important;
+    width: 100% !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+  
+  /* MÁXIMA ESPECIFICIDAD - Forzar visibilidad del formulario */
+  section.contact .contact-form,
+  section.contact form.contact-form,
+  section.contact form#contactForm,
+  .contact .contact-form,
+  .contact form.contact-form,
+  .contact form#contactForm,
+  form.contact-form,
+  form#contactForm {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    transform: translate(0, 0) !important;
+    position: relative !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto var(--space-6) auto !important;
+    padding: var(--space-4) !important;
+    order: 1 !important;
+    animation: none !important;
+    background: var(--bg-secondary) !important;
+    border-radius: var(--radius-lg) !important;
+    box-shadow: var(--shadow-lg) !important;
+    z-index: 100 !important;
+  }
+  
+  /* Forzar todos los elementos del formulario visibles EXCEPTO form-success */
+  section.contact .contact-form *:not(.form-success),
+  .contact-form *:not(.form-success),
+  form#contactForm *:not(.form-success) {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+  
+  /* IMPORTANTE: form-success SOLO visible cuando tiene clase .show */
+  .form-success {
+    display: none !important;
+  }
+  
+  .form-success.show {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+  
+  /* Form groups como flex */
+  .contact-form .form-group,
+  form#contactForm .form-group {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    margin-bottom: var(--space-4) !important;
+  }
+  
+  /* Inputs y textarea 100% ancho */
+  .contact-form input,
+  .contact-form textarea,
+  .contact-form select,
+  .contact-form button {
+    display: block !important;
+    width: 100% !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+  
+  /* Desactivar animaciones problemáticas */
+  .contact-form[data-animate],
+  .contact-info[data-animate],
+  form[data-animate] {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  
+  /* Forzar contact-info visible */
+  section.contact .contact-info,
+  .contact .contact-info,
+  .contact-info {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    width: 100% !important;
+    order: 2 !important;
+  }
+}
+
+/* Para móviles medianos (480px - 375px) */
+@media screen and (min-width: 376px) and (max-width: 480px) {
+  section.contact .contact-content {
+    grid-template-columns: 1fr !important;
+  }
+  
+  section.contact .contact-form,
+  .contact-form {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    width: 100% !important;
+    transform: none !important;
+  }
+}
+
+/* Para móviles pequeños (375px - 320px) */
+@media screen and (min-width: 321px) and (max-width: 375px) {
+  section.contact .contact-content {
+    grid-template-columns: 1fr !important;
+  }
+  
+  section.contact .contact-form,
+  .contact-form {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    width: 100% !important;
+    transform: none !important;
+  }
+}
+
+/* Para móviles muy pequeños (< 320px) */
+@media screen and (max-width: 320px) {
+  section.contact .contact-content {
+    grid-template-columns: 1fr !important;
+  }
+  
+  section.contact .contact-form,
+  .contact-form {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    width: 100% !important;
+    transform: none !important;
+  }
+}
+
+/* REGLA UNIVERSAL DE RESPALDO - Cubre cualquier tamaño no especificado */
+@media screen and (max-width: 1200px) {
+  section.contact .contact-form,
+  section.contact form.contact-form,
+  section.contact form#contactForm,
+  .contact .contact-form,
+  form.contact-form,
+  form#contactForm {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: relative !important;
+    z-index: 10 !important;
+  }
+  
+  /* Asegurar que contact-content siempre use 1 columna en < 1200px */
+  section.contact .contact-content,
+  .contact .contact-content,
+  .contact-content {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* ==========================================
+   REGLA CRÍTICA: CONTROLAR form-success
+   NO debe mostrarse hasta que el formulario se envíe
+   ========================================== */
+@media screen and (max-width: 1200px) {
+  /* Ocultar form-success por defecto en responsive */
+  .form-success,
+  .contact-form .form-success,
+  form .form-success,
+  #formSuccess {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+  }
+  
+  /* Mostrar SOLO cuando tiene clase .show */
+  .form-success.show,
+  .contact-form .form-success.show,
+  form .form-success.show,
+  #formSuccess.show {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    animation: slideDown 0.5s ease forwards !important;
   }
 }

@@ -43,19 +43,28 @@
   }
 }
 
+/* FIX: 1 columna en tablets y móviles para evitar que tape el formulario */
 @media (max-width: 768px) {
   .projects-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem;
     padding: 0 1rem;
   }
 }
 
 @media (max-width: 480px) {
   .projects-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr !important;
     gap: 1rem;
     padding: 0 0.75rem;
+  }
+}
+
+/* REGLA UNIVERSAL: 1 columna en todas las pantallas < 900px */
+@media screen and (max-width: 900px) {
+  .projects-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
   }
 }
 
@@ -320,9 +329,10 @@
     padding: var(--space-12) 0;
   }
   
+  /* FIX: 1 columna para evitar que tape el formulario */
   .projects-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem;
     padding: 0 1rem;
   }
   

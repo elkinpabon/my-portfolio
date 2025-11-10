@@ -485,3 +485,114 @@
     border-width: 0.5px;
   }
 }
+
+/* ==========================================
+   REGLAS UNIVERSALES DE RESPALDO
+   Para garantizar que el formulario sea visible en TODAS las pantallas
+   ========================================== */
+
+@media screen and (max-width: 1024px) {
+  /* Forzar 1 columna en contact-content para todas las pantallas < 1024px */
+  .contact-content,
+  .hero-container,
+  .about-content {
+    grid-template-columns: 1fr !important;
+  }
+  
+  /* Forzar 1 columna en projects-grid para todas las pantallas < 1024px */
+  .projects-grid {
+    grid-template-columns: 1fr !important;
+  }
+  
+  /* Asegurar visibilidad del formulario de contacto */
+  .contact-form,
+  section.contact .contact-form,
+  form.contact-form,
+  form#contactForm {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    position: relative !important;
+    z-index: 10 !important;
+  }
+  
+  /* Desactivar animaciones problemáticas */
+  .contact-form[data-animate],
+  .contact-info[data-animate] {
+    animation: none !important;
+    transform: none !important;
+  }
+}
+
+/* ==========================================
+   FIX ESPECÍFICO PARA PIXEL 7 PRO (412px)
+   Y dispositivos Android similares
+   ========================================== */
+@media screen and (min-width: 390px) and (max-width: 430px) {
+  /* Forzar 1 columna en todos los grids */
+  .contact-content,
+  .projects-grid,
+  .hero-container,
+  .about-content {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: var(--space-6) !important;
+  }
+  
+  /* Forzar visibilidad TOTAL del formulario de contacto */
+  section.contact,
+  section.contact .container,
+  section.contact .contact-content {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+  
+  section.contact .contact-content {
+    display: grid !important;
+  }
+  
+  section.contact .contact-form,
+  .contact-form,
+  form.contact-form,
+  form#contactForm {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    position: relative !important;
+    z-index: 100 !important;
+    transform: none !important;
+    animation: none !important;
+    margin: 0 auto !important;
+    padding: var(--space-4) !important;
+  }
+  
+  /* Forzar todos los hijos del formulario visibles EXCEPTO form-success */
+  .contact-form *:not(.form-success),
+  form#contactForm *:not(.form-success) {
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+  
+  /* IMPORTANTE: form-success SOLO visible cuando tiene clase .show */
+  .form-success {
+    display: none !important;
+  }
+  
+  .form-success.show {
+    display: block !important;
+  }
+  
+  /* Asegurar que inputs sean visibles */
+  .contact-form input,
+  .contact-form textarea,
+  .contact-form button,
+  .contact-form select {
+    display: block !important;
+    width: 100% !important;
+  }
+}

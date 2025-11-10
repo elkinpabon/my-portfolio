@@ -499,7 +499,7 @@
         <div class="container">
             <h2 class="section-title" data-animate="fade-in-up">Contáctanos</h2>
             <div class="contact-content">
-                <div class="contact-info" data-animate="fade-in-left">
+                <div class="contact-info">
                     <h3>¡Transformemos tu idea en realidad!</h3>
                     <p>
                         En Elkinext Solutions estamos listos para impulsar el crecimiento de tu negocio a través de 
@@ -537,7 +537,7 @@
                         </a>
                     </div>
                 </div>
-                <form class="contact-form" data-animate="fade-in-right" id="contactForm" action="https://formspree.io/f/xkgkwbgo" method="POST">
+                <form class="contact-form" id="contactForm" action="https://formspree.io/f/xkgkwbgo" method="POST">
                     <div class="form-success" id="formSuccess">
                         <i class="fas fa-check-circle"></i>
                         ¡Mensaje enviado correctamente! Nos pondremos en contacto contigo pronto.
@@ -726,6 +726,9 @@
             }
         });
     </script>
+    
+    <!-- FIX CRÍTICO: Script para forzar visibilidad del formulario en móviles -->
+    <script src="js/contact-form-fix.js"></script>
 
 </body>
 </html>

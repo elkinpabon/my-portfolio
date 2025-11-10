@@ -306,6 +306,9 @@
     
     <!-- Cargar template de contenedores primero -->
     <script>
+        // Variable global para indicar cuando el template está listo
+        window.templateReady = false;
+        
         // Cargar template HTML de contenedores
         fetch('/components/containers.html')
             .then(response => response.text())
@@ -313,8 +316,13 @@
                 const div = document.createElement('div');
                 div.innerHTML = html;
                 document.body.appendChild(div);
+                window.templateReady = true;
+                console.log('✅ Template de proyectos cargado');
             })
-            .catch(error => console.error('Error cargando template:', error));
+            .catch(error => {
+                console.error('❌ Error cargando template:', error);
+                window.templateReady = false;
+            });
     </script>
     
     <!-- Contenedores Reutilizables - JavaScript -->
@@ -338,18 +346,27 @@
     <!-- Professional effects -->
     <script src="js/professional-effects.js"></script>
     
-    <!-- Inicializar proyectos después de cargar containers.js -->
+    <!-- Inicializar proyectos -->
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            console.log('DOM cargado, intentando cargar proyectos...');
-            // Verificar si la función existe
-            if (typeof cargarProyectos === 'function') {
-                setTimeout(() => {
-                    cargarProyectos('projectsGrid', 'all', 0);
-                }, 200);
+        function inicializarProyectos() {
+            console.log('🔄 Intentando inicializar proyectos...');
+            console.log('Template listo:', window.templateReady);
+            console.log('cargarProyectos disponible:', typeof window.cargarProyectos);
+            
+            // Verificar que tanto el template como la función estén listos
+            if (window.templateReady && typeof window.cargarProyectos === 'function') {
+                console.log('✅ Todo listo, cargando proyectos...');
+                window.cargarProyectos('projectsGrid', 'all', 0);
             } else {
-                console.error('cargarProyectos no está definida');
+                console.log('⏳ Esperando... reintentando en 200ms');
+                setTimeout(inicializarProyectos, 200);
             }
+        }
+        
+        // Esperar a que la página se cargue completamente
+        window.addEventListener('load', function() {
+            console.log('📄 Página cargada, iniciando...');
+            setTimeout(inicializarProyectos, 100);
         });
     </script>
 </body>

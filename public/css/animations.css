@@ -99,3 +99,27 @@
     transform: none !important;
   }
 }
+
+/* ===== FIX ESPECÍFICO PARA PIXEL 7 PRO Y DISPOSITIVOS 390px-430px ===== */
+@media screen and (min-width: 390px) and (max-width: 430px) {
+  /* Desactivar TODAS las animaciones en elementos de contacto */
+  .contact-form,
+  .contact-form[data-animate],
+  .contact-info[data-animate],
+  section.contact [data-animate],
+  form[data-animate],
+  form#contactForm {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  
+  /* Forzar estado final de animaciones */
+  section.contact .contact-form,
+  section.contact form {
+    animation-name: none !important;
+    animation-duration: 0s !important;
+    animation-delay: 0s !important;
+  }
+}
